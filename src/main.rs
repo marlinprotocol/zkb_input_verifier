@@ -40,18 +40,13 @@ async fn check_input(
 
 #[post("/checkInputWithSignature")]
 async fn check_input_with_signature(
-    payload: web::Json<helpers::input::InputPayload>,
+    payload: web::Json<helpers::input::AskId>,
 ) -> Result<HttpResponse, helpers::error::InputError> {
-    if zkb_inputs::verify_zkbob_secret(payload.clone())
-        .await
-        .unwrap()
-    {
-        let ivs_signer_path = "./ivs_config.json";
-        let file_content = fs::read_to_string(ivs_signer_path).unwrap();
-        let ivs_signer: IvsSigner = serde_json::from_str(&file_content).unwrap();
-        dbg!(ivs_signer);
-        todo!("sign abi.encode(input_bytes || encrypted_secrets and return signature");
-    } else {
-        return Err(helpers::error::InputError::PayloadNotValid);
-    }
+    let ivs_signer_path = "./ivs_config.json";
+    let file_content = fs::read_to_string(ivs_signer_path).unwrap();
+    let ivs_signer: IvsSigner = serde_json::from_str(&file_content).unwrap();
+    dbg!(ivs_signer);
+
+    // using askId fetch prover data(from contract state) and secrets (from contract events), then verify zkbob request
+    todo!("sign abi.encode(askId) and return signature");
 }

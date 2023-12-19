@@ -22,3 +22,9 @@ impl Responder for InputPayload {
             .body(body)
     }
 }
+
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct AskId {
+    ask_id: u64
+}
