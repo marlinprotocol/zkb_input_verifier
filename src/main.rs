@@ -1,6 +1,6 @@
 use actix_web::{get, post, web, App, HttpResponse, HttpServer};
 use serde::{Deserialize, Serialize};
-use serde_json::json;
+use serde_json::{json, Value};
 
 use ethers::prelude::*;
 use std::fs;
@@ -10,21 +10,13 @@ mod zkb_inputs;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 struct IvsConfig {
-    rpc_url: String,
     chain_id: String,
     secp256k1_private_key: String,
-    proof_market_place: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-struct verificationResult {
-    ask_id: u64,
-    verification: bool,
 }
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| App::new().service(check_input).service(welcome))
+    HttpServer::new(|| App::new().service(check_input).service(check_input_with_signature).service(welcome))
         .bind(("127.0.0.1", 3030))?
         .run()
         .await
@@ -41,7 +33,9 @@ async fn check_input(
 ) -> Result<HttpResponse, helpers::error::InputError> {
     let ivs_signer_path = "./ivs_config.json";
     let file_content = fs::read_to_string(ivs_signer_path).unwrap();
-    let config: IvsConfig = serde_json::from_str(&file_content).unwrap();
+    let value: Value = serde_json::from_str(&file_content).unwrap();
+    let config: IvsConfig = serde_json::from_value(value).unwrap();
+
     if zkb_inputs::verify_zkbob_secret(payload.clone(), config.secp256k1_private_key)
         .await
         .unwrap()
@@ -58,8 +52,9 @@ async fn check_input_with_signature(
 ) -> Result<HttpResponse, helpers::error::InputError> {
     let ivs_signer_path = "./ivs_config.json";
     let file_content = fs::read_to_string(ivs_signer_path).unwrap();
-    let config: IvsConfig = serde_json::from_str(&file_content).unwrap();
-    dbg!(config.clone());
+    let value: Value = serde_json::from_str(&file_content).unwrap();
+    let config: IvsConfig = serde_json::from_value(value).unwrap();
+    // dbg!(config.clone());
 
     let chain_id = config.chain_id;
     let ivs_key = config.secp256k1_private_key;

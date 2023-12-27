@@ -1,5 +1,7 @@
 use crate::helpers::{input::InputPayload, secret_input_helpers};
 use actix_web::error::Error;
+use std::io::Read;
+use flate2::read::ZlibDecoder;
 
 use libzeropool_zkbob::{
     fawkes_crypto::{
@@ -71,17 +73,33 @@ fn into_zkbob_pub_input(decoded_pub_input: String) -> Result<TransferPub<Fr>, Er
 }
 
 pub async fn decrypted_secret(encrypted_secret: String, acl: String, ivs_private_key: String) -> String {
-    // todo!("Fetch the decrypted secret from matching engine here");
-    let decrypted_data = secret_input_helpers::decrypt_data_with_ecies_and_aes(encrypted_secret.as_bytes(), acl.as_bytes(), ivs_private_key.as_bytes()).unwrap();
-    return String::from_utf8(decrypted_data).unwrap();
+    let ivs_key = hex::decode(ivs_private_key).unwrap();
+    let secret = hex::decode(encrypted_secret).unwrap();
+    let acl_dec = hex::decode(acl).unwrap();
+    let decrypted_data = secret_input_helpers::decrypt_data_with_ecies_and_aes(
+        &secret, 
+        &acl_dec, 
+        &ivs_key
+    ).unwrap();
+
+    let mut decoder = ZlibDecoder::new(&decrypted_data[..]);
+    let mut inflated_secret: Vec<u8> = Vec::new();
+    decoder.read_to_end(&mut inflated_secret).unwrap();
+
+    return hex::encode(inflated_secret);
 }
 
 pub async fn verify_zkbob_secret(payload: InputPayload, ivs_private_key: String) -> Result<bool, Error> {
     let mut result = false;
     let zkbob_public = into_zkbob_pub_input(payload.public_inputs).unwrap();
     let zkbob_secret =
-        into_zkbob_secret(decrypted_secret(payload.encrypted_secret, payload.acl, ivs_private_key).await)
-            .unwrap();
+        into_zkbob_secret(decrypted_secret(
+            payload.encrypted_secret, 
+            payload.acl, 
+            ivs_private_key
+        )
+        .await)
+        .unwrap();
 
     // calculating output hashes
     let out_account_hash = zkbob_secret.tx.output.0.hash(&POOL_PARAMS.clone());

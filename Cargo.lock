@@ -2464,6 +2464,7 @@ dependencies = [
  "derive_more",
  "ecies",
  "ethers",
+ "flate2",
  "hex 0.4.3",
  "libzeropool-zkbob",
  "openssl",

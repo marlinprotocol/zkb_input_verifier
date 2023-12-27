@@ -1,6 +1,4 @@
 {
-    "rpc_url": "https://sepolia-rollup.arbitrum.io/rpc",
     "chain_id": "421614",
-    "ivs_signer": "4deb96c868b65fb4bfc6c360b7b0ffead8101e2e04654cdefae3c9b51687d6ac",
-    "proof_market_place": "0x3a64855cCC6b806904A37389940b37844A30d80F"
+    "secp256k1_private_key": "8c1380efc5086f154614f069bfdc8f790254df1c534c2ebc1c2731cd054ee7e8"
 }
