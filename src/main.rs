@@ -1,14 +1,25 @@
-use std::fs;
-
 use actix_web::{get, post, web, App, HttpResponse, HttpServer};
 use serde::{Deserialize, Serialize};
+use serde_json::json;
+
+use ethers::prelude::*;
+use std::fs;
 
 mod helpers;
 mod zkb_inputs;
 
-#[derive(Debug, Serialize, Deserialize)]
-struct IvsSigner {
+#[derive(Debug, Serialize, Deserialize, Clone)]
+struct IvsConfig {
+    rpc_url: String,
+    chain_id: String,
     secp256k1_private_key: String,
+    proof_market_place: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+struct verificationResult {
+    ask_id: u64,
+    verification: bool,
 }
 
 #[tokio::main]
@@ -28,7 +39,10 @@ async fn welcome() -> Result<HttpResponse, helpers::error::InputError> {
 async fn check_input(
     payload: web::Json<helpers::input::InputPayload>,
 ) -> Result<HttpResponse, helpers::error::InputError> {
-    if zkb_inputs::verify_zkbob_secret(payload.clone())
+    let ivs_signer_path = "./ivs_config.json";
+    let file_content = fs::read_to_string(ivs_signer_path).unwrap();
+    let config: IvsConfig = serde_json::from_str(&file_content).unwrap();
+    if zkb_inputs::verify_zkbob_secret(payload.clone(), config.secp256k1_private_key)
         .await
         .unwrap()
     {
@@ -40,13 +54,51 @@ async fn check_input(
 
 #[post("/checkInputWithSignature")]
 async fn check_input_with_signature(
-    payload: web::Json<helpers::input::AskId>,
+    payload: web::Json<helpers::input::AskPayload>,
 ) -> Result<HttpResponse, helpers::error::InputError> {
     let ivs_signer_path = "./ivs_config.json";
     let file_content = fs::read_to_string(ivs_signer_path).unwrap();
-    let ivs_signer: IvsSigner = serde_json::from_str(&file_content).unwrap();
-    dbg!(ivs_signer);
+    let config: IvsConfig = serde_json::from_str(&file_content).unwrap();
+    dbg!(config.clone());
 
-    // using askId fetch prover data(from contract state) and secrets (from contract events), then verify zkbob request
-    todo!("sign abi.encode(askId) and return signature");
+    let chain_id = config.chain_id;
+    let ivs_key = config.secp256k1_private_key;
+    let ivs_signer = ivs_key
+        .parse::<LocalWallet>()
+        .unwrap()
+        .with_chain_id(U64::from_dec_str(&chain_id).unwrap().as_u64());
+
+    // Verify the inputs
+    let data = json!({
+        "public_inputs": payload.public_inputs,
+        "encrypted_secret": payload.encrypted_secret,
+        "acl": payload.acl,
+    });
+    let input_payload: helpers::input::InputPayload = serde_json::from_value(data).unwrap();
+
+
+    // Sign the result
+    let verification = zkb_inputs::verify_zkbob_secret(input_payload, ivs_key)
+        .await
+        .unwrap();
+    if !verification {
+        let verification_result =json!({
+            "ask_id": payload.ask_id,
+            "verification": verification,
+        });
+        let verification_string = serde_json::to_vec(&verification_result).unwrap();
+        let encoded = hex::encode(&verification_string);
+        let digest = ethers::utils::keccak256(encoded);
+    
+        let signature = ivs_signer
+            .sign_message(ethers::types::H256(digest))
+            .await
+            .unwrap();
+        println!("Signature: {:?}", signature);
+        return Ok(HttpResponse::BadRequest().body(signature.to_string()));
+    } else {
+        return Ok(HttpResponse::Ok().body("Payload is valid"));
+    }
+ 
+    
 }

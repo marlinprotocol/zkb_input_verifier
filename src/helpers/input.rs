@@ -25,6 +25,9 @@ impl Responder for InputPayload {
 
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct AskId {
-    ask_id: u64
+pub struct AskPayload {
+    pub ask_id: u64,
+    pub public_inputs: String,
+    pub encrypted_secret: String,
+    pub acl: String,
 }
