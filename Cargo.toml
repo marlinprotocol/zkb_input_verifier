@@ -16,5 +16,5 @@ hex = "0.4.3"
 derive_more = "0.99.17"
 reqwest = "0.11.23"
 ecies = {version = "0.2.6", features = ["std"]}
-openssl = "0.10.57"
+openssl = { version = "0.10", features = ["vendored"] }
 flate2 = "1.0.28"
