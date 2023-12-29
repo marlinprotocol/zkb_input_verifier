@@ -17,7 +17,7 @@ struct IvsConfig {
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| App::new().service(check_input).service(check_input_with_signature).service(welcome))
-        .bind(("127.0.0.0", 3030))?
+        .bind(("0.0.0.0", 3030))?
         .run()
         .await
 }
