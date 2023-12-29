@@ -16,15 +16,16 @@ struct IvsConfig {
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-    log::info!("Starting Input Verifier...");
+    println!("Starting Input Verifier...");
     HttpServer::new(|| App::new().service(check_input).service(check_input_with_signature).service(welcome))
         .bind(("0.0.0.0", 3030))?
         .run()
         .await
 }
 
-#[get("welcome")]
+#[get("/welcome")]
 async fn welcome() -> Result<HttpResponse, helpers::error::InputError> {
+    println!("In welcome");
     return Ok(HttpResponse::Ok().body("Welcome!..."));
 }
 
@@ -32,7 +33,7 @@ async fn welcome() -> Result<HttpResponse, helpers::error::InputError> {
 async fn check_input(
     payload: web::Json<helpers::input::InputPayload>,
 ) -> Result<HttpResponse, helpers::error::InputError> {
-    let ivs_signer_path = "./ivs_config.json";
+    let ivs_signer_path = "../ivs_config/ivs_config.json";
     let file_content = fs::read_to_string(ivs_signer_path).unwrap();
     let value: Value = serde_json::from_str(&file_content).unwrap();
     let config: IvsConfig = serde_json::from_value(value).unwrap();
@@ -51,7 +52,7 @@ async fn check_input(
 async fn check_input_with_signature(
     payload: web::Json<helpers::input::AskPayload>,
 ) -> Result<HttpResponse, helpers::error::InputError> {
-    let ivs_signer_path = "./ivs_config.json";
+    let ivs_signer_path = "../ivs_config/ivs_config.json";
     let file_content = fs::read_to_string(ivs_signer_path).unwrap();
     let value: Value = serde_json::from_str(&file_content).unwrap();
     let config: IvsConfig = serde_json::from_value(value).unwrap();
