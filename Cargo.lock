@@ -2457,28 +2457,6 @@ dependencies = [
 ]
 
 [[package]]
-<<<<<<< HEAD
-=======
-name = "kalypso_input_verifier"
-version = "0.1.0"
-dependencies = [
- "actix-web",
- "derive_more",
- "ecies",
- "ethers",
- "flate2",
- "hex 0.4.3",
- "libzeropool-zkbob",
- "log",
- "openssl",
- "reqwest",
- "serde",
- "serde_json",
- "tokio",
-]
-
-[[package]]
->>>>>>> 1966f09cb609c03dfe731e6ce0f6972be1e03275
 name = "keccak"
 version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5094,6 +5072,7 @@ dependencies = [
  "flate2",
  "hex 0.4.3",
  "libzeropool-zkbob",
+ "log",
  "openssl",
  "reqwest",
  "serde",
