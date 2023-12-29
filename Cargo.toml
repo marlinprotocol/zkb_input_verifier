@@ -1,5 +1,5 @@
 [package]
-name = "kalypso_input_verifier"
+name = "zkb_input_verifier"
 version = "0.1.0"
 edition = "2021"
 
