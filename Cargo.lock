@@ -2467,6 +2467,7 @@ dependencies = [
  "flate2",
  "hex 0.4.3",
  "libzeropool-zkbob",
+ "log",
  "openssl",
  "reqwest",
  "serde",

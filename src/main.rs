@@ -16,6 +16,7 @@ struct IvsConfig {
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
+    log::info!("Starting Input Verifier...");
     HttpServer::new(|| App::new().service(check_input).service(check_input_with_signature).service(welcome))
         .bind(("0.0.0.0", 3030))?
         .run()
