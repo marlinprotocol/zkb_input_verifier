@@ -33,8 +33,10 @@ async fn welcome() -> Result<HttpResponse, helpers::error::InputError> {
 async fn check_input(
     payload: web::Json<helpers::input::InputPayload>,
 ) -> Result<HttpResponse, helpers::error::InputError> {
-    let ivs_signer_path = "../ivs_config/ivs_config.json";
-    let file_content = fs::read_to_string(ivs_signer_path).unwrap();
+    let ivs_config_path = "../ivs_config/ivs_config.json".to_string();
+    let alt_ivs_config_path = "./ivs_config/ivs_config.json".to_string();
+    let file_content = fs::read_to_string(&ivs_config_path)
+    .or_else(|_| fs::read_to_string(&alt_ivs_config_path)).unwrap();
     let value: Value = serde_json::from_str(&file_content).unwrap();
     let config: IvsConfig = serde_json::from_value(value).unwrap();
 
@@ -52,8 +54,10 @@ async fn check_input(
 async fn check_input_with_signature(
     payload: web::Json<helpers::input::AskPayload>,
 ) -> Result<HttpResponse, helpers::error::InputError> {
-    let ivs_signer_path = "../ivs_config/ivs_config.json";
-    let file_content = fs::read_to_string(ivs_signer_path).unwrap();
+    let ivs_config_path = "../ivs_config/ivs_config.json".to_string();
+    let alt_ivs_config_path = "./ivs_config/ivs_config.json".to_string();
+    let file_content = fs::read_to_string(&ivs_config_path)
+    .or_else(|_| fs::read_to_string(&alt_ivs_config_path)).unwrap();
     let value: Value = serde_json::from_str(&file_content).unwrap();
     let config: IvsConfig = serde_json::from_value(value).unwrap();
     // dbg!(config.clone());
@@ -79,11 +83,7 @@ async fn check_input_with_signature(
         .await
         .unwrap();
     if !verification {
-        let verification_result =json!({
-            "ask_id": payload.ask_id,
-            "verification": verification,
-        });
-        let verification_string = serde_json::to_vec(&verification_result).unwrap();
+        let verification_string = serde_json::to_vec(&payload.ask_id).unwrap();
         let encoded = hex::encode(&verification_string);
         let digest = ethers::utils::keccak256(encoded);
     
@@ -92,7 +92,11 @@ async fn check_input_with_signature(
             .await
             .unwrap();
         println!("Signature: {:?}", signature);
-        return Ok(HttpResponse::BadRequest().body(signature.to_string()));
+        let verification_result =json!({
+            "ask_id": payload.ask_id,
+            "signature": "0x".to_owned() + &signature.to_string(),
+        });
+        return Ok(HttpResponse::BadRequest().body(serde_json::to_string(&verification_result).unwrap()));
     } else {
         return Ok(HttpResponse::Ok().body("Payload is valid"));
     }
