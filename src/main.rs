@@ -36,17 +36,41 @@ async fn check_input(
     let ivs_config_path = "../ivs_config/ivs_config.json".to_string();
     let alt_ivs_config_path = "./ivs_config/ivs_config.json".to_string();
     let file_content = fs::read_to_string(&ivs_config_path)
-    .or_else(|_| fs::read_to_string(&alt_ivs_config_path)).unwrap();
-    let value: Value = serde_json::from_str(&file_content).unwrap();
-    let config: IvsConfig = serde_json::from_value(value).unwrap();
+    .or_else(|_| fs::read_to_string(&alt_ivs_config_path));
 
-    if zkb_inputs::verify_zkbob_secret(payload.clone(), config.secp256k1_private_key)
-        .await
-        .unwrap()
-    {
-        return Ok(HttpResponse::Ok().body("Payload is valid"));
-    } else {
-        return Err(helpers::error::InputError::PayloadNotValid);
+    match file_content {
+        Ok(content) => {
+            let value: Value = serde_json::from_str(&content).unwrap();
+            let config: std::result::Result<IvsConfig, serde_json::Error> = serde_json::from_value(value);
+
+            match config {
+                Ok(config_check) => {
+                    let verification = zkb_inputs::verify_zkbob_secret(
+                        payload.clone(), 
+                        config_check.secp256k1_private_key)
+                    .await;
+
+                    match verification {
+                        Ok(verify) => {
+                            if verify {
+                                return Ok(HttpResponse::Ok().body("Payload is valid"));
+                            } else {
+                                return Err(helpers::error::InputError::PayloadNotValid);
+                            }
+                        },
+                        Err(_) => {
+                            return Err(helpers::error::InputError::DecryptionFailed);
+                        },
+                    }
+                },
+                Err(_) => {
+                    return Err(helpers::error::InputError::BadConfigData);
+                },
+            }
+        },
+        Err(_) => {
+            return Err(helpers::error::InputError::FileNotFound);
+        },
     }
 }
 
@@ -57,48 +81,69 @@ async fn check_input_with_signature(
     let ivs_config_path = "../ivs_config/ivs_config.json".to_string();
     let alt_ivs_config_path = "./ivs_config/ivs_config.json".to_string();
     let file_content = fs::read_to_string(&ivs_config_path)
-    .or_else(|_| fs::read_to_string(&alt_ivs_config_path)).unwrap();
-    let value: Value = serde_json::from_str(&file_content).unwrap();
-    let config: IvsConfig = serde_json::from_value(value).unwrap();
-    // dbg!(config.clone());
+    .or_else(|_| fs::read_to_string(&alt_ivs_config_path));
 
-    let chain_id = config.chain_id;
-    let ivs_key = config.secp256k1_private_key;
-    let ivs_signer = ivs_key
-        .parse::<LocalWallet>()
-        .unwrap()
-        .with_chain_id(U64::from_dec_str(&chain_id).unwrap().as_u64());
+    match file_content {
+        Ok(content) => {
+            let value: Value = serde_json::from_str(&content).unwrap();
+            let config: std::result::Result<IvsConfig, serde_json::Error> = serde_json::from_value(value);
 
-    // Verify the inputs
-    let data = json!({
-        "public_inputs": payload.public_inputs,
-        "encrypted_secret": payload.encrypted_secret,
-        "acl": payload.acl,
-    });
-    let input_payload: helpers::input::InputPayload = serde_json::from_value(data).unwrap();
+            match config {
+                Ok(config_check) => {
+                    let chain_id = config_check.chain_id;
+                    let ivs_key = config_check.secp256k1_private_key;
+                    let ivs_signer = ivs_key
+                        .parse::<LocalWallet>()
+                        .unwrap()
+                        .with_chain_id(U64::from_dec_str(&chain_id).unwrap().as_u64());
+
+                    // Verify the inputs
+                    let data = json!({
+                        "public_inputs": payload.public_inputs,
+                        "encrypted_secret": payload.encrypted_secret,
+                        "acl": payload.acl,
+                    });
+                    let input_payload: helpers::input::InputPayload = serde_json::from_value(data).unwrap();
 
 
-    // Sign the result
-    let verification = zkb_inputs::verify_zkbob_secret(input_payload, ivs_key)
-        .await
-        .unwrap();
-    if !verification {
-        let verification_string = serde_json::to_vec(&payload.ask_id).unwrap();
-        let encoded = hex::encode(&verification_string);
-        let digest = ethers::utils::keccak256(encoded);
-    
-        let signature = ivs_signer
-            .sign_message(ethers::types::H256(digest))
-            .await
-            .unwrap();
-        println!("Signature: {:?}", signature);
-        let verification_result =json!({
-            "ask_id": payload.ask_id,
-            "signature": "0x".to_owned() + &signature.to_string(),
-        });
-        return Ok(HttpResponse::BadRequest().body(serde_json::to_string(&verification_result).unwrap()));
-    } else {
-        return Ok(HttpResponse::Ok().body("Payload is valid"));
+                    // Sign the result
+                    let verification = zkb_inputs::verify_zkbob_secret(input_payload, ivs_key)
+                        .await;
+
+                    match verification {
+                        Ok(verify) => {
+                            if !verify {
+                                let verification_string = serde_json::to_vec(&payload.ask_id).unwrap();
+                                let encoded = hex::encode(&verification_string);
+                                let digest = ethers::utils::keccak256(encoded);
+                            
+                                let signature = ivs_signer
+                                    .sign_message(ethers::types::H256(digest))
+                                    .await
+                                    .unwrap();
+                                println!("Signature: {:?}", signature);
+                                let verification_result =json!({
+                                    "ask_id": payload.ask_id,
+                                    "signature": "0x".to_owned() + &signature.to_string(),
+                                });
+                                return Ok(HttpResponse::BadRequest().body(serde_json::to_string(&verification_result).unwrap()));
+                            } else {
+                                return Ok(HttpResponse::Ok().body("Payload is valid"));
+                            }
+                        },
+                        Err(_) => {
+                            return Err(helpers::error::InputError::DecryptionFailed);
+                        },
+                    }
+                },
+                Err(_) => {
+                    return Err(helpers::error::InputError::BadConfigData);
+                },
+            }
+        },
+        Err(_) => {
+            return Err(helpers::error::InputError::FileNotFound);
+        },
     }
  
     

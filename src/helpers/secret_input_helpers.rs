@@ -5,6 +5,8 @@ use openssl::symm;
 use openssl::symm::{Cipher, Crypter, Mode};
 use std::error::Error;
 
+use crate::helpers::error;
+
 pub struct SecretData {
     #[allow(unused)]
     encrypted_data: Vec<u8>,
@@ -135,11 +137,17 @@ pub fn decrypt_data_with_ecies_and_aes(
     encrypted_data: &[u8],
     acl_data: &[u8],
     private_key: &[u8],
-) -> Result<Vec<u8>, Box<dyn std::error::Error>> {
-    let decrypted_secret_key = decrypt(private_key, acl_data).unwrap();
-    let decrypted_data = try_decrypt(encrypted_data, &decrypted_secret_key).unwrap();
-
-    Ok(decrypted_data)
+) -> Result<Vec<u8>, error::InputError> {
+    let decrypted_secret_key = decrypt(private_key, acl_data);
+    match decrypted_secret_key {
+        Ok(secret_key) => {
+            let decrypted_data = try_decrypt(encrypted_data, &secret_key).unwrap();
+            Ok(decrypted_data)
+        },
+        Err(_) => {
+            Err(error::InputError::DecryptionFailed)
+        }
+    }
 }
 
 pub fn try_decrypt(encrypted_data: &[u8], secret_key: &[u8]) -> Result<Vec<u8>, Box<dyn Error>> {

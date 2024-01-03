@@ -13,6 +13,9 @@ pub enum InputError {
     #[display(fmt = "incorrect config")]
     BadConfigData,
 
+    #[display(fmt = "decryption fails due to incorrect keys")]
+    DecryptionFailed,
+
     #[display(fmt = "invalid market")]
     InvalidMarket,
 
@@ -31,6 +34,7 @@ impl error::ResponseError for InputError {
         match *self {
             InputError::FileNotFound => StatusCode::NOT_FOUND,
             InputError::BadConfigData => StatusCode::NOT_ACCEPTABLE,
+            InputError::DecryptionFailed => StatusCode::MISDIRECTED_REQUEST,
             InputError::InvalidMarket => StatusCode::NOT_IMPLEMENTED,
             InputError::PayloadNotValid => StatusCode::BAD_REQUEST,
         }
