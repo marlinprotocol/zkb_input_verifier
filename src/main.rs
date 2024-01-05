@@ -10,7 +10,6 @@ mod zkb_inputs;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 struct IvsConfig {
-    chain_id: String,
     secp256k1_private_key: String,
 }
 
@@ -90,12 +89,10 @@ async fn check_input_with_signature(
 
             match config {
                 Ok(config_check) => {
-                    let chain_id = config_check.chain_id;
                     let ivs_key = config_check.secp256k1_private_key;
                     let ivs_signer = ivs_key
                         .parse::<LocalWallet>()
-                        .unwrap()
-                        .with_chain_id(U64::from_dec_str(&chain_id).unwrap().as_u64());
+                        .unwrap();
 
                     // Verify the inputs
                     let data = json!({
