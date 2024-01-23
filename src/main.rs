@@ -102,36 +102,62 @@ async fn check_input_with_signature(
                     });
                     let input_payload: helpers::input::InputPayload = serde_json::from_value(data).unwrap();
 
+                    match input_payload.encrypted_secret.clone() {
+                        Some(_) => {
+                            // Sign the result
+                            let verification = zkb_inputs::verify_zkbob_secret(input_payload, ivs_key)
+                            .await;
 
-                    // Sign the result
-                    let verification = zkb_inputs::verify_zkbob_secret(input_payload, ivs_key)
-                        .await;
-
-                    match verification {
-                        Ok(verify) => {
-                            if !verify {
-                                let verification_string = serde_json::to_vec(&payload.ask_id).unwrap();
-                                let encoded = hex::encode(&verification_string);
-                                let digest = ethers::utils::keccak256(encoded);
-                            
-                                let signature = ivs_signer
-                                    .sign_message(ethers::types::H256(digest))
-                                    .await
-                                    .unwrap();
-                                println!("Signature: {:?}", signature);
-                                let verification_result =json!({
-                                    "ask_id": payload.ask_id,
-                                    "signature": "0x".to_owned() + &signature.to_string(),
-                                });
-                                return Ok(HttpResponse::BadRequest().body(serde_json::to_string(&verification_result).unwrap()));
-                            } else {
-                                return Ok(HttpResponse::Ok().body("Payload is valid"));
+                            match verification {
+                                Ok(verify) => {
+                                    if !verify {
+                                        let value = vec![ethers::abi::Token::Uint(payload.ask_id.into())];
+                                        let encoded = ethers::abi::encode(&value);
+                                        let digest = ethers::utils::keccak256(encoded);
+                                    
+                                        let signature = ivs_signer
+                                            .sign_message(ethers::types::H256(digest))
+                                            .await
+                                            .unwrap();
+                                        println!("Signature: {:?}", signature);
+                                        let verification_result =json!({
+                                            "ask_id": payload.ask_id,
+                                            "signature": "0x".to_owned() + &signature.to_string(),
+                                        });
+                                        return Ok(HttpResponse::BadRequest().body(serde_json::to_string(&verification_result).unwrap()));
+                                    } else {
+                                        return Ok(HttpResponse::Ok().body("Payload is valid"));
+                                    }
+                                },
+                                Err(_) => {
+                                    return Err(helpers::error::InputError::DecryptionFailed);
+                                },
                             }
                         },
-                        Err(_) => {
-                            return Err(helpers::error::InputError::DecryptionFailed);
-                        },
-                    }
+                        None => {
+                            // Sign the result
+                            let values = vec![
+                                ethers::abi::Token::Uint(payload.ask_id.into()),
+                                ethers::abi::Token::Bytes(payload.public_inputs.clone().into())
+                            ];
+                            let encoded = ethers::abi::encode(&values);
+                            let digest = ethers::utils::keccak256(encoded);
+                                    
+                            let signature = ivs_signer
+                                .sign_message(ethers::types::H256(digest))
+                                .await
+                                .unwrap();
+                            println!("Signature: {:?}", signature);
+                            let verification_result =json!({
+                                "ask_id": payload.ask_id,
+                                "signature": "0x".to_owned() + &signature.to_string(),
+                            });
+                            return Ok(HttpResponse::Ok().body(serde_json::to_string(&verification_result).unwrap()));
+                        }
+                    };
+
+
+                    
                 },
                 Err(_) => {
                     return Err(helpers::error::InputError::BadConfigData);

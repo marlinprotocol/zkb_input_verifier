@@ -100,8 +100,8 @@ pub async fn verify_zkbob_secret(payload: InputPayload, ivs_private_key: String)
     let mut result = false;
     let zkbob_public = into_zkbob_pub_input(payload.public_inputs).unwrap();
     let decrypt_secret = decrypted_secret(
-        payload.encrypted_secret, 
-        payload.acl, 
+        payload.encrypted_secret.unwrap(), 
+        payload.acl.unwrap(), 
         ivs_private_key
     ).await;
 
