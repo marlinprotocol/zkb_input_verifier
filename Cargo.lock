@@ -1816,6 +1816,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "foundry-contracts"
+version = "0.1.0"
+dependencies = [
+ "ethers",
+ "serde",
+]
+
+[[package]]
 name = "fs2"
 version = "0.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5070,6 +5078,7 @@ dependencies = [
  "ecies",
  "ethers",
  "flate2",
+ "foundry-contracts",
  "hex 0.4.3",
  "libzeropool-zkbob",
  "log",

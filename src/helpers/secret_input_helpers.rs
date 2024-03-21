@@ -143,10 +143,8 @@ pub fn decrypt_data_with_ecies_and_aes(
         Ok(secret_key) => {
             let decrypted_data = try_decrypt(encrypted_data, &secret_key).unwrap();
             Ok(decrypted_data)
-        },
-        Err(_) => {
-            Err(error::InputError::DecryptionFailed)
         }
+        Err(_) => Err(error::InputError::DecryptionFailed),
     }
 }
 

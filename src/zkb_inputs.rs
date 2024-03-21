@@ -1,14 +1,12 @@
-use crate::helpers::{input::InputPayload, secret_input_helpers, error};
+use crate::helpers::{error, input::InputPayload, secret_input_helpers};
 use actix_web::error::Error;
-use std::io::Read;
 use flate2::read::ZlibDecoder;
+use std::io::Read;
 
 use libzeropool_zkbob::{
     fawkes_crypto::{
-        ff_uint::Num,
-        engines::bn256::Fr, 
-        native::poseidon::poseidon_merkle_proof_root, 
-        core::sizedvec::SizedVec
+        core::sizedvec::SizedVec, engines::bn256::Fr, ff_uint::Num,
+        native::poseidon::poseidon_merkle_proof_root,
     },
     native::{
         key,
@@ -72,15 +70,16 @@ fn into_zkbob_pub_input(decoded_pub_input: String) -> Result<TransferPub<Fr>, Er
     Ok(zkbob_pub_input)
 }
 
-pub async fn decrypted_secret(encrypted_secret: String, acl: String, ivs_private_key: String) -> Result<String, Error> {
+pub async fn decrypted_secret(
+    encrypted_secret: String,
+    acl: String,
+    ivs_private_key: String,
+) -> Result<String, Error> {
     let ivs_key = hex::decode(ivs_private_key).unwrap();
     let secret = hex::decode(encrypted_secret).unwrap();
     let acl_dec = hex::decode(acl).unwrap();
-    let decrypted_data = secret_input_helpers::decrypt_data_with_ecies_and_aes(
-        &secret, 
-        &acl_dec, 
-        &ivs_key
-    );
+    let decrypted_data =
+        secret_input_helpers::decrypt_data_with_ecies_and_aes(&secret, &acl_dec, &ivs_key);
 
     match decrypted_data {
         Ok(data) => {
@@ -89,28 +88,24 @@ pub async fn decrypted_secret(encrypted_secret: String, acl: String, ivs_private
             decoder.read_to_end(&mut inflated_secret).unwrap();
 
             Ok(hex::encode(inflated_secret))
-        },
-        Err(_) => {
-            Err(error::InputError::DecryptionFailed.into())
-        },
+        }
+        Err(_) => Err(error::InputError::DecryptionFailed.into()),
     }
 }
 
-pub async fn verify_zkbob_secret(payload: InputPayload, ivs_private_key: String) -> Result<bool, Error> {
+pub async fn verify_zkbob_secret(
+    payload: InputPayload,
+    ivs_private_key: String,
+) -> Result<bool, Error> {
     let mut result = false;
     let zkbob_public = into_zkbob_pub_input(payload.public_inputs).unwrap();
-    let decrypt_secret = decrypted_secret(
-        payload.encrypted_secret.unwrap(), 
-        payload.acl.unwrap(), 
-        ivs_private_key
-    ).await;
+    let decrypt_secret =
+        decrypted_secret(payload.encrypted_secret, payload.acl, ivs_private_key).await;
 
     match decrypt_secret {
         Ok(decrypted_secret) => {
-            let zkbob_secret =
-            into_zkbob_secret(decrypted_secret)
-            .unwrap();
-    
+            let zkbob_secret = into_zkbob_secret(decrypted_secret).unwrap();
+
             // calculating output hashes
             let out_account_hash = zkbob_secret.tx.output.0.hash(&POOL_PARAMS.clone());
             let out_note_hash = zkbob_secret
@@ -121,7 +116,7 @@ pub async fn verify_zkbob_secret(payload: InputPayload, ivs_private_key: String)
                 .map(|e| e.hash(&POOL_PARAMS.clone()))
                 .collect::<Vec<_>>();
             let out_hash = [[out_account_hash].as_ref(), out_note_hash.as_slice()].concat();
-        
+
             // calculating input hashes
             let in_account_hash = zkbob_secret.tx.input.0.hash(&POOL_PARAMS.clone());
             let in_note_hash = zkbob_secret
@@ -134,21 +129,23 @@ pub async fn verify_zkbob_secret(payload: InputPayload, ivs_private_key: String)
             let in_hash = [[in_account_hash].as_ref(), in_note_hash.as_slice()].concat();
             let inproof = zkbob_secret.in_proof.0;
             let eta = key::derive_key_eta(zkbob_secret.eddsa_a, &POOL_PARAMS.clone());
-        
+
             let out_commit = tx::out_commitment_hash(&out_hash, &POOL_PARAMS.clone());
-            let root = poseidon_merkle_proof_root(in_account_hash, &inproof, POOL_PARAMS.compress());
+            let root =
+                poseidon_merkle_proof_root(in_account_hash, &inproof, POOL_PARAMS.compress());
             let path_num = from_bool_to_num(inproof.path).unwrap();
             let nullifier = tx::nullifier(in_account_hash, eta, path_num, &POOL_PARAMS.clone());
-            let _tx_hash = tx::tx_hash(&in_hash, zkbob_public.out_commit, &POOL_PARAMS.clone()); 
-            
-            if out_commit == zkbob_public.out_commit && root == zkbob_public.root && nullifier == zkbob_public.nullifier {
+            let _tx_hash = tx::tx_hash(&in_hash, zkbob_public.out_commit, &POOL_PARAMS.clone());
+
+            if out_commit == zkbob_public.out_commit
+                && root == zkbob_public.root
+                && nullifier == zkbob_public.nullifier
+            {
                 result = true;
             }
             Ok(result)
-        },
-        Err(_) => {
-            Err(error::InputError::DecryptionFailed.into())
         }
+        Err(_) => Err(error::InputError::DecryptionFailed.into()),
     }
 }
 
