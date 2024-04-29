@@ -1,4 +1,4 @@
-pub use i_beacon_upgradeable::*;
+pub use ierc165::*;
 /// This module was auto-generated with ethers-rs Abigen.
 /// More information at: <https://github.com/gakonst/ethers-rs>
 #[allow(
@@ -9,24 +9,34 @@ pub use i_beacon_upgradeable::*;
     dead_code,
     non_camel_case_types,
 )]
-pub mod i_beacon_upgradeable {
+pub mod ierc165 {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
             constructor: ::core::option::Option::None,
             functions: ::core::convert::From::from([
                 (
-                    ::std::borrow::ToOwned::to_owned("implementation"),
+                    ::std::borrow::ToOwned::to_owned("supportsInterface"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("implementation"),
-                            inputs: ::std::vec![],
+                            name: ::std::borrow::ToOwned::to_owned("supportsInterface"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("interfaceId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        4usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes4"),
+                                    ),
+                                },
+                            ],
                             outputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
                                     name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Bool,
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("address"),
+                                        ::std::borrow::ToOwned::to_owned("bool"),
                                     ),
                                 },
                             ],
@@ -43,34 +53,32 @@ pub mod i_beacon_upgradeable {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static IBEACONUPGRADEABLE_ABI: ::ethers::contract::Lazy<
-        ::ethers::core::abi::Abi,
-    > = ::ethers::contract::Lazy::new(__abi);
-    pub struct IBeaconUpgradeable<M>(::ethers::contract::Contract<M>);
-    impl<M> ::core::clone::Clone for IBeaconUpgradeable<M> {
+    pub static IERC165_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+        __abi,
+    );
+    pub struct IERC165<M>(::ethers::contract::Contract<M>);
+    impl<M> ::core::clone::Clone for IERC165<M> {
         fn clone(&self) -> Self {
             Self(::core::clone::Clone::clone(&self.0))
         }
     }
-    impl<M> ::core::ops::Deref for IBeaconUpgradeable<M> {
+    impl<M> ::core::ops::Deref for IERC165<M> {
         type Target = ::ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M> ::core::ops::DerefMut for IBeaconUpgradeable<M> {
+    impl<M> ::core::ops::DerefMut for IERC165<M> {
         fn deref_mut(&mut self) -> &mut Self::Target {
             &mut self.0
         }
     }
-    impl<M> ::core::fmt::Debug for IBeaconUpgradeable<M> {
+    impl<M> ::core::fmt::Debug for IERC165<M> {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-            f.debug_tuple(::core::stringify!(IBeaconUpgradeable))
-                .field(&self.address())
-                .finish()
+            f.debug_tuple(::core::stringify!(IERC165)).field(&self.address()).finish()
         }
     }
-    impl<M: ::ethers::providers::Middleware> IBeaconUpgradeable<M> {
+    impl<M: ::ethers::providers::Middleware> IERC165<M> {
         /// Creates a new contract instance with the specified `ethers` client at
         /// `address`. The contract derefs to a `ethers::Contract` object.
         pub fn new<T: Into<::ethers::core::types::Address>>(
@@ -80,30 +88,28 @@ pub mod i_beacon_upgradeable {
             Self(
                 ::ethers::contract::Contract::new(
                     address.into(),
-                    IBEACONUPGRADEABLE_ABI.clone(),
+                    IERC165_ABI.clone(),
                     client,
                 ),
             )
         }
-        ///Calls the contract's `implementation` (0x5c60da1b) function
-        pub fn implementation(
+        ///Calls the contract's `supportsInterface` (0x01ffc9a7) function
+        pub fn supports_interface(
             &self,
-        ) -> ::ethers::contract::builders::ContractCall<
-            M,
-            ::ethers::core::types::Address,
-        > {
+            interface_id: [u8; 4],
+        ) -> ::ethers::contract::builders::ContractCall<M, bool> {
             self.0
-                .method_hash([92, 96, 218, 27], ())
+                .method_hash([1, 255, 201, 167], interface_id)
                 .expect("method not found (this should never happen)")
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-    for IBeaconUpgradeable<M> {
+    for IERC165<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
     }
-    ///Container type for all input parameters for the `implementation` function with signature `implementation()` and selector `0x5c60da1b`
+    ///Container type for all input parameters for the `supportsInterface` function with signature `supportsInterface(bytes4)` and selector `0x01ffc9a7`
     #[derive(
         Clone,
         ::ethers::contract::EthCall,
@@ -116,9 +122,11 @@ pub mod i_beacon_upgradeable {
         Eq,
         Hash
     )]
-    #[ethcall(name = "implementation", abi = "implementation()")]
-    pub struct ImplementationCall;
-    ///Container type for all return fields from the `implementation` function with signature `implementation()` and selector `0x5c60da1b`
+    #[ethcall(name = "supportsInterface", abi = "supportsInterface(bytes4)")]
+    pub struct SupportsInterfaceCall {
+        pub interface_id: [u8; 4],
+    }
+    ///Container type for all return fields from the `supportsInterface` function with signature `supportsInterface(bytes4)` and selector `0x01ffc9a7`
     #[derive(
         Clone,
         ::ethers::contract::EthAbiType,
@@ -131,5 +139,5 @@ pub mod i_beacon_upgradeable {
         Eq,
         Hash
     )]
-    pub struct ImplementationReturn(pub ::ethers::core::types::Address);
+    pub struct SupportsInterfaceReturn(pub bool);
 }

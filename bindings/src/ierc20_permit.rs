@@ -1,4 +1,4 @@
-pub use ierc20_permit_upgradeable::*;
+pub use ierc20_permit::*;
 /// This module was auto-generated with ethers-rs Abigen.
 /// More information at: <https://github.com/gakonst/ethers-rs>
 #[allow(
@@ -9,7 +9,7 @@ pub use ierc20_permit_upgradeable::*;
     dead_code,
     non_camel_case_types,
 )]
-pub mod ierc20_permit_upgradeable {
+pub mod ierc20_permit {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
@@ -145,34 +145,34 @@ pub mod ierc20_permit_upgradeable {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static IERC20PERMITUPGRADEABLE_ABI: ::ethers::contract::Lazy<
-        ::ethers::core::abi::Abi,
-    > = ::ethers::contract::Lazy::new(__abi);
-    pub struct IERC20PermitUpgradeable<M>(::ethers::contract::Contract<M>);
-    impl<M> ::core::clone::Clone for IERC20PermitUpgradeable<M> {
+    pub static IERC20PERMIT_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+        __abi,
+    );
+    pub struct IERC20Permit<M>(::ethers::contract::Contract<M>);
+    impl<M> ::core::clone::Clone for IERC20Permit<M> {
         fn clone(&self) -> Self {
             Self(::core::clone::Clone::clone(&self.0))
         }
     }
-    impl<M> ::core::ops::Deref for IERC20PermitUpgradeable<M> {
+    impl<M> ::core::ops::Deref for IERC20Permit<M> {
         type Target = ::ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M> ::core::ops::DerefMut for IERC20PermitUpgradeable<M> {
+    impl<M> ::core::ops::DerefMut for IERC20Permit<M> {
         fn deref_mut(&mut self) -> &mut Self::Target {
             &mut self.0
         }
     }
-    impl<M> ::core::fmt::Debug for IERC20PermitUpgradeable<M> {
+    impl<M> ::core::fmt::Debug for IERC20Permit<M> {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-            f.debug_tuple(::core::stringify!(IERC20PermitUpgradeable))
+            f.debug_tuple(::core::stringify!(IERC20Permit))
                 .field(&self.address())
                 .finish()
         }
     }
-    impl<M: ::ethers::providers::Middleware> IERC20PermitUpgradeable<M> {
+    impl<M: ::ethers::providers::Middleware> IERC20Permit<M> {
         /// Creates a new contract instance with the specified `ethers` client at
         /// `address`. The contract derefs to a `ethers::Contract` object.
         pub fn new<T: Into<::ethers::core::types::Address>>(
@@ -182,7 +182,7 @@ pub mod ierc20_permit_upgradeable {
             Self(
                 ::ethers::contract::Contract::new(
                     address.into(),
-                    IERC20PERMITUPGRADEABLE_ABI.clone(),
+                    IERC20PERMIT_ABI.clone(),
                     client,
                 ),
             )
@@ -224,7 +224,7 @@ pub mod ierc20_permit_upgradeable {
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-    for IERC20PermitUpgradeable<M> {
+    for IERC20Permit<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
@@ -298,12 +298,12 @@ pub mod ierc20_permit_upgradeable {
         Eq,
         Hash
     )]
-    pub enum IERC20PermitUpgradeableCalls {
+    pub enum IERC20PermitCalls {
         DomainSeparator(DomainSeparatorCall),
         Nonces(NoncesCall),
         Permit(PermitCall),
     }
-    impl ::ethers::core::abi::AbiDecode for IERC20PermitUpgradeableCalls {
+    impl ::ethers::core::abi::AbiDecode for IERC20PermitCalls {
         fn decode(
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
@@ -326,7 +326,7 @@ pub mod ierc20_permit_upgradeable {
             Err(::ethers::core::abi::Error::InvalidData.into())
         }
     }
-    impl ::ethers::core::abi::AbiEncode for IERC20PermitUpgradeableCalls {
+    impl ::ethers::core::abi::AbiEncode for IERC20PermitCalls {
         fn encode(self) -> Vec<u8> {
             match self {
                 Self::DomainSeparator(element) => {
@@ -337,7 +337,7 @@ pub mod ierc20_permit_upgradeable {
             }
         }
     }
-    impl ::core::fmt::Display for IERC20PermitUpgradeableCalls {
+    impl ::core::fmt::Display for IERC20PermitCalls {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             match self {
                 Self::DomainSeparator(element) => ::core::fmt::Display::fmt(element, f),
@@ -346,17 +346,17 @@ pub mod ierc20_permit_upgradeable {
             }
         }
     }
-    impl ::core::convert::From<DomainSeparatorCall> for IERC20PermitUpgradeableCalls {
+    impl ::core::convert::From<DomainSeparatorCall> for IERC20PermitCalls {
         fn from(value: DomainSeparatorCall) -> Self {
             Self::DomainSeparator(value)
         }
     }
-    impl ::core::convert::From<NoncesCall> for IERC20PermitUpgradeableCalls {
+    impl ::core::convert::From<NoncesCall> for IERC20PermitCalls {
         fn from(value: NoncesCall) -> Self {
             Self::Nonces(value)
         }
     }
-    impl ::core::convert::From<PermitCall> for IERC20PermitUpgradeableCalls {
+    impl ::core::convert::From<PermitCall> for IERC20PermitCalls {
         fn from(value: PermitCall) -> Self {
             Self::Permit(value)
         }

@@ -18,6 +18,28 @@ pub mod uc_rekt {
             }),
             functions: ::core::convert::From::from([
                 (
+                    ::std::borrow::ToOwned::to_owned("UPGRADE_INTERFACE_VERSION"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::Function {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "UPGRADE_INTERFACE_VERSION",
+                            ),
+                            inputs: ::std::vec![],
+                            outputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::string::String::new(),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("string"),
+                                    ),
+                                },
+                            ],
+                            constant: ::core::option::Option::None,
+                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
+                        },
+                    ],
+                ),
+                (
                     ::std::borrow::ToOwned::to_owned("initialize"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::Function {
@@ -178,26 +200,6 @@ pub mod uc_rekt {
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("upgradeTo"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("upgradeTo"),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("newImplementation"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("address"),
-                                    ),
-                                },
-                            ],
-                            outputs: ::std::vec![],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
-                        },
-                    ],
-                ),
-                (
                     ::std::borrow::ToOwned::to_owned("upgradeToAndCall"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::Function {
@@ -227,43 +229,6 @@ pub mod uc_rekt {
             ]),
             events: ::core::convert::From::from([
                 (
-                    ::std::borrow::ToOwned::to_owned("AdminChanged"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Event {
-                            name: ::std::borrow::ToOwned::to_owned("AdminChanged"),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::EventParam {
-                                    name: ::std::borrow::ToOwned::to_owned("previousAdmin"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                    indexed: false,
-                                },
-                                ::ethers::core::abi::ethabi::EventParam {
-                                    name: ::std::borrow::ToOwned::to_owned("newAdmin"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                    indexed: false,
-                                },
-                            ],
-                            anonymous: false,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("BeaconUpgraded"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Event {
-                            name: ::std::borrow::ToOwned::to_owned("BeaconUpgraded"),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::EventParam {
-                                    name: ::std::borrow::ToOwned::to_owned("beacon"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                    indexed: true,
-                                },
-                            ],
-                            anonymous: false,
-                        },
-                    ],
-                ),
-                (
                     ::std::borrow::ToOwned::to_owned("Initialized"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::Event {
@@ -271,7 +236,7 @@ pub mod uc_rekt {
                             inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::EventParam {
                                     name: ::std::borrow::ToOwned::to_owned("version"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(8usize),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(64usize),
                                     indexed: false,
                                 },
                             ],
@@ -296,7 +261,125 @@ pub mod uc_rekt {
                     ],
                 ),
             ]),
-            errors: ::std::collections::BTreeMap::new(),
+            errors: ::core::convert::From::from([
+                (
+                    ::std::borrow::ToOwned::to_owned("AddressEmptyCode"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("AddressEmptyCode"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("target"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC1967InvalidImplementation"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "ERC1967InvalidImplementation",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("implementation"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC1967NonPayable"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("ERC1967NonPayable"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("FailedInnerCall"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("FailedInnerCall"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidInitialization"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "InvalidInitialization",
+                            ),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("NotInitializing"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("NotInitializing"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ReentrancyGuardReentrantCall"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "ReentrancyGuardReentrantCall",
+                            ),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("UUPSUnauthorizedCallContext"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "UUPSUnauthorizedCallContext",
+                            ),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("UUPSUnsupportedProxiableUUID"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "UUPSUnsupportedProxiableUUID",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("slot"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+            ]),
             receive: false,
             fallback: false,
         }
@@ -306,13 +389,13 @@ pub mod uc_rekt {
         __abi,
     );
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`\xA0`@R0`\x80R4\x80\x15a\0\x14W`\0\x80\xFD[P`\0Ta\x01\0\x90\x04`\xFF\x16\x15\x80\x80\x15a\x005WP`\0T`\x01`\xFF\x90\x91\x16\x10[\x80a\0OWP0;\x15\x80\x15a\0OWP`\0T`\xFF\x16`\x01\x14[a\0\xB6W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`.`$\x82\x01R\x7FInitializable: contract is alrea`D\x82\x01Rm\x19\x1EH\x1A[\x9A]\x1AX[\x1A^\x99Y`\x92\x1B`d\x82\x01R`\x84\x01`@Q\x80\x91\x03\x90\xFD[`\0\x80T`\xFF\x19\x16`\x01\x17\x90U\x80\x15a\0\xD9W`\0\x80Ta\xFF\0\x19\x16a\x01\0\x17\x90U[\x80\x15a\x01\x1FW`\0\x80Ta\xFF\0\x19\x16\x90U`@Q`\x01\x81R\x7F\x7F&\xB8?\xF9n\x1F+jh/\x138R\xF6y\x8A\t\xC4e\xDA\x95\x92\x14`\xCE\xFB8G@$\x98\x90` \x01`@Q\x80\x91\x03\x90\xA1[P`\x80Qa\x0B\xE4a\x01W`\09`\0\x81\x81a\x01\xED\x01R\x81\x81a\x026\x01R\x81\x81a\x02\xCC\x01R\x81\x81a\x03\x0C\x01Ra\x03\x96\x01Ra\x0B\xE4`\0\xF3\xFE`\x80`@R`\x046\x10a\0\x91W`\x005`\xE0\x1C\x80cR\xD1\x90-\x11a\0YW\x80cR\xD1\x90-\x14a\x01PW\x80c\x81)\xFC\x1C\x14a\x01eW\x80c\xA8\xD2\x1B\x9D\x14a\x01zW\x80c\xBC.f\xE6\x14a\x01\xC1W\x80c\xEE\xFBDa\x14a\x01\xCDW`\0\x80\xFD[\x80c\x01\xFF\xC9\xA7\x14a\0\x96W\x80c\x1FE|\xB5\x14a\0\xDCW\x80c04\x08\xD6\x14a\x01\x01W\x80c6Y\xCF\xE6\x14a\x01\x1BW\x80cO\x1E\xF2\x86\x14a\x01=W[`\0\x80\xFD[4\x80\x15a\0\xA2W`\0\x80\xFD[Pa\0\xC7a\0\xB16`\x04a\t\nV[`\x01`\x01`\xE0\x1B\x03\x19\x16c\x01\xFF\xC9\xA7`\xE0\x1B\x14\x90V[`@Q\x90\x15\x15\x81R` \x01[`@Q\x80\x91\x03\x90\xF3[4\x80\x15a\0\xE8W`\0\x80\xFD[Pa\0\xF3a\x02\xBDT\x81V[`@Q\x90\x81R` \x01a\0\xD3V[4\x80\x15a\x01\rW`\0\x80\xFD[P`\xFBTa\0\xC7\x90`\xFF\x16\x81V[4\x80\x15a\x01'W`\0\x80\xFD[Pa\x01;a\x0166`\x04a\tPV[a\x01\xE3V[\0[a\x01;a\x01K6`\x04a\t\x81V[a\x02\xC2V[4\x80\x15a\x01\\W`\0\x80\xFD[Pa\0\xF3a\x03\x89V[4\x80\x15a\x01qW`\0\x80\xFD[Pa\x01;a\x04<V[4\x80\x15a\x01\x86W`\0\x80\xFD[P`\xFBTa\x01\xA4\x90a\x01\0\x90\x04k\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16\x81V[`@Qk\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x90\x91\x16\x81R` \x01a\0\xD3V[4\x80\x15a\x01;W`\0\x80\xFD[4\x80\x15a\x01\xD9W`\0\x80\xFD[Pa\x02\xBDTa\0\xF3V[`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x160\x03a\x024W`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\nCV[`@Q\x80\x91\x03\x90\xFD[\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0`\x01`\x01`\xA0\x1B\x03\x16a\x02}`\0\x80Q` a\x0Bh\x839\x81Q\x91RT`\x01`\x01`\xA0\x1B\x03\x16\x90V[`\x01`\x01`\xA0\x1B\x03\x16\x14a\x02\xA3W`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\n\x8FV[`@\x80Q`\0\x80\x82R` \x82\x01\x90\x92Ra\x02\xBF\x91\x83\x91\x90a\x05DV[PV[`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x160\x03a\x03\nW`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\nCV[\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0`\x01`\x01`\xA0\x1B\x03\x16a\x03S`\0\x80Q` a\x0Bh\x839\x81Q\x91RT`\x01`\x01`\xA0\x1B\x03\x16\x90V[`\x01`\x01`\xA0\x1B\x03\x16\x14a\x03yW`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\n\x8FV[a\x03\x85\x82\x82`\x01a\x05DV[PPV[`\x000`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x16\x14a\x04)W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`8`$\x82\x01R\x7FUUPSUpgradeable: must not be cal`D\x82\x01R\x7Fled through delegatecall\0\0\0\0\0\0\0\0`d\x82\x01R`\x84\x01a\x02+V[P`\0\x80Q` a\x0Bh\x839\x81Q\x91R\x90V[`\0Ta\x01\0\x90\x04`\xFF\x16\x15\x80\x80\x15a\x04\\WP`\0T`\x01`\xFF\x90\x91\x16\x10[\x80a\x04vWP0;\x15\x80\x15a\x04vWP`\0T`\xFF\x16`\x01\x14[a\x04\xD9W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`.`$\x82\x01R\x7FInitializable: contract is alrea`D\x82\x01Rm\x19\x1EH\x1A[\x9A]\x1AX[\x1A^\x99Y`\x92\x1B`d\x82\x01R`\x84\x01a\x02+V[`\0\x80T`\xFF\x19\x16`\x01\x17\x90U\x80\x15a\x04\xFCW`\0\x80Ta\xFF\0\x19\x16a\x01\0\x17\x90U[\x80\x15a\x02\xBFW`\0\x80Ta\xFF\0\x19\x16\x90U`@Q`\x01\x81R\x7F\x7F&\xB8?\xF9n\x1F+jh/\x138R\xF6y\x8A\t\xC4e\xDA\x95\x92\x14`\xCE\xFB8G@$\x98\x90` \x01`@Q\x80\x91\x03\x90\xA1PV[\x7FI\x10\xFD\xFA\x16\xFE\xD3&\x0E\xD0\xE7\x14\x7F|\xC6\xDA\x11\xA6\x02\x08\xB5\xB9@m\x12\xA65aO\xFD\x91CT`\xFF\x16\x15a\x05|Wa\x05w\x83a\x06\xB4V[PPPV[\x82`\x01`\x01`\xA0\x1B\x03\x16cR\xD1\x90-`@Q\x81c\xFF\xFF\xFF\xFF\x16`\xE0\x1B\x81R`\x04\x01` `@Q\x80\x83\x03\x81\x86Z\xFA\x92PPP\x80\x15a\x05\xD6WP`@\x80Q`\x1F=\x90\x81\x01`\x1F\x19\x16\x82\x01\x90\x92Ra\x05\xD3\x91\x81\x01\x90a\n\xDBV[`\x01[a\x069W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`.`$\x82\x01R\x7FERC1967Upgrade: new implementati`D\x82\x01Rmon is not UUPS`\x90\x1B`d\x82\x01R`\x84\x01a\x02+V[`\0\x80Q` a\x0Bh\x839\x81Q\x91R\x81\x14a\x06\xA8W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`)`$\x82\x01R\x7FERC1967Upgrade: unsupported prox`D\x82\x01Rh\x1AXX\x9B\x19UURQ`\xBA\x1B`d\x82\x01R`\x84\x01a\x02+V[Pa\x05w\x83\x83\x83a\x07PV[`\x01`\x01`\xA0\x1B\x03\x81\x16;a\x07!W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`-`$\x82\x01R\x7FERC1967: new implementation is n`D\x82\x01Rl\x1B\xDD\x08\x18H\x18\xDB\xDB\x9D\x1C\x98X\xDD`\x9A\x1B`d\x82\x01R`\x84\x01a\x02+V[`\0\x80Q` a\x0Bh\x839\x81Q\x91R\x80T`\x01`\x01`\xA0\x1B\x03\x19\x16`\x01`\x01`\xA0\x1B\x03\x92\x90\x92\x16\x91\x90\x91\x17\x90UV[a\x07Y\x83a\x07{V[`\0\x82Q\x11\x80a\x07fWP\x80[\x15a\x05wWa\x07u\x83\x83a\x07\xBBV[PPPPV[a\x07\x84\x81a\x06\xB4V[`@Q`\x01`\x01`\xA0\x1B\x03\x82\x16\x90\x7F\xBC|\xD7Z \xEE'\xFD\x9A\xDE\xBA\xB3 A\xF7U!M\xBCk\xFF\xA9\x0C\xC0\"[9\xDA.\\-;\x90`\0\x90\xA2PV[``a\x07\xE0\x83\x83`@Q\x80``\x01`@R\x80`'\x81R` \x01a\x0B\x88`'\x919a\x07\xE7V[\x93\x92PPPV[```\0\x80\x85`\x01`\x01`\xA0\x1B\x03\x16\x85`@Qa\x08\x04\x91\x90a\x0B\x18V[`\0`@Q\x80\x83\x03\x81\x85Z\xF4\x91PP=\x80`\0\x81\x14a\x08?W`@Q\x91P`\x1F\x19`?=\x01\x16\x82\x01`@R=\x82R=`\0` \x84\x01>a\x08DV[``\x91P[P\x91P\x91Pa\x08U\x86\x83\x83\x87a\x08_V[\x96\x95PPPPPPV[``\x83\x15a\x08\xCEW\x82Q`\0\x03a\x08\xC7W`\x01`\x01`\xA0\x1B\x03\x85\x16;a\x08\xC7W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`\x1D`$\x82\x01R\x7FAddress: call to non-contract\0\0\0`D\x82\x01R`d\x01a\x02+V[P\x81a\x08\xD8V[a\x08\xD8\x83\x83a\x08\xE0V[\x94\x93PPPPV[\x81Q\x15a\x08\xF0W\x81Q\x80\x83` \x01\xFD[\x80`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x91\x90a\x0B4V[`\0` \x82\x84\x03\x12\x15a\t\x1CW`\0\x80\xFD[\x815`\x01`\x01`\xE0\x1B\x03\x19\x81\x16\x81\x14a\x07\xE0W`\0\x80\xFD[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\tKW`\0\x80\xFD[\x91\x90PV[`\0` \x82\x84\x03\x12\x15a\tbW`\0\x80\xFD[a\x07\xE0\x82a\t4V[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x80`@\x83\x85\x03\x12\x15a\t\x94W`\0\x80\xFD[a\t\x9D\x83a\t4V[\x91P` \x83\x015g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\t\xBAW`\0\x80\xFD[\x81\x85\x01\x91P\x85`\x1F\x83\x01\x12a\t\xCEW`\0\x80\xFD[\x815\x81\x81\x11\x15a\t\xE0Wa\t\xE0a\tkV[`@Q`\x1F\x82\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x83\x82\x11\x81\x83\x10\x17\x15a\n\x08Wa\n\x08a\tkV[\x81`@R\x82\x81R\x88` \x84\x87\x01\x01\x11\x15a\n!W`\0\x80\xFD[\x82` \x86\x01` \x83\x017`\0` \x84\x83\x01\x01R\x80\x95PPPPPP\x92P\x92\x90PV[` \x80\x82R`,\x90\x82\x01R\x7FFunction must be called through `@\x82\x01Rk\x19\x19[\x19Y\xD8]\x19X\xD8[\x1B`\xA2\x1B``\x82\x01R`\x80\x01\x90V[` \x80\x82R`,\x90\x82\x01R\x7FFunction must be called through `@\x82\x01Rkactive proxy`\xA0\x1B``\x82\x01R`\x80\x01\x90V[`\0` \x82\x84\x03\x12\x15a\n\xEDW`\0\x80\xFD[PQ\x91\x90PV[`\0[\x83\x81\x10\x15a\x0B\x0FW\x81\x81\x01Q\x83\x82\x01R` \x01a\n\xF7V[PP`\0\x91\x01RV[`\0\x82Qa\x0B*\x81\x84` \x87\x01a\n\xF4V[\x91\x90\x91\x01\x92\x91PPV[` \x81R`\0\x82Q\x80` \x84\x01Ra\x0BS\x81`@\x85\x01` \x87\x01a\n\xF4V[`\x1F\x01`\x1F\x19\x16\x91\x90\x91\x01`@\x01\x92\x91PPV\xFE6\x08\x94\xA1;\xA1\xA3!\x06g\xC8(I-\xB9\x8D\xCA> v\xCC75\xA9 \xA3\xCAP]8+\xBCAddress: low-level delegate call failed\xA2dipfsX\"\x12 \x02_\xE5Yt\x99\xF0\xED\xF9J\xEF\xFB(\xBC:\x11\x96\xA4mMC\x94\xD3\xB9\\\xD7}x\xF0\\\xE5\xFCdsolcC\0\x08\x14\x003";
+    const __BYTECODE: &[u8] = b"`\xA0`@R0`\x80R4\x80\x15a\0\x14W`\0\x80\xFD[P\x7F\xF0\xC5~\x16\x84\r\xF0@\xF1P\x88\xDC/\x81\xFE9\x1C9#\xBE\xC7>#\xA9f.\xFC\x9C\"\x9Cj\0\x80Th\x01\0\0\0\0\0\0\0\0\x81\x04`\xFF\x16\x15\x90`\x01`\x01`@\x1B\x03\x16`\0\x81\x15\x80\x15a\0_WP\x82[\x90P`\0\x82`\x01`\x01`@\x1B\x03\x16`\x01\x14\x80\x15a\0{WP0;\x15[\x90P\x81\x15\x80\x15a\0\x89WP\x80\x15[\x15a\0\xA7W`@Qc\xF9.\xE8\xA9`\xE0\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[\x84T`\x01`\x01`@\x1B\x03\x19\x16`\x01\x17\x85U\x83\x15a\0\xD5W\x84T`\xFF`@\x1B\x19\x16h\x01\0\0\0\0\0\0\0\0\x17\x85U[\x83\x15a\x01\x1BW\x84T`\xFF`@\x1B\x19\x16\x85U`@Q`\x01\x81R\x7F\xC7\xF5\x05\xB2\xF3q\xAE!u\xEEI\x13\xF4I\x9E\x1F&3\xA7\xB5\x93c!\xEE\xD1\xCD\xAE\xB6\x11Q\x81\xD2\x90` \x01`@Q\x80\x91\x03\x90\xA1[PPPPP`\x80Qa\x08\xBBa\x01I`\09`\0\x81\x81a\x03G\x01R\x81\x81a\x03p\x01Ra\x04\xB3\x01Ra\x08\xBB`\0\xF3\xFE`\x80`@R`\x046\x10a\0\x91W`\x005`\xE0\x1C\x80c\x81)\xFC\x1C\x11a\0YW\x80c\x81)\xFC\x1C\x14a\x01EW\x80c\xA8\xD2\x1B\x9D\x14a\x01ZW\x80c\xAD<\xB1\xCC\x14a\x01\xA1W\x80c\xBC.f\xE6\x14a\x01\xDFW\x80c\xEE\xFBDa\x14a\x01\xEBW`\0\x80\xFD[\x80c\x01\xFF\xC9\xA7\x14a\0\x96W\x80c\x1FE|\xB5\x14a\0\xDCW\x80c04\x08\xD6\x14a\x01\x01W\x80cO\x1E\xF2\x86\x14a\x01\x1BW\x80cR\xD1\x90-\x14a\x010W[`\0\x80\xFD[4\x80\x15a\0\xA2W`\0\x80\xFD[Pa\0\xC7a\0\xB16`\x04a\x06\xC9V[`\x01`\x01`\xE0\x1B\x03\x19\x16c\x01\xFF\xC9\xA7`\xE0\x1B\x14\x90V[`@Q\x90\x15\x15\x81R` \x01[`@Q\x80\x91\x03\x90\xF3[4\x80\x15a\0\xE8W`\0\x80\xFD[Pa\0\xF3a\x01\xC2T\x81V[`@Q\x90\x81R` \x01a\0\xD3V[4\x80\x15a\x01\rW`\0\x80\xFD[P`\0Ta\0\xC7\x90`\xFF\x16\x81V[a\x01.a\x01)6`\x04a\x07\tV[a\x02\x01V[\0[4\x80\x15a\x01<W`\0\x80\xFD[Pa\0\xF3a\x02\x17V[4\x80\x15a\x01QW`\0\x80\xFD[Pa\x01.a\x024V[4\x80\x15a\x01fW`\0\x80\xFD[P`\0Ta\x01\x84\x90a\x01\0\x90\x04k\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16\x81V[`@Qk\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x90\x91\x16\x81R` \x01a\0\xD3V[4\x80\x15a\x01\xADW`\0\x80\xFD[Pa\x01\xD2`@Q\x80`@\x01`@R\x80`\x05\x81R` \x01d\x03R\xE3\x02\xE3`\xDC\x1B\x81RP\x81V[`@Qa\0\xD3\x91\x90a\x07\xFDV[4\x80\x15a\x01.W`\0\x80\xFD[4\x80\x15a\x01\xF7W`\0\x80\xFD[Pa\x01\xC2Ta\0\xF3V[a\x02\ta\x03<V[a\x02\x13\x82\x82a\x03\xE1V[PPV[`\0a\x02!a\x04\xA8V[P`\0\x80Q` a\x08f\x839\x81Q\x91R\x90V[\x7F\xF0\xC5~\x16\x84\r\xF0@\xF1P\x88\xDC/\x81\xFE9\x1C9#\xBE\xC7>#\xA9f.\xFC\x9C\"\x9Cj\0\x80T`\x01`@\x1B\x81\x04`\xFF\x16\x15\x90g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16`\0\x81\x15\x80\x15a\x02zWP\x82[\x90P`\0\x82g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16`\x01\x14\x80\x15a\x02\x97WP0;\x15[\x90P\x81\x15\x80\x15a\x02\xA5WP\x80\x15[\x15a\x02\xC3W`@Qc\xF9.\xE8\xA9`\xE0\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[\x84Tg\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x19\x16`\x01\x17\x85U\x83\x15a\x02\xEDW\x84T`\xFF`@\x1B\x19\x16`\x01`@\x1B\x17\x85U[\x83\x15a\x033W\x84T`\xFF`@\x1B\x19\x16\x85U`@Q`\x01\x81R\x7F\xC7\xF5\x05\xB2\xF3q\xAE!u\xEEI\x13\xF4I\x9E\x1F&3\xA7\xB5\x93c!\xEE\xD1\xCD\xAE\xB6\x11Q\x81\xD2\x90` \x01`@Q\x80\x91\x03\x90\xA1[PPPPPV[V[0`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x16\x14\x80a\x03\xC3WP\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0`\x01`\x01`\xA0\x1B\x03\x16a\x03\xB7`\0\x80Q` a\x08f\x839\x81Q\x91RT`\x01`\x01`\xA0\x1B\x03\x16\x90V[`\x01`\x01`\xA0\x1B\x03\x16\x14\x15[\x15a\x03:W`@Qcp>F\xDD`\xE1\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[\x81`\x01`\x01`\xA0\x1B\x03\x16cR\xD1\x90-`@Q\x81c\xFF\xFF\xFF\xFF\x16`\xE0\x1B\x81R`\x04\x01` `@Q\x80\x83\x03\x81\x86Z\xFA\x92PPP\x80\x15a\x04;WP`@\x80Q`\x1F=\x90\x81\x01`\x1F\x19\x16\x82\x01\x90\x92Ra\x048\x91\x81\x01\x90a\x080V[`\x01[a\x04hW`@QcL\x9C\x8C\xE3`\xE0\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x83\x16`\x04\x82\x01R`$\x01[`@Q\x80\x91\x03\x90\xFD[`\0\x80Q` a\x08f\x839\x81Q\x91R\x81\x14a\x04\x99W`@Qc*\x87Ri`\xE2\x1B\x81R`\x04\x81\x01\x82\x90R`$\x01a\x04_V[a\x04\xA3\x83\x83a\x04\xF1V[PPPV[0`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x16\x14a\x03:W`@Qcp>F\xDD`\xE1\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[a\x04\xFA\x82a\x05GV[`@Q`\x01`\x01`\xA0\x1B\x03\x83\x16\x90\x7F\xBC|\xD7Z \xEE'\xFD\x9A\xDE\xBA\xB3 A\xF7U!M\xBCk\xFF\xA9\x0C\xC0\"[9\xDA.\\-;\x90`\0\x90\xA2\x80Q\x15a\x05?Wa\x04\xA3\x82\x82a\x05\xACV[a\x02\x13a\x06\"V[\x80`\x01`\x01`\xA0\x1B\x03\x16;`\0\x03a\x05}W`@QcL\x9C\x8C\xE3`\xE0\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x82\x16`\x04\x82\x01R`$\x01a\x04_V[`\0\x80Q` a\x08f\x839\x81Q\x91R\x80T`\x01`\x01`\xA0\x1B\x03\x19\x16`\x01`\x01`\xA0\x1B\x03\x92\x90\x92\x16\x91\x90\x91\x17\x90UV[```\0\x80\x84`\x01`\x01`\xA0\x1B\x03\x16\x84`@Qa\x05\xC9\x91\x90a\x08IV[`\0`@Q\x80\x83\x03\x81\x85Z\xF4\x91PP=\x80`\0\x81\x14a\x06\x04W`@Q\x91P`\x1F\x19`?=\x01\x16\x82\x01`@R=\x82R=`\0` \x84\x01>a\x06\tV[``\x91P[P\x91P\x91Pa\x06\x19\x85\x83\x83a\x06AV[\x95\x94PPPPPV[4\x15a\x03:W`@Qc\xB3\x98\x97\x9F`\xE0\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[``\x82a\x06VWa\x06Q\x82a\x06\xA0V[a\x06\x99V[\x81Q\x15\x80\x15a\x06mWP`\x01`\x01`\xA0\x1B\x03\x84\x16;\x15[\x15a\x06\x96W`@Qc\x99\x96\xB3\x15`\xE0\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x85\x16`\x04\x82\x01R`$\x01a\x04_V[P\x80[\x93\x92PPPV[\x80Q\x15a\x06\xB0W\x80Q\x80\x82` \x01\xFD[`@Qc\n\x12\xF5!`\xE1\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[`\0` \x82\x84\x03\x12\x15a\x06\xDBW`\0\x80\xFD[\x815`\x01`\x01`\xE0\x1B\x03\x19\x81\x16\x81\x14a\x06\x99W`\0\x80\xFD[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x80`@\x83\x85\x03\x12\x15a\x07\x1CW`\0\x80\xFD[\x825`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\x073W`\0\x80\xFD[\x91P` \x83\x015g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x07PW`\0\x80\xFD[\x81\x85\x01\x91P\x85`\x1F\x83\x01\x12a\x07dW`\0\x80\xFD[\x815\x81\x81\x11\x15a\x07vWa\x07va\x06\xF3V[`@Q`\x1F\x82\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x83\x82\x11\x81\x83\x10\x17\x15a\x07\x9EWa\x07\x9Ea\x06\xF3V[\x81`@R\x82\x81R\x88` \x84\x87\x01\x01\x11\x15a\x07\xB7W`\0\x80\xFD[\x82` \x86\x01` \x83\x017`\0` \x84\x83\x01\x01R\x80\x95PPPPPP\x92P\x92\x90PV[`\0[\x83\x81\x10\x15a\x07\xF4W\x81\x81\x01Q\x83\x82\x01R` \x01a\x07\xDCV[PP`\0\x91\x01RV[` \x81R`\0\x82Q\x80` \x84\x01Ra\x08\x1C\x81`@\x85\x01` \x87\x01a\x07\xD9V[`\x1F\x01`\x1F\x19\x16\x91\x90\x91\x01`@\x01\x92\x91PPV[`\0` \x82\x84\x03\x12\x15a\x08BW`\0\x80\xFD[PQ\x91\x90PV[`\0\x82Qa\x08[\x81\x84` \x87\x01a\x07\xD9V[\x91\x90\x91\x01\x92\x91PPV\xFE6\x08\x94\xA1;\xA1\xA3!\x06g\xC8(I-\xB9\x8D\xCA> v\xCC75\xA9 \xA3\xCAP]8+\xBC\xA2dipfsX\"\x12 \xA0\xF7\xB4\xB0D\x91X\xC2\x8B\xC9qP(\xB24\xA5\xD5\xC8\x0F)L\x99\xA1\x8DC\xBB|\x1E\xB3\xE1@0dsolcC\0\x08\x14\x003";
     /// The bytecode of the contract.
     pub static UC_REKT_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R`\x046\x10a\0\x91W`\x005`\xE0\x1C\x80cR\xD1\x90-\x11a\0YW\x80cR\xD1\x90-\x14a\x01PW\x80c\x81)\xFC\x1C\x14a\x01eW\x80c\xA8\xD2\x1B\x9D\x14a\x01zW\x80c\xBC.f\xE6\x14a\x01\xC1W\x80c\xEE\xFBDa\x14a\x01\xCDW`\0\x80\xFD[\x80c\x01\xFF\xC9\xA7\x14a\0\x96W\x80c\x1FE|\xB5\x14a\0\xDCW\x80c04\x08\xD6\x14a\x01\x01W\x80c6Y\xCF\xE6\x14a\x01\x1BW\x80cO\x1E\xF2\x86\x14a\x01=W[`\0\x80\xFD[4\x80\x15a\0\xA2W`\0\x80\xFD[Pa\0\xC7a\0\xB16`\x04a\t\nV[`\x01`\x01`\xE0\x1B\x03\x19\x16c\x01\xFF\xC9\xA7`\xE0\x1B\x14\x90V[`@Q\x90\x15\x15\x81R` \x01[`@Q\x80\x91\x03\x90\xF3[4\x80\x15a\0\xE8W`\0\x80\xFD[Pa\0\xF3a\x02\xBDT\x81V[`@Q\x90\x81R` \x01a\0\xD3V[4\x80\x15a\x01\rW`\0\x80\xFD[P`\xFBTa\0\xC7\x90`\xFF\x16\x81V[4\x80\x15a\x01'W`\0\x80\xFD[Pa\x01;a\x0166`\x04a\tPV[a\x01\xE3V[\0[a\x01;a\x01K6`\x04a\t\x81V[a\x02\xC2V[4\x80\x15a\x01\\W`\0\x80\xFD[Pa\0\xF3a\x03\x89V[4\x80\x15a\x01qW`\0\x80\xFD[Pa\x01;a\x04<V[4\x80\x15a\x01\x86W`\0\x80\xFD[P`\xFBTa\x01\xA4\x90a\x01\0\x90\x04k\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16\x81V[`@Qk\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x90\x91\x16\x81R` \x01a\0\xD3V[4\x80\x15a\x01;W`\0\x80\xFD[4\x80\x15a\x01\xD9W`\0\x80\xFD[Pa\x02\xBDTa\0\xF3V[`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x160\x03a\x024W`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\nCV[`@Q\x80\x91\x03\x90\xFD[\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0`\x01`\x01`\xA0\x1B\x03\x16a\x02}`\0\x80Q` a\x0Bh\x839\x81Q\x91RT`\x01`\x01`\xA0\x1B\x03\x16\x90V[`\x01`\x01`\xA0\x1B\x03\x16\x14a\x02\xA3W`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\n\x8FV[`@\x80Q`\0\x80\x82R` \x82\x01\x90\x92Ra\x02\xBF\x91\x83\x91\x90a\x05DV[PV[`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x160\x03a\x03\nW`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\nCV[\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0`\x01`\x01`\xA0\x1B\x03\x16a\x03S`\0\x80Q` a\x0Bh\x839\x81Q\x91RT`\x01`\x01`\xA0\x1B\x03\x16\x90V[`\x01`\x01`\xA0\x1B\x03\x16\x14a\x03yW`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x90a\n\x8FV[a\x03\x85\x82\x82`\x01a\x05DV[PPV[`\x000`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x16\x14a\x04)W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`8`$\x82\x01R\x7FUUPSUpgradeable: must not be cal`D\x82\x01R\x7Fled through delegatecall\0\0\0\0\0\0\0\0`d\x82\x01R`\x84\x01a\x02+V[P`\0\x80Q` a\x0Bh\x839\x81Q\x91R\x90V[`\0Ta\x01\0\x90\x04`\xFF\x16\x15\x80\x80\x15a\x04\\WP`\0T`\x01`\xFF\x90\x91\x16\x10[\x80a\x04vWP0;\x15\x80\x15a\x04vWP`\0T`\xFF\x16`\x01\x14[a\x04\xD9W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`.`$\x82\x01R\x7FInitializable: contract is alrea`D\x82\x01Rm\x19\x1EH\x1A[\x9A]\x1AX[\x1A^\x99Y`\x92\x1B`d\x82\x01R`\x84\x01a\x02+V[`\0\x80T`\xFF\x19\x16`\x01\x17\x90U\x80\x15a\x04\xFCW`\0\x80Ta\xFF\0\x19\x16a\x01\0\x17\x90U[\x80\x15a\x02\xBFW`\0\x80Ta\xFF\0\x19\x16\x90U`@Q`\x01\x81R\x7F\x7F&\xB8?\xF9n\x1F+jh/\x138R\xF6y\x8A\t\xC4e\xDA\x95\x92\x14`\xCE\xFB8G@$\x98\x90` \x01`@Q\x80\x91\x03\x90\xA1PV[\x7FI\x10\xFD\xFA\x16\xFE\xD3&\x0E\xD0\xE7\x14\x7F|\xC6\xDA\x11\xA6\x02\x08\xB5\xB9@m\x12\xA65aO\xFD\x91CT`\xFF\x16\x15a\x05|Wa\x05w\x83a\x06\xB4V[PPPV[\x82`\x01`\x01`\xA0\x1B\x03\x16cR\xD1\x90-`@Q\x81c\xFF\xFF\xFF\xFF\x16`\xE0\x1B\x81R`\x04\x01` `@Q\x80\x83\x03\x81\x86Z\xFA\x92PPP\x80\x15a\x05\xD6WP`@\x80Q`\x1F=\x90\x81\x01`\x1F\x19\x16\x82\x01\x90\x92Ra\x05\xD3\x91\x81\x01\x90a\n\xDBV[`\x01[a\x069W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`.`$\x82\x01R\x7FERC1967Upgrade: new implementati`D\x82\x01Rmon is not UUPS`\x90\x1B`d\x82\x01R`\x84\x01a\x02+V[`\0\x80Q` a\x0Bh\x839\x81Q\x91R\x81\x14a\x06\xA8W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`)`$\x82\x01R\x7FERC1967Upgrade: unsupported prox`D\x82\x01Rh\x1AXX\x9B\x19UURQ`\xBA\x1B`d\x82\x01R`\x84\x01a\x02+V[Pa\x05w\x83\x83\x83a\x07PV[`\x01`\x01`\xA0\x1B\x03\x81\x16;a\x07!W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`-`$\x82\x01R\x7FERC1967: new implementation is n`D\x82\x01Rl\x1B\xDD\x08\x18H\x18\xDB\xDB\x9D\x1C\x98X\xDD`\x9A\x1B`d\x82\x01R`\x84\x01a\x02+V[`\0\x80Q` a\x0Bh\x839\x81Q\x91R\x80T`\x01`\x01`\xA0\x1B\x03\x19\x16`\x01`\x01`\xA0\x1B\x03\x92\x90\x92\x16\x91\x90\x91\x17\x90UV[a\x07Y\x83a\x07{V[`\0\x82Q\x11\x80a\x07fWP\x80[\x15a\x05wWa\x07u\x83\x83a\x07\xBBV[PPPPV[a\x07\x84\x81a\x06\xB4V[`@Q`\x01`\x01`\xA0\x1B\x03\x82\x16\x90\x7F\xBC|\xD7Z \xEE'\xFD\x9A\xDE\xBA\xB3 A\xF7U!M\xBCk\xFF\xA9\x0C\xC0\"[9\xDA.\\-;\x90`\0\x90\xA2PV[``a\x07\xE0\x83\x83`@Q\x80``\x01`@R\x80`'\x81R` \x01a\x0B\x88`'\x919a\x07\xE7V[\x93\x92PPPV[```\0\x80\x85`\x01`\x01`\xA0\x1B\x03\x16\x85`@Qa\x08\x04\x91\x90a\x0B\x18V[`\0`@Q\x80\x83\x03\x81\x85Z\xF4\x91PP=\x80`\0\x81\x14a\x08?W`@Q\x91P`\x1F\x19`?=\x01\x16\x82\x01`@R=\x82R=`\0` \x84\x01>a\x08DV[``\x91P[P\x91P\x91Pa\x08U\x86\x83\x83\x87a\x08_V[\x96\x95PPPPPPV[``\x83\x15a\x08\xCEW\x82Q`\0\x03a\x08\xC7W`\x01`\x01`\xA0\x1B\x03\x85\x16;a\x08\xC7W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`\x1D`$\x82\x01R\x7FAddress: call to non-contract\0\0\0`D\x82\x01R`d\x01a\x02+V[P\x81a\x08\xD8V[a\x08\xD8\x83\x83a\x08\xE0V[\x94\x93PPPPV[\x81Q\x15a\x08\xF0W\x81Q\x80\x83` \x01\xFD[\x80`@QbF\x1B\xCD`\xE5\x1B\x81R`\x04\x01a\x02+\x91\x90a\x0B4V[`\0` \x82\x84\x03\x12\x15a\t\x1CW`\0\x80\xFD[\x815`\x01`\x01`\xE0\x1B\x03\x19\x81\x16\x81\x14a\x07\xE0W`\0\x80\xFD[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\tKW`\0\x80\xFD[\x91\x90PV[`\0` \x82\x84\x03\x12\x15a\tbW`\0\x80\xFD[a\x07\xE0\x82a\t4V[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x80`@\x83\x85\x03\x12\x15a\t\x94W`\0\x80\xFD[a\t\x9D\x83a\t4V[\x91P` \x83\x015g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\t\xBAW`\0\x80\xFD[\x81\x85\x01\x91P\x85`\x1F\x83\x01\x12a\t\xCEW`\0\x80\xFD[\x815\x81\x81\x11\x15a\t\xE0Wa\t\xE0a\tkV[`@Q`\x1F\x82\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x83\x82\x11\x81\x83\x10\x17\x15a\n\x08Wa\n\x08a\tkV[\x81`@R\x82\x81R\x88` \x84\x87\x01\x01\x11\x15a\n!W`\0\x80\xFD[\x82` \x86\x01` \x83\x017`\0` \x84\x83\x01\x01R\x80\x95PPPPPP\x92P\x92\x90PV[` \x80\x82R`,\x90\x82\x01R\x7FFunction must be called through `@\x82\x01Rk\x19\x19[\x19Y\xD8]\x19X\xD8[\x1B`\xA2\x1B``\x82\x01R`\x80\x01\x90V[` \x80\x82R`,\x90\x82\x01R\x7FFunction must be called through `@\x82\x01Rkactive proxy`\xA0\x1B``\x82\x01R`\x80\x01\x90V[`\0` \x82\x84\x03\x12\x15a\n\xEDW`\0\x80\xFD[PQ\x91\x90PV[`\0[\x83\x81\x10\x15a\x0B\x0FW\x81\x81\x01Q\x83\x82\x01R` \x01a\n\xF7V[PP`\0\x91\x01RV[`\0\x82Qa\x0B*\x81\x84` \x87\x01a\n\xF4V[\x91\x90\x91\x01\x92\x91PPV[` \x81R`\0\x82Q\x80` \x84\x01Ra\x0BS\x81`@\x85\x01` \x87\x01a\n\xF4V[`\x1F\x01`\x1F\x19\x16\x91\x90\x91\x01`@\x01\x92\x91PPV\xFE6\x08\x94\xA1;\xA1\xA3!\x06g\xC8(I-\xB9\x8D\xCA> v\xCC75\xA9 \xA3\xCAP]8+\xBCAddress: low-level delegate call failed\xA2dipfsX\"\x12 \x02_\xE5Yt\x99\xF0\xED\xF9J\xEF\xFB(\xBC:\x11\x96\xA4mMC\x94\xD3\xB9\\\xD7}x\xF0\\\xE5\xFCdsolcC\0\x08\x14\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R`\x046\x10a\0\x91W`\x005`\xE0\x1C\x80c\x81)\xFC\x1C\x11a\0YW\x80c\x81)\xFC\x1C\x14a\x01EW\x80c\xA8\xD2\x1B\x9D\x14a\x01ZW\x80c\xAD<\xB1\xCC\x14a\x01\xA1W\x80c\xBC.f\xE6\x14a\x01\xDFW\x80c\xEE\xFBDa\x14a\x01\xEBW`\0\x80\xFD[\x80c\x01\xFF\xC9\xA7\x14a\0\x96W\x80c\x1FE|\xB5\x14a\0\xDCW\x80c04\x08\xD6\x14a\x01\x01W\x80cO\x1E\xF2\x86\x14a\x01\x1BW\x80cR\xD1\x90-\x14a\x010W[`\0\x80\xFD[4\x80\x15a\0\xA2W`\0\x80\xFD[Pa\0\xC7a\0\xB16`\x04a\x06\xC9V[`\x01`\x01`\xE0\x1B\x03\x19\x16c\x01\xFF\xC9\xA7`\xE0\x1B\x14\x90V[`@Q\x90\x15\x15\x81R` \x01[`@Q\x80\x91\x03\x90\xF3[4\x80\x15a\0\xE8W`\0\x80\xFD[Pa\0\xF3a\x01\xC2T\x81V[`@Q\x90\x81R` \x01a\0\xD3V[4\x80\x15a\x01\rW`\0\x80\xFD[P`\0Ta\0\xC7\x90`\xFF\x16\x81V[a\x01.a\x01)6`\x04a\x07\tV[a\x02\x01V[\0[4\x80\x15a\x01<W`\0\x80\xFD[Pa\0\xF3a\x02\x17V[4\x80\x15a\x01QW`\0\x80\xFD[Pa\x01.a\x024V[4\x80\x15a\x01fW`\0\x80\xFD[P`\0Ta\x01\x84\x90a\x01\0\x90\x04k\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16\x81V[`@Qk\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x90\x91\x16\x81R` \x01a\0\xD3V[4\x80\x15a\x01\xADW`\0\x80\xFD[Pa\x01\xD2`@Q\x80`@\x01`@R\x80`\x05\x81R` \x01d\x03R\xE3\x02\xE3`\xDC\x1B\x81RP\x81V[`@Qa\0\xD3\x91\x90a\x07\xFDV[4\x80\x15a\x01.W`\0\x80\xFD[4\x80\x15a\x01\xF7W`\0\x80\xFD[Pa\x01\xC2Ta\0\xF3V[a\x02\ta\x03<V[a\x02\x13\x82\x82a\x03\xE1V[PPV[`\0a\x02!a\x04\xA8V[P`\0\x80Q` a\x08f\x839\x81Q\x91R\x90V[\x7F\xF0\xC5~\x16\x84\r\xF0@\xF1P\x88\xDC/\x81\xFE9\x1C9#\xBE\xC7>#\xA9f.\xFC\x9C\"\x9Cj\0\x80T`\x01`@\x1B\x81\x04`\xFF\x16\x15\x90g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16`\0\x81\x15\x80\x15a\x02zWP\x82[\x90P`\0\x82g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x16`\x01\x14\x80\x15a\x02\x97WP0;\x15[\x90P\x81\x15\x80\x15a\x02\xA5WP\x80\x15[\x15a\x02\xC3W`@Qc\xF9.\xE8\xA9`\xE0\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[\x84Tg\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x19\x16`\x01\x17\x85U\x83\x15a\x02\xEDW\x84T`\xFF`@\x1B\x19\x16`\x01`@\x1B\x17\x85U[\x83\x15a\x033W\x84T`\xFF`@\x1B\x19\x16\x85U`@Q`\x01\x81R\x7F\xC7\xF5\x05\xB2\xF3q\xAE!u\xEEI\x13\xF4I\x9E\x1F&3\xA7\xB5\x93c!\xEE\xD1\xCD\xAE\xB6\x11Q\x81\xD2\x90` \x01`@Q\x80\x91\x03\x90\xA1[PPPPPV[V[0`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x16\x14\x80a\x03\xC3WP\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0`\x01`\x01`\xA0\x1B\x03\x16a\x03\xB7`\0\x80Q` a\x08f\x839\x81Q\x91RT`\x01`\x01`\xA0\x1B\x03\x16\x90V[`\x01`\x01`\xA0\x1B\x03\x16\x14\x15[\x15a\x03:W`@Qcp>F\xDD`\xE1\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[\x81`\x01`\x01`\xA0\x1B\x03\x16cR\xD1\x90-`@Q\x81c\xFF\xFF\xFF\xFF\x16`\xE0\x1B\x81R`\x04\x01` `@Q\x80\x83\x03\x81\x86Z\xFA\x92PPP\x80\x15a\x04;WP`@\x80Q`\x1F=\x90\x81\x01`\x1F\x19\x16\x82\x01\x90\x92Ra\x048\x91\x81\x01\x90a\x080V[`\x01[a\x04hW`@QcL\x9C\x8C\xE3`\xE0\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x83\x16`\x04\x82\x01R`$\x01[`@Q\x80\x91\x03\x90\xFD[`\0\x80Q` a\x08f\x839\x81Q\x91R\x81\x14a\x04\x99W`@Qc*\x87Ri`\xE2\x1B\x81R`\x04\x81\x01\x82\x90R`$\x01a\x04_V[a\x04\xA3\x83\x83a\x04\xF1V[PPPV[0`\x01`\x01`\xA0\x1B\x03\x7F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x16\x14a\x03:W`@Qcp>F\xDD`\xE1\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[a\x04\xFA\x82a\x05GV[`@Q`\x01`\x01`\xA0\x1B\x03\x83\x16\x90\x7F\xBC|\xD7Z \xEE'\xFD\x9A\xDE\xBA\xB3 A\xF7U!M\xBCk\xFF\xA9\x0C\xC0\"[9\xDA.\\-;\x90`\0\x90\xA2\x80Q\x15a\x05?Wa\x04\xA3\x82\x82a\x05\xACV[a\x02\x13a\x06\"V[\x80`\x01`\x01`\xA0\x1B\x03\x16;`\0\x03a\x05}W`@QcL\x9C\x8C\xE3`\xE0\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x82\x16`\x04\x82\x01R`$\x01a\x04_V[`\0\x80Q` a\x08f\x839\x81Q\x91R\x80T`\x01`\x01`\xA0\x1B\x03\x19\x16`\x01`\x01`\xA0\x1B\x03\x92\x90\x92\x16\x91\x90\x91\x17\x90UV[```\0\x80\x84`\x01`\x01`\xA0\x1B\x03\x16\x84`@Qa\x05\xC9\x91\x90a\x08IV[`\0`@Q\x80\x83\x03\x81\x85Z\xF4\x91PP=\x80`\0\x81\x14a\x06\x04W`@Q\x91P`\x1F\x19`?=\x01\x16\x82\x01`@R=\x82R=`\0` \x84\x01>a\x06\tV[``\x91P[P\x91P\x91Pa\x06\x19\x85\x83\x83a\x06AV[\x95\x94PPPPPV[4\x15a\x03:W`@Qc\xB3\x98\x97\x9F`\xE0\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[``\x82a\x06VWa\x06Q\x82a\x06\xA0V[a\x06\x99V[\x81Q\x15\x80\x15a\x06mWP`\x01`\x01`\xA0\x1B\x03\x84\x16;\x15[\x15a\x06\x96W`@Qc\x99\x96\xB3\x15`\xE0\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x85\x16`\x04\x82\x01R`$\x01a\x04_V[P\x80[\x93\x92PPPV[\x80Q\x15a\x06\xB0W\x80Q\x80\x82` \x01\xFD[`@Qc\n\x12\xF5!`\xE1\x1B\x81R`\x04\x01`@Q\x80\x91\x03\x90\xFD[`\0` \x82\x84\x03\x12\x15a\x06\xDBW`\0\x80\xFD[\x815`\x01`\x01`\xE0\x1B\x03\x19\x81\x16\x81\x14a\x06\x99W`\0\x80\xFD[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x80`@\x83\x85\x03\x12\x15a\x07\x1CW`\0\x80\xFD[\x825`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\x073W`\0\x80\xFD[\x91P` \x83\x015g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x07PW`\0\x80\xFD[\x81\x85\x01\x91P\x85`\x1F\x83\x01\x12a\x07dW`\0\x80\xFD[\x815\x81\x81\x11\x15a\x07vWa\x07va\x06\xF3V[`@Q`\x1F\x82\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x83\x82\x11\x81\x83\x10\x17\x15a\x07\x9EWa\x07\x9Ea\x06\xF3V[\x81`@R\x82\x81R\x88` \x84\x87\x01\x01\x11\x15a\x07\xB7W`\0\x80\xFD[\x82` \x86\x01` \x83\x017`\0` \x84\x83\x01\x01R\x80\x95PPPPPP\x92P\x92\x90PV[`\0[\x83\x81\x10\x15a\x07\xF4W\x81\x81\x01Q\x83\x82\x01R` \x01a\x07\xDCV[PP`\0\x91\x01RV[` \x81R`\0\x82Q\x80` \x84\x01Ra\x08\x1C\x81`@\x85\x01` \x87\x01a\x07\xD9V[`\x1F\x01`\x1F\x19\x16\x91\x90\x91\x01`@\x01\x92\x91PPV[`\0` \x82\x84\x03\x12\x15a\x08BW`\0\x80\xFD[PQ\x91\x90PV[`\0\x82Qa\x08[\x81\x84` \x87\x01a\x07\xD9V[\x91\x90\x91\x01\x92\x91PPV\xFE6\x08\x94\xA1;\xA1\xA3!\x06g\xC8(I-\xB9\x8D\xCA> v\xCC75\xA9 \xA3\xCAP]8+\xBC\xA2dipfsX\"\x12 \xA0\xF7\xB4\xB0D\x91X\xC2\x8B\xC9qP(\xB24\xA5\xD5\xC8\x0F)L\x99\xA1\x8DC\xBB|\x1E\xB3\xE1@0dsolcC\0\x08\x14\x003";
     /// The deployed bytecode of the contract.
     pub static UC_REKT_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
@@ -393,6 +476,14 @@ pub mod uc_rekt {
             let deployer = ::ethers::contract::ContractDeployer::new(deployer);
             Ok(deployer)
         }
+        ///Calls the contract's `UPGRADE_INTERFACE_VERSION` (0xad3cb1cc) function
+        pub fn upgrade_interface_version(
+            &self,
+        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
+            self.0
+                .method_hash([173, 60, 177, 204], ())
+                .expect("method not found (this should never happen)")
+        }
         ///Calls the contract's `initialize` (0x8129fc1c) function
         pub fn initialize(&self) -> ::ethers::contract::builders::ContractCall<M, ()> {
             self.0
@@ -454,15 +545,6 @@ pub mod uc_rekt {
                 .method_hash([1, 255, 201, 167], interface_id)
                 .expect("method not found (this should never happen)")
         }
-        ///Calls the contract's `upgradeTo` (0x3659cfe6) function
-        pub fn upgrade_to(
-            &self,
-            new_implementation: ::ethers::core::types::Address,
-        ) -> ::ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([54, 89, 207, 230], new_implementation)
-                .expect("method not found (this should never happen)")
-        }
         ///Calls the contract's `upgradeToAndCall` (0x4f1ef286) function
         pub fn upgrade_to_and_call(
             &self,
@@ -472,26 +554,6 @@ pub mod uc_rekt {
             self.0
                 .method_hash([79, 30, 242, 134], (new_implementation, data))
                 .expect("method not found (this should never happen)")
-        }
-        ///Gets the contract's `AdminChanged` event
-        pub fn admin_changed_filter(
-            &self,
-        ) -> ::ethers::contract::builders::Event<
-            ::std::sync::Arc<M>,
-            M,
-            AdminChangedFilter,
-        > {
-            self.0.event()
-        }
-        ///Gets the contract's `BeaconUpgraded` event
-        pub fn beacon_upgraded_filter(
-            &self,
-        ) -> ::ethers::contract::builders::Event<
-            ::std::sync::Arc<M>,
-            M,
-            BeaconUpgradedFilter,
-        > {
-            self.0.event()
         }
         ///Gets the contract's `Initialized` event
         pub fn initialized_filter(
@@ -526,9 +588,10 @@ pub mod uc_rekt {
             Self::new(contract.address(), contract.client())
         }
     }
+    ///Custom Error type `AddressEmptyCode` with signature `AddressEmptyCode(address)` and selector `0x9996b315`
     #[derive(
         Clone,
-        ::ethers::contract::EthEvent,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -538,10 +601,382 @@ pub mod uc_rekt {
         Eq,
         Hash
     )]
-    #[ethevent(name = "AdminChanged", abi = "AdminChanged(address,address)")]
-    pub struct AdminChangedFilter {
-        pub previous_admin: ::ethers::core::types::Address,
-        pub new_admin: ::ethers::core::types::Address,
+    #[etherror(name = "AddressEmptyCode", abi = "AddressEmptyCode(address)")]
+    pub struct AddressEmptyCode {
+        pub target: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `ERC1967InvalidImplementation` with signature `ERC1967InvalidImplementation(address)` and selector `0x4c9c8ce3`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "ERC1967InvalidImplementation",
+        abi = "ERC1967InvalidImplementation(address)"
+    )]
+    pub struct ERC1967InvalidImplementation {
+        pub implementation: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `ERC1967NonPayable` with signature `ERC1967NonPayable()` and selector `0xb398979f`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "ERC1967NonPayable", abi = "ERC1967NonPayable()")]
+    pub struct ERC1967NonPayable;
+    ///Custom Error type `FailedInnerCall` with signature `FailedInnerCall()` and selector `0x1425ea42`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "FailedInnerCall", abi = "FailedInnerCall()")]
+    pub struct FailedInnerCall;
+    ///Custom Error type `InvalidInitialization` with signature `InvalidInitialization()` and selector `0xf92ee8a9`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "InvalidInitialization", abi = "InvalidInitialization()")]
+    pub struct InvalidInitialization;
+    ///Custom Error type `NotInitializing` with signature `NotInitializing()` and selector `0xd7e6bcf8`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "NotInitializing", abi = "NotInitializing()")]
+    pub struct NotInitializing;
+    ///Custom Error type `ReentrancyGuardReentrantCall` with signature `ReentrancyGuardReentrantCall()` and selector `0x3ee5aeb5`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "ReentrancyGuardReentrantCall",
+        abi = "ReentrancyGuardReentrantCall()"
+    )]
+    pub struct ReentrancyGuardReentrantCall;
+    ///Custom Error type `UUPSUnauthorizedCallContext` with signature `UUPSUnauthorizedCallContext()` and selector `0xe07c8dba`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "UUPSUnauthorizedCallContext",
+        abi = "UUPSUnauthorizedCallContext()"
+    )]
+    pub struct UUPSUnauthorizedCallContext;
+    ///Custom Error type `UUPSUnsupportedProxiableUUID` with signature `UUPSUnsupportedProxiableUUID(bytes32)` and selector `0xaa1d49a4`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "UUPSUnsupportedProxiableUUID",
+        abi = "UUPSUnsupportedProxiableUUID(bytes32)"
+    )]
+    pub struct UUPSUnsupportedProxiableUUID {
+        pub slot: [u8; 32],
+    }
+    ///Container type for all of the contract's custom errors
+    #[derive(
+        Clone,
+        ::ethers::contract::EthAbiType,
+        serde::Serialize,
+        serde::Deserialize,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    pub enum UC_RektErrors {
+        AddressEmptyCode(AddressEmptyCode),
+        ERC1967InvalidImplementation(ERC1967InvalidImplementation),
+        ERC1967NonPayable(ERC1967NonPayable),
+        FailedInnerCall(FailedInnerCall),
+        InvalidInitialization(InvalidInitialization),
+        NotInitializing(NotInitializing),
+        ReentrancyGuardReentrantCall(ReentrancyGuardReentrantCall),
+        UUPSUnauthorizedCallContext(UUPSUnauthorizedCallContext),
+        UUPSUnsupportedProxiableUUID(UUPSUnsupportedProxiableUUID),
+        /// The standard solidity revert string, with selector
+        /// Error(string) -- 0x08c379a0
+        RevertString(::std::string::String),
+    }
+    impl ::ethers::core::abi::AbiDecode for UC_RektErrors {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
+            let data = data.as_ref();
+            if let Ok(decoded) = <::std::string::String as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::RevertString(decoded));
+            }
+            if let Ok(decoded) = <AddressEmptyCode as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::AddressEmptyCode(decoded));
+            }
+            if let Ok(decoded) = <ERC1967InvalidImplementation as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC1967InvalidImplementation(decoded));
+            }
+            if let Ok(decoded) = <ERC1967NonPayable as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC1967NonPayable(decoded));
+            }
+            if let Ok(decoded) = <FailedInnerCall as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::FailedInnerCall(decoded));
+            }
+            if let Ok(decoded) = <InvalidInitialization as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::InvalidInitialization(decoded));
+            }
+            if let Ok(decoded) = <NotInitializing as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::NotInitializing(decoded));
+            }
+            if let Ok(decoded) = <ReentrancyGuardReentrantCall as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ReentrancyGuardReentrantCall(decoded));
+            }
+            if let Ok(decoded) = <UUPSUnauthorizedCallContext as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::UUPSUnauthorizedCallContext(decoded));
+            }
+            if let Ok(decoded) = <UUPSUnsupportedProxiableUUID as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::UUPSUnsupportedProxiableUUID(decoded));
+            }
+            Err(::ethers::core::abi::Error::InvalidData.into())
+        }
+    }
+    impl ::ethers::core::abi::AbiEncode for UC_RektErrors {
+        fn encode(self) -> ::std::vec::Vec<u8> {
+            match self {
+                Self::AddressEmptyCode(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ERC1967InvalidImplementation(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ERC1967NonPayable(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::FailedInnerCall(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::InvalidInitialization(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::NotInitializing(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ReentrancyGuardReentrantCall(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::UUPSUnauthorizedCallContext(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::UUPSUnsupportedProxiableUUID(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::RevertString(s) => ::ethers::core::abi::AbiEncode::encode(s),
+            }
+        }
+    }
+    impl ::ethers::contract::ContractRevert for UC_RektErrors {
+        fn valid_selector(selector: [u8; 4]) -> bool {
+            match selector {
+                [0x08, 0xc3, 0x79, 0xa0] => true,
+                _ if selector
+                    == <AddressEmptyCode as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ERC1967InvalidImplementation as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ERC1967NonPayable as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <FailedInnerCall as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidInitialization as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <NotInitializing as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ReentrancyGuardReentrantCall as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <UUPSUnauthorizedCallContext as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <UUPSUnsupportedProxiableUUID as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ => false,
+            }
+        }
+    }
+    impl ::core::fmt::Display for UC_RektErrors {
+        fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+            match self {
+                Self::AddressEmptyCode(element) => ::core::fmt::Display::fmt(element, f),
+                Self::ERC1967InvalidImplementation(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::ERC1967NonPayable(element) => ::core::fmt::Display::fmt(element, f),
+                Self::FailedInnerCall(element) => ::core::fmt::Display::fmt(element, f),
+                Self::InvalidInitialization(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::NotInitializing(element) => ::core::fmt::Display::fmt(element, f),
+                Self::ReentrancyGuardReentrantCall(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::UUPSUnauthorizedCallContext(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::UUPSUnsupportedProxiableUUID(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::RevertString(s) => ::core::fmt::Display::fmt(s, f),
+            }
+        }
+    }
+    impl ::core::convert::From<::std::string::String> for UC_RektErrors {
+        fn from(value: String) -> Self {
+            Self::RevertString(value)
+        }
+    }
+    impl ::core::convert::From<AddressEmptyCode> for UC_RektErrors {
+        fn from(value: AddressEmptyCode) -> Self {
+            Self::AddressEmptyCode(value)
+        }
+    }
+    impl ::core::convert::From<ERC1967InvalidImplementation> for UC_RektErrors {
+        fn from(value: ERC1967InvalidImplementation) -> Self {
+            Self::ERC1967InvalidImplementation(value)
+        }
+    }
+    impl ::core::convert::From<ERC1967NonPayable> for UC_RektErrors {
+        fn from(value: ERC1967NonPayable) -> Self {
+            Self::ERC1967NonPayable(value)
+        }
+    }
+    impl ::core::convert::From<FailedInnerCall> for UC_RektErrors {
+        fn from(value: FailedInnerCall) -> Self {
+            Self::FailedInnerCall(value)
+        }
+    }
+    impl ::core::convert::From<InvalidInitialization> for UC_RektErrors {
+        fn from(value: InvalidInitialization) -> Self {
+            Self::InvalidInitialization(value)
+        }
+    }
+    impl ::core::convert::From<NotInitializing> for UC_RektErrors {
+        fn from(value: NotInitializing) -> Self {
+            Self::NotInitializing(value)
+        }
+    }
+    impl ::core::convert::From<ReentrancyGuardReentrantCall> for UC_RektErrors {
+        fn from(value: ReentrancyGuardReentrantCall) -> Self {
+            Self::ReentrancyGuardReentrantCall(value)
+        }
+    }
+    impl ::core::convert::From<UUPSUnauthorizedCallContext> for UC_RektErrors {
+        fn from(value: UUPSUnauthorizedCallContext) -> Self {
+            Self::UUPSUnauthorizedCallContext(value)
+        }
+    }
+    impl ::core::convert::From<UUPSUnsupportedProxiableUUID> for UC_RektErrors {
+        fn from(value: UUPSUnsupportedProxiableUUID) -> Self {
+            Self::UUPSUnsupportedProxiableUUID(value)
+        }
     }
     #[derive(
         Clone,
@@ -555,26 +990,9 @@ pub mod uc_rekt {
         Eq,
         Hash
     )]
-    #[ethevent(name = "BeaconUpgraded", abi = "BeaconUpgraded(address)")]
-    pub struct BeaconUpgradedFilter {
-        #[ethevent(indexed)]
-        pub beacon: ::ethers::core::types::Address,
-    }
-    #[derive(
-        Clone,
-        ::ethers::contract::EthEvent,
-        ::ethers::contract::EthDisplay,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    #[ethevent(name = "Initialized", abi = "Initialized(uint8)")]
+    #[ethevent(name = "Initialized", abi = "Initialized(uint64)")]
     pub struct InitializedFilter {
-        pub version: u8,
+        pub version: u64,
     }
     #[derive(
         Clone,
@@ -605,8 +1023,6 @@ pub mod uc_rekt {
         Hash
     )]
     pub enum UC_RektEvents {
-        AdminChangedFilter(AdminChangedFilter),
-        BeaconUpgradedFilter(BeaconUpgradedFilter),
         InitializedFilter(InitializedFilter),
         UpgradedFilter(UpgradedFilter),
     }
@@ -614,12 +1030,6 @@ pub mod uc_rekt {
         fn decode_log(
             log: &::ethers::core::abi::RawLog,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::Error> {
-            if let Ok(decoded) = AdminChangedFilter::decode_log(log) {
-                return Ok(UC_RektEvents::AdminChangedFilter(decoded));
-            }
-            if let Ok(decoded) = BeaconUpgradedFilter::decode_log(log) {
-                return Ok(UC_RektEvents::BeaconUpgradedFilter(decoded));
-            }
             if let Ok(decoded) = InitializedFilter::decode_log(log) {
                 return Ok(UC_RektEvents::InitializedFilter(decoded));
             }
@@ -632,25 +1042,9 @@ pub mod uc_rekt {
     impl ::core::fmt::Display for UC_RektEvents {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             match self {
-                Self::AdminChangedFilter(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::BeaconUpgradedFilter(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
                 Self::InitializedFilter(element) => ::core::fmt::Display::fmt(element, f),
                 Self::UpgradedFilter(element) => ::core::fmt::Display::fmt(element, f),
             }
-        }
-    }
-    impl ::core::convert::From<AdminChangedFilter> for UC_RektEvents {
-        fn from(value: AdminChangedFilter) -> Self {
-            Self::AdminChangedFilter(value)
-        }
-    }
-    impl ::core::convert::From<BeaconUpgradedFilter> for UC_RektEvents {
-        fn from(value: BeaconUpgradedFilter) -> Self {
-            Self::BeaconUpgradedFilter(value)
         }
     }
     impl ::core::convert::From<InitializedFilter> for UC_RektEvents {
@@ -663,6 +1057,21 @@ pub mod uc_rekt {
             Self::UpgradedFilter(value)
         }
     }
+    ///Container type for all input parameters for the `UPGRADE_INTERFACE_VERSION` function with signature `UPGRADE_INTERFACE_VERSION()` and selector `0xad3cb1cc`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthCall,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[ethcall(name = "UPGRADE_INTERFACE_VERSION", abi = "UPGRADE_INTERFACE_VERSION()")]
+    pub struct UpgradeInterfaceVersionCall;
     ///Container type for all input parameters for the `initialize` function with signature `initialize()` and selector `0x8129fc1c`
     #[derive(
         Clone,
@@ -785,23 +1194,6 @@ pub mod uc_rekt {
     pub struct SupportsInterfaceCall {
         pub interface_id: [u8; 4],
     }
-    ///Container type for all input parameters for the `upgradeTo` function with signature `upgradeTo(address)` and selector `0x3659cfe6`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthCall,
-        ::ethers::contract::EthDisplay,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    #[ethcall(name = "upgradeTo", abi = "upgradeTo(address)")]
-    pub struct UpgradeToCall {
-        pub new_implementation: ::ethers::core::types::Address,
-    }
     ///Container type for all input parameters for the `upgradeToAndCall` function with signature `upgradeToAndCall(address,bytes)` and selector `0x4f1ef286`
     #[derive(
         Clone,
@@ -832,6 +1224,7 @@ pub mod uc_rekt {
         Hash
     )]
     pub enum UC_RektCalls {
+        UpgradeInterfaceVersion(UpgradeInterfaceVersionCall),
         Initialize(InitializeCall),
         MyOperation1(MyOperation1Call),
         MyOperation2(MyOperation2Call),
@@ -840,7 +1233,6 @@ pub mod uc_rekt {
         RektSlot2(RektSlot2Call),
         Slot1(Slot1Call),
         SupportsInterface(SupportsInterfaceCall),
-        UpgradeTo(UpgradeToCall),
         UpgradeToAndCall(UpgradeToAndCallCall),
     }
     impl ::ethers::core::abi::AbiDecode for UC_RektCalls {
@@ -848,6 +1240,11 @@ pub mod uc_rekt {
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
             let data = data.as_ref();
+            if let Ok(decoded) = <UpgradeInterfaceVersionCall as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::UpgradeInterfaceVersion(decoded));
+            }
             if let Ok(decoded) = <InitializeCall as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
@@ -888,11 +1285,6 @@ pub mod uc_rekt {
             ) {
                 return Ok(Self::SupportsInterface(decoded));
             }
-            if let Ok(decoded) = <UpgradeToCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::UpgradeTo(decoded));
-            }
             if let Ok(decoded) = <UpgradeToAndCallCall as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
@@ -904,6 +1296,9 @@ pub mod uc_rekt {
     impl ::ethers::core::abi::AbiEncode for UC_RektCalls {
         fn encode(self) -> Vec<u8> {
             match self {
+                Self::UpgradeInterfaceVersion(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
                 Self::Initialize(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
@@ -926,9 +1321,6 @@ pub mod uc_rekt {
                 Self::SupportsInterface(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
-                Self::UpgradeTo(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
                 Self::UpgradeToAndCall(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
@@ -938,6 +1330,9 @@ pub mod uc_rekt {
     impl ::core::fmt::Display for UC_RektCalls {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             match self {
+                Self::UpgradeInterfaceVersion(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
                 Self::Initialize(element) => ::core::fmt::Display::fmt(element, f),
                 Self::MyOperation1(element) => ::core::fmt::Display::fmt(element, f),
                 Self::MyOperation2(element) => ::core::fmt::Display::fmt(element, f),
@@ -946,9 +1341,13 @@ pub mod uc_rekt {
                 Self::RektSlot2(element) => ::core::fmt::Display::fmt(element, f),
                 Self::Slot1(element) => ::core::fmt::Display::fmt(element, f),
                 Self::SupportsInterface(element) => ::core::fmt::Display::fmt(element, f),
-                Self::UpgradeTo(element) => ::core::fmt::Display::fmt(element, f),
                 Self::UpgradeToAndCall(element) => ::core::fmt::Display::fmt(element, f),
             }
+        }
+    }
+    impl ::core::convert::From<UpgradeInterfaceVersionCall> for UC_RektCalls {
+        fn from(value: UpgradeInterfaceVersionCall) -> Self {
+            Self::UpgradeInterfaceVersion(value)
         }
     }
     impl ::core::convert::From<InitializeCall> for UC_RektCalls {
@@ -991,16 +1390,25 @@ pub mod uc_rekt {
             Self::SupportsInterface(value)
         }
     }
-    impl ::core::convert::From<UpgradeToCall> for UC_RektCalls {
-        fn from(value: UpgradeToCall) -> Self {
-            Self::UpgradeTo(value)
-        }
-    }
     impl ::core::convert::From<UpgradeToAndCallCall> for UC_RektCalls {
         fn from(value: UpgradeToAndCallCall) -> Self {
             Self::UpgradeToAndCall(value)
         }
     }
+    ///Container type for all return fields from the `UPGRADE_INTERFACE_VERSION` function with signature `UPGRADE_INTERFACE_VERSION()` and selector `0xad3cb1cc`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthAbiType,
+        ::ethers::contract::EthAbiCodec,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    pub struct UpgradeInterfaceVersionReturn(pub ::std::string::String);
     ///Container type for all return fields from the `my_operation1` function with signature `my_operation1()` and selector `0xeefb4461`
     #[derive(
         Clone,

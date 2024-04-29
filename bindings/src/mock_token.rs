@@ -97,7 +97,7 @@ pub mod mock_token {
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("amount"),
+                                    name: ::std::borrow::ToOwned::to_owned("value"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
                                     ),
@@ -167,80 +167,6 @@ pub mod mock_token {
                             ],
                             constant: ::core::option::Option::None,
                             state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("decreaseAllowance"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("decreaseAllowance"),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("spender"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("address"),
-                                    ),
-                                },
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("subtractedValue"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
-                                        256usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("uint256"),
-                                    ),
-                                },
-                            ],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Bool,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("bool"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("increaseAllowance"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("increaseAllowance"),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("spender"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("address"),
-                                    ),
-                                },
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("addedValue"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
-                                        256usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("uint256"),
-                                    ),
-                                },
-                            ],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Bool,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("bool"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
                         },
                     ],
                 ),
@@ -320,7 +246,7 @@ pub mod mock_token {
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("amount"),
+                                    name: ::std::borrow::ToOwned::to_owned("value"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
                                     ),
@@ -364,7 +290,7 @@ pub mod mock_token {
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("amount"),
+                                    name: ::std::borrow::ToOwned::to_owned("value"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
                                     ),
@@ -446,7 +372,156 @@ pub mod mock_token {
                     ],
                 ),
             ]),
-            errors: ::std::collections::BTreeMap::new(),
+            errors: ::core::convert::From::from([
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC20InsufficientAllowance"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "ERC20InsufficientAllowance",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("spender"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("allowance"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("needed"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC20InsufficientBalance"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "ERC20InsufficientBalance",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("sender"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("balance"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("needed"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC20InvalidApprover"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "ERC20InvalidApprover",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("approver"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC20InvalidReceiver"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "ERC20InvalidReceiver",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("receiver"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC20InvalidSender"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("ERC20InvalidSender"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("sender"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("ERC20InvalidSpender"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "ERC20InvalidSpender",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("spender"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+            ]),
             receive: false,
             fallback: false,
         }
@@ -456,13 +531,13 @@ pub mod mock_token {
         __abi,
     );
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`\x80`@R4\x80\x15b\0\0\x11W`\0\x80\xFD[P`@Qb\0\x0Cz8\x03\x80b\0\x0Cz\x839\x81\x01`@\x81\x90Rb\0\x004\x91b\0\x02\x02V[\x81\x81`\x03b\0\0D\x83\x82b\0\x03$V[P`\x04b\0\0S\x82\x82b\0\x03$V[PPPb\0\0h\x84\x84b\0\0r` \x1B` \x1CV[PPPPb\0\x04\x18V[`\x01`\x01`\xA0\x1B\x03\x82\x16b\0\0\xCDW`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`\x1F`$\x82\x01R\x7FERC20: mint to the zero address\0`D\x82\x01R`d\x01`@Q\x80\x91\x03\x90\xFD[\x80`\x02`\0\x82\x82Tb\0\0\xE1\x91\x90b\0\x03\xF0V[\x90\x91UPP`\x01`\x01`\xA0\x1B\x03\x82\x16`\0\x81\x81R` \x81\x81R`@\x80\x83 \x80T\x86\x01\x90UQ\x84\x81R\x7F\xDD\xF2R\xAD\x1B\xE2\xC8\x9Bi\xC2\xB0h\xFC7\x8D\xAA\x95+\xA7\xF1c\xC4\xA1\x16(\xF5ZM\xF5#\xB3\xEF\x91\x01`@Q\x80\x91\x03\x90\xA3PPV[PPPV[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x82`\x1F\x83\x01\x12b\0\x01eW`\0\x80\xFD[\x81Q`\x01`\x01`@\x1B\x03\x80\x82\x11\x15b\0\x01\x82Wb\0\x01\x82b\0\x01=V[`@Q`\x1F\x83\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x82\x82\x11\x81\x83\x10\x17\x15b\0\x01\xADWb\0\x01\xADb\0\x01=V[\x81`@R\x83\x81R` \x92P\x86\x83\x85\x88\x01\x01\x11\x15b\0\x01\xCAW`\0\x80\xFD[`\0\x91P[\x83\x82\x10\x15b\0\x01\xEEW\x85\x82\x01\x83\x01Q\x81\x83\x01\x84\x01R\x90\x82\x01\x90b\0\x01\xCFV[`\0\x93\x81\x01\x90\x92\x01\x92\x90\x92R\x94\x93PPPPV[`\0\x80`\0\x80`\x80\x85\x87\x03\x12\x15b\0\x02\x19W`\0\x80\xFD[\x84Q`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14b\0\x021W`\0\x80\xFD[` \x86\x01Q`@\x87\x01Q\x91\x95P\x93P`\x01`\x01`@\x1B\x03\x80\x82\x11\x15b\0\x02VW`\0\x80\xFD[b\0\x02d\x88\x83\x89\x01b\0\x01SV[\x93P``\x87\x01Q\x91P\x80\x82\x11\x15b\0\x02{W`\0\x80\xFD[Pb\0\x02\x8A\x87\x82\x88\x01b\0\x01SV[\x91PP\x92\x95\x91\x94P\x92PV[`\x01\x81\x81\x1C\x90\x82\x16\x80b\0\x02\xABW`\x7F\x82\x16\x91P[` \x82\x10\x81\x03b\0\x02\xCCWcNH{q`\xE0\x1B`\0R`\"`\x04R`$`\0\xFD[P\x91\x90PV[`\x1F\x82\x11\x15b\0\x018W`\0\x81\x81R` \x81 `\x1F\x85\x01`\x05\x1C\x81\x01` \x86\x10\x15b\0\x02\xFBWP\x80[`\x1F\x85\x01`\x05\x1C\x82\x01\x91P[\x81\x81\x10\x15b\0\x03\x1CW\x82\x81U`\x01\x01b\0\x03\x07V[PPPPPPV[\x81Q`\x01`\x01`@\x1B\x03\x81\x11\x15b\0\x03@Wb\0\x03@b\0\x01=V[b\0\x03X\x81b\0\x03Q\x84Tb\0\x02\x96V[\x84b\0\x02\xD2V[` \x80`\x1F\x83\x11`\x01\x81\x14b\0\x03\x90W`\0\x84\x15b\0\x03wWP\x85\x83\x01Q[`\0\x19`\x03\x86\x90\x1B\x1C\x19\x16`\x01\x85\x90\x1B\x17\x85Ub\0\x03\x1CV[`\0\x85\x81R` \x81 `\x1F\x19\x86\x16\x91[\x82\x81\x10\x15b\0\x03\xC1W\x88\x86\x01Q\x82U\x94\x84\x01\x94`\x01\x90\x91\x01\x90\x84\x01b\0\x03\xA0V[P\x85\x82\x10\x15b\0\x03\xE0W\x87\x85\x01Q`\0\x19`\x03\x88\x90\x1B`\xF8\x16\x1C\x19\x16\x81U[PPPPP`\x01\x90\x81\x1B\x01\x90UPV[\x80\x82\x01\x80\x82\x11\x15b\0\x04\x12WcNH{q`\xE0\x1B`\0R`\x11`\x04R`$`\0\xFD[\x92\x91PPV[a\x08R\x80b\0\x04(`\09`\0\xF3\xFE`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0\xA9W`\x005`\xE0\x1C\x80c9P\x93Q\x11a\0qW\x80c9P\x93Q\x14a\x01#W\x80cp\xA0\x821\x14a\x016W\x80c\x95\xD8\x9BA\x14a\x01_W\x80c\xA4W\xC2\xD7\x14a\x01gW\x80c\xA9\x05\x9C\xBB\x14a\x01zW\x80c\xDDb\xED>\x14a\x01\x8DW`\0\x80\xFD[\x80c\x06\xFD\xDE\x03\x14a\0\xAEW\x80c\t^\xA7\xB3\x14a\0\xCCW\x80c\x18\x16\r\xDD\x14a\0\xEFW\x80c#\xB8r\xDD\x14a\x01\x01W\x80c1<\xE5g\x14a\x01\x14W[`\0\x80\xFD[a\0\xB6a\x01\xA0V[`@Qa\0\xC3\x91\x90a\x06\x9CV[`@Q\x80\x91\x03\x90\xF3[a\0\xDFa\0\xDA6`\x04a\x07\x06V[a\x022V[`@Q\x90\x15\x15\x81R` \x01a\0\xC3V[`\x02T[`@Q\x90\x81R` \x01a\0\xC3V[a\0\xDFa\x01\x0F6`\x04a\x070V[a\x02LV[`@Q`\x12\x81R` \x01a\0\xC3V[a\0\xDFa\x0116`\x04a\x07\x06V[a\x02pV[a\0\xF3a\x01D6`\x04a\x07lV[`\x01`\x01`\xA0\x1B\x03\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x90V[a\0\xB6a\x02\x92V[a\0\xDFa\x01u6`\x04a\x07\x06V[a\x02\xA1V[a\0\xDFa\x01\x886`\x04a\x07\x06V[a\x03!V[a\0\xF3a\x01\x9B6`\x04a\x07\x8EV[a\x03/V[```\x03\x80Ta\x01\xAF\x90a\x07\xC1V[\x80`\x1F\x01` \x80\x91\x04\x02` \x01`@Q\x90\x81\x01`@R\x80\x92\x91\x90\x81\x81R` \x01\x82\x80Ta\x01\xDB\x90a\x07\xC1V[\x80\x15a\x02(W\x80`\x1F\x10a\x01\xFDWa\x01\0\x80\x83T\x04\x02\x83R\x91` \x01\x91a\x02(V[\x82\x01\x91\x90`\0R` `\0 \x90[\x81T\x81R\x90`\x01\x01\x90` \x01\x80\x83\x11a\x02\x0BW\x82\x90\x03`\x1F\x16\x82\x01\x91[PPPPP\x90P\x90V[`\x003a\x02@\x81\x85\x85a\x03ZV[`\x01\x91PP[\x92\x91PPV[`\x003a\x02Z\x85\x82\x85a\x04~V[a\x02e\x85\x85\x85a\x04\xF8V[P`\x01\x94\x93PPPPV[`\x003a\x02@\x81\x85\x85a\x02\x83\x83\x83a\x03/V[a\x02\x8D\x91\x90a\x07\xFBV[a\x03ZV[```\x04\x80Ta\x01\xAF\x90a\x07\xC1V[`\x003\x81a\x02\xAF\x82\x86a\x03/V[\x90P\x83\x81\x10\x15a\x03\x14W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`%`$\x82\x01R\x7FERC20: decreased allowance below`D\x82\x01Rd zero`\xD8\x1B`d\x82\x01R`\x84\x01[`@Q\x80\x91\x03\x90\xFD[a\x02e\x82\x86\x86\x84\x03a\x03ZV[`\x003a\x02@\x81\x85\x85a\x04\xF8V[`\x01`\x01`\xA0\x1B\x03\x91\x82\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x90\x94\x16\x82R\x91\x90\x91R T\x90V[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x03\xBCW`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`$\x80\x82\x01R\x7FERC20: approve from the zero add`D\x82\x01Rcress`\xE0\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x04\x1DW`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`\"`$\x82\x01R\x7FERC20: approve to the zero addre`D\x82\x01Rass`\xF0\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x83\x81\x16`\0\x81\x81R`\x01` \x90\x81R`@\x80\x83 \x94\x87\x16\x80\x84R\x94\x82R\x91\x82\x90 \x85\x90U\x90Q\x84\x81R\x7F\x8C[\xE1\xE5\xEB\xEC}[\xD1OqB}\x1E\x84\xF3\xDD\x03\x14\xC0\xF7\xB2)\x1E[ \n\xC8\xC7\xC3\xB9%\x91\x01`@Q\x80\x91\x03\x90\xA3PPPV[`\0a\x04\x8A\x84\x84a\x03/V[\x90P`\0\x19\x81\x14a\x04\xF2W\x81\x81\x10\x15a\x04\xE5W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`\x1D`$\x82\x01R\x7FERC20: insufficient allowance\0\0\0`D\x82\x01R`d\x01a\x03\x0BV[a\x04\xF2\x84\x84\x84\x84\x03a\x03ZV[PPPPV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x05\\W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`%`$\x82\x01R\x7FERC20: transfer from the zero ad`D\x82\x01Rddress`\xD8\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x05\xBEW`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`#`$\x82\x01R\x7FERC20: transfer to the zero addr`D\x82\x01Rbess`\xE8\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x83\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x81\x81\x10\x15a\x066W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`&`$\x82\x01R\x7FERC20: transfer amount exceeds b`D\x82\x01Realance`\xD0\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x84\x81\x16`\0\x81\x81R` \x81\x81R`@\x80\x83 \x87\x87\x03\x90U\x93\x87\x16\x80\x83R\x91\x84\x90 \x80T\x87\x01\x90U\x92Q\x85\x81R\x90\x92\x7F\xDD\xF2R\xAD\x1B\xE2\xC8\x9Bi\xC2\xB0h\xFC7\x8D\xAA\x95+\xA7\xF1c\xC4\xA1\x16(\xF5ZM\xF5#\xB3\xEF\x91\x01`@Q\x80\x91\x03\x90\xA3a\x04\xF2V[`\0` \x80\x83R\x83Q\x80\x82\x85\x01R`\0[\x81\x81\x10\x15a\x06\xC9W\x85\x81\x01\x83\x01Q\x85\x82\x01`@\x01R\x82\x01a\x06\xADV[P`\0`@\x82\x86\x01\x01R`@`\x1F\x19`\x1F\x83\x01\x16\x85\x01\x01\x92PPP\x92\x91PPV[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\x07\x01W`\0\x80\xFD[\x91\x90PV[`\0\x80`@\x83\x85\x03\x12\x15a\x07\x19W`\0\x80\xFD[a\x07\"\x83a\x06\xEAV[\x94` \x93\x90\x93\x015\x93PPPV[`\0\x80`\0``\x84\x86\x03\x12\x15a\x07EW`\0\x80\xFD[a\x07N\x84a\x06\xEAV[\x92Pa\x07\\` \x85\x01a\x06\xEAV[\x91P`@\x84\x015\x90P\x92P\x92P\x92V[`\0` \x82\x84\x03\x12\x15a\x07~W`\0\x80\xFD[a\x07\x87\x82a\x06\xEAV[\x93\x92PPPV[`\0\x80`@\x83\x85\x03\x12\x15a\x07\xA1W`\0\x80\xFD[a\x07\xAA\x83a\x06\xEAV[\x91Pa\x07\xB8` \x84\x01a\x06\xEAV[\x90P\x92P\x92\x90PV[`\x01\x81\x81\x1C\x90\x82\x16\x80a\x07\xD5W`\x7F\x82\x16\x91P[` \x82\x10\x81\x03a\x07\xF5WcNH{q`\xE0\x1B`\0R`\"`\x04R`$`\0\xFD[P\x91\x90PV[\x80\x82\x01\x80\x82\x11\x15a\x02FWcNH{q`\xE0\x1B`\0R`\x11`\x04R`$`\0\xFD\xFE\xA2dipfsX\"\x12 \x88\x0B\xFCy\xC6\xFA]\xBA\xB3/\x92(\xBB\xB3l\xEE(\x0F\x0F\xA4\xFA\"+Z\xD6;\xE4c\xCC\x02\xD4udsolcC\0\x08\x14\x003";
+    const __BYTECODE: &[u8] = b"`\x80`@R4\x80\x15b\0\0\x11W`\0\x80\xFD[P`@Qb\0\x0B\xF38\x03\x80b\0\x0B\xF3\x839\x81\x01`@\x81\x90Rb\0\x004\x91b\0\x02\xACV[\x81\x81`\x03b\0\0D\x83\x82b\0\x03\xCFV[P`\x04b\0\0S\x82\x82b\0\x03\xCFV[PPPb\0\0h\x84\x84b\0\0r` \x1B` \x1CV[PPPPb\0\x04\xC3V[`\x01`\x01`\xA0\x1B\x03\x82\x16b\0\0\xA2W`@Qc\xECD/\x05`\xE0\x1B\x81R`\0`\x04\x82\x01R`$\x01[`@Q\x80\x91\x03\x90\xFD[b\0\0\xB0`\0\x83\x83b\0\0\xB4V[PPV[`\x01`\x01`\xA0\x1B\x03\x83\x16b\0\0\xE3W\x80`\x02`\0\x82\x82Tb\0\0\xD7\x91\x90b\0\x04\x9BV[\x90\x91UPb\0\x01W\x90PV[`\x01`\x01`\xA0\x1B\x03\x83\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x81\x81\x10\x15b\0\x018W`@Qc9\x144\xE3`\xE2\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x85\x16`\x04\x82\x01R`$\x81\x01\x82\x90R`D\x81\x01\x83\x90R`d\x01b\0\0\x99V[`\x01`\x01`\xA0\x1B\x03\x84\x16`\0\x90\x81R` \x81\x90R`@\x90 \x90\x82\x90\x03\x90U[`\x01`\x01`\xA0\x1B\x03\x82\x16b\0\x01uW`\x02\x80T\x82\x90\x03\x90Ub\0\x01\x94V[`\x01`\x01`\xA0\x1B\x03\x82\x16`\0\x90\x81R` \x81\x90R`@\x90 \x80T\x82\x01\x90U[\x81`\x01`\x01`\xA0\x1B\x03\x16\x83`\x01`\x01`\xA0\x1B\x03\x16\x7F\xDD\xF2R\xAD\x1B\xE2\xC8\x9Bi\xC2\xB0h\xFC7\x8D\xAA\x95+\xA7\xF1c\xC4\xA1\x16(\xF5ZM\xF5#\xB3\xEF\x83`@Qb\0\x01\xDA\x91\x81R` \x01\x90V[`@Q\x80\x91\x03\x90\xA3PPPV[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x82`\x1F\x83\x01\x12b\0\x02\x0FW`\0\x80\xFD[\x81Q`\x01`\x01`@\x1B\x03\x80\x82\x11\x15b\0\x02,Wb\0\x02,b\0\x01\xE7V[`@Q`\x1F\x83\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x82\x82\x11\x81\x83\x10\x17\x15b\0\x02WWb\0\x02Wb\0\x01\xE7V[\x81`@R\x83\x81R` \x92P\x86\x83\x85\x88\x01\x01\x11\x15b\0\x02tW`\0\x80\xFD[`\0\x91P[\x83\x82\x10\x15b\0\x02\x98W\x85\x82\x01\x83\x01Q\x81\x83\x01\x84\x01R\x90\x82\x01\x90b\0\x02yV[`\0\x93\x81\x01\x90\x92\x01\x92\x90\x92R\x94\x93PPPPV[`\0\x80`\0\x80`\x80\x85\x87\x03\x12\x15b\0\x02\xC3W`\0\x80\xFD[\x84Q`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14b\0\x02\xDBW`\0\x80\xFD[` \x86\x01Q`@\x87\x01Q\x91\x95P\x93P`\x01`\x01`@\x1B\x03\x80\x82\x11\x15b\0\x03\0W`\0\x80\xFD[b\0\x03\x0E\x88\x83\x89\x01b\0\x01\xFDV[\x93P``\x87\x01Q\x91P\x80\x82\x11\x15b\0\x03%W`\0\x80\xFD[Pb\0\x034\x87\x82\x88\x01b\0\x01\xFDV[\x91PP\x92\x95\x91\x94P\x92PV[`\x01\x81\x81\x1C\x90\x82\x16\x80b\0\x03UW`\x7F\x82\x16\x91P[` \x82\x10\x81\x03b\0\x03vWcNH{q`\xE0\x1B`\0R`\"`\x04R`$`\0\xFD[P\x91\x90PV[`\x1F\x82\x11\x15b\0\x03\xCAW`\0\x81\x81R` \x81 `\x1F\x85\x01`\x05\x1C\x81\x01` \x86\x10\x15b\0\x03\xA5WP\x80[`\x1F\x85\x01`\x05\x1C\x82\x01\x91P[\x81\x81\x10\x15b\0\x03\xC6W\x82\x81U`\x01\x01b\0\x03\xB1V[PPP[PPPV[\x81Q`\x01`\x01`@\x1B\x03\x81\x11\x15b\0\x03\xEBWb\0\x03\xEBb\0\x01\xE7V[b\0\x04\x03\x81b\0\x03\xFC\x84Tb\0\x03@V[\x84b\0\x03|V[` \x80`\x1F\x83\x11`\x01\x81\x14b\0\x04;W`\0\x84\x15b\0\x04\"WP\x85\x83\x01Q[`\0\x19`\x03\x86\x90\x1B\x1C\x19\x16`\x01\x85\x90\x1B\x17\x85Ub\0\x03\xC6V[`\0\x85\x81R` \x81 `\x1F\x19\x86\x16\x91[\x82\x81\x10\x15b\0\x04lW\x88\x86\x01Q\x82U\x94\x84\x01\x94`\x01\x90\x91\x01\x90\x84\x01b\0\x04KV[P\x85\x82\x10\x15b\0\x04\x8BW\x87\x85\x01Q`\0\x19`\x03\x88\x90\x1B`\xF8\x16\x1C\x19\x16\x81U[PPPPP`\x01\x90\x81\x1B\x01\x90UPV[\x80\x82\x01\x80\x82\x11\x15b\0\x04\xBDWcNH{q`\xE0\x1B`\0R`\x11`\x04R`$`\0\xFD[\x92\x91PPV[a\x07 \x80b\0\x04\xD3`\09`\0\xF3\xFE`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0\x93W`\x005`\xE0\x1C\x80c1<\xE5g\x11a\0fW\x80c1<\xE5g\x14a\0\xFEW\x80cp\xA0\x821\x14a\x01\rW\x80c\x95\xD8\x9BA\x14a\x016W\x80c\xA9\x05\x9C\xBB\x14a\x01>W\x80c\xDDb\xED>\x14a\x01QW`\0\x80\xFD[\x80c\x06\xFD\xDE\x03\x14a\0\x98W\x80c\t^\xA7\xB3\x14a\0\xB6W\x80c\x18\x16\r\xDD\x14a\0\xD9W\x80c#\xB8r\xDD\x14a\0\xEBW[`\0\x80\xFD[a\0\xA0a\x01\x8AV[`@Qa\0\xAD\x91\x90a\x05jV[`@Q\x80\x91\x03\x90\xF3[a\0\xC9a\0\xC46`\x04a\x05\xD4V[a\x02\x1CV[`@Q\x90\x15\x15\x81R` \x01a\0\xADV[`\x02T[`@Q\x90\x81R` \x01a\0\xADV[a\0\xC9a\0\xF96`\x04a\x05\xFEV[a\x026V[`@Q`\x12\x81R` \x01a\0\xADV[a\0\xDDa\x01\x1B6`\x04a\x06:V[`\x01`\x01`\xA0\x1B\x03\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x90V[a\0\xA0a\x02ZV[a\0\xC9a\x01L6`\x04a\x05\xD4V[a\x02iV[a\0\xDDa\x01_6`\x04a\x06\\V[`\x01`\x01`\xA0\x1B\x03\x91\x82\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x90\x94\x16\x82R\x91\x90\x91R T\x90V[```\x03\x80Ta\x01\x99\x90a\x06\x8FV[\x80`\x1F\x01` \x80\x91\x04\x02` \x01`@Q\x90\x81\x01`@R\x80\x92\x91\x90\x81\x81R` \x01\x82\x80Ta\x01\xC5\x90a\x06\x8FV[\x80\x15a\x02\x12W\x80`\x1F\x10a\x01\xE7Wa\x01\0\x80\x83T\x04\x02\x83R\x91` \x01\x91a\x02\x12V[\x82\x01\x91\x90`\0R` `\0 \x90[\x81T\x81R\x90`\x01\x01\x90` \x01\x80\x83\x11a\x01\xF5W\x82\x90\x03`\x1F\x16\x82\x01\x91[PPPPP\x90P\x90V[`\x003a\x02*\x81\x85\x85a\x02wV[`\x01\x91PP[\x92\x91PPV[`\x003a\x02D\x85\x82\x85a\x02\x89V[a\x02O\x85\x85\x85a\x03\x0CV[P`\x01\x94\x93PPPPV[```\x04\x80Ta\x01\x99\x90a\x06\x8FV[`\x003a\x02*\x81\x85\x85a\x03\x0CV[a\x02\x84\x83\x83\x83`\x01a\x03kV[PPPV[`\x01`\x01`\xA0\x1B\x03\x83\x81\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x86\x16\x83R\x92\x90R T`\0\x19\x81\x14a\x03\x06W\x81\x81\x10\x15a\x02\xF7W`@Qc}\xC7\xA0\xD9`\xE1\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x84\x16`\x04\x82\x01R`$\x81\x01\x82\x90R`D\x81\x01\x83\x90R`d\x01[`@Q\x80\x91\x03\x90\xFD[a\x03\x06\x84\x84\x84\x84\x03`\0a\x03kV[PPPPV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x036W`@QcKc~\x8F`\xE1\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x03`W`@Qc\xECD/\x05`\xE0\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[a\x02\x84\x83\x83\x83a\x04@V[`\x01`\x01`\xA0\x1B\x03\x84\x16a\x03\x95W`@Qc\xE6\x02\xDF\x05`\xE0\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x03\xBFW`@QcJ\x14\x06\xB1`\xE1\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x80\x85\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x87\x16\x83R\x92\x90R \x82\x90U\x80\x15a\x03\x06W\x82`\x01`\x01`\xA0\x1B\x03\x16\x84`\x01`\x01`\xA0\x1B\x03\x16\x7F\x8C[\xE1\xE5\xEB\xEC}[\xD1OqB}\x1E\x84\xF3\xDD\x03\x14\xC0\xF7\xB2)\x1E[ \n\xC8\xC7\xC3\xB9%\x84`@Qa\x042\x91\x81R` \x01\x90V[`@Q\x80\x91\x03\x90\xA3PPPPV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x04kW\x80`\x02`\0\x82\x82Ta\x04`\x91\x90a\x06\xC9V[\x90\x91UPa\x04\xDD\x90PV[`\x01`\x01`\xA0\x1B\x03\x83\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x81\x81\x10\x15a\x04\xBEW`@Qc9\x144\xE3`\xE2\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x85\x16`\x04\x82\x01R`$\x81\x01\x82\x90R`D\x81\x01\x83\x90R`d\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x84\x16`\0\x90\x81R` \x81\x90R`@\x90 \x90\x82\x90\x03\x90U[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x04\xF9W`\x02\x80T\x82\x90\x03\x90Ua\x05\x18V[`\x01`\x01`\xA0\x1B\x03\x82\x16`\0\x90\x81R` \x81\x90R`@\x90 \x80T\x82\x01\x90U[\x81`\x01`\x01`\xA0\x1B\x03\x16\x83`\x01`\x01`\xA0\x1B\x03\x16\x7F\xDD\xF2R\xAD\x1B\xE2\xC8\x9Bi\xC2\xB0h\xFC7\x8D\xAA\x95+\xA7\xF1c\xC4\xA1\x16(\xF5ZM\xF5#\xB3\xEF\x83`@Qa\x05]\x91\x81R` \x01\x90V[`@Q\x80\x91\x03\x90\xA3PPPV[`\0` \x80\x83R\x83Q\x80\x82\x85\x01R`\0[\x81\x81\x10\x15a\x05\x97W\x85\x81\x01\x83\x01Q\x85\x82\x01`@\x01R\x82\x01a\x05{V[P`\0`@\x82\x86\x01\x01R`@`\x1F\x19`\x1F\x83\x01\x16\x85\x01\x01\x92PPP\x92\x91PPV[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\x05\xCFW`\0\x80\xFD[\x91\x90PV[`\0\x80`@\x83\x85\x03\x12\x15a\x05\xE7W`\0\x80\xFD[a\x05\xF0\x83a\x05\xB8V[\x94` \x93\x90\x93\x015\x93PPPV[`\0\x80`\0``\x84\x86\x03\x12\x15a\x06\x13W`\0\x80\xFD[a\x06\x1C\x84a\x05\xB8V[\x92Pa\x06*` \x85\x01a\x05\xB8V[\x91P`@\x84\x015\x90P\x92P\x92P\x92V[`\0` \x82\x84\x03\x12\x15a\x06LW`\0\x80\xFD[a\x06U\x82a\x05\xB8V[\x93\x92PPPV[`\0\x80`@\x83\x85\x03\x12\x15a\x06oW`\0\x80\xFD[a\x06x\x83a\x05\xB8V[\x91Pa\x06\x86` \x84\x01a\x05\xB8V[\x90P\x92P\x92\x90PV[`\x01\x81\x81\x1C\x90\x82\x16\x80a\x06\xA3W`\x7F\x82\x16\x91P[` \x82\x10\x81\x03a\x06\xC3WcNH{q`\xE0\x1B`\0R`\"`\x04R`$`\0\xFD[P\x91\x90PV[\x80\x82\x01\x80\x82\x11\x15a\x020WcNH{q`\xE0\x1B`\0R`\x11`\x04R`$`\0\xFD\xFE\xA2dipfsX\"\x12 \x870.B\xA6c\xFD`y\xCA\xF7o\xF4\xBF\xA3\x1E\xB5\xD9L=\r\x9F`Y:\xF4)h\x07\xC1\\\x1AdsolcC\0\x08\x14\x003";
     /// The bytecode of the contract.
     pub static MOCKTOKEN_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0\xA9W`\x005`\xE0\x1C\x80c9P\x93Q\x11a\0qW\x80c9P\x93Q\x14a\x01#W\x80cp\xA0\x821\x14a\x016W\x80c\x95\xD8\x9BA\x14a\x01_W\x80c\xA4W\xC2\xD7\x14a\x01gW\x80c\xA9\x05\x9C\xBB\x14a\x01zW\x80c\xDDb\xED>\x14a\x01\x8DW`\0\x80\xFD[\x80c\x06\xFD\xDE\x03\x14a\0\xAEW\x80c\t^\xA7\xB3\x14a\0\xCCW\x80c\x18\x16\r\xDD\x14a\0\xEFW\x80c#\xB8r\xDD\x14a\x01\x01W\x80c1<\xE5g\x14a\x01\x14W[`\0\x80\xFD[a\0\xB6a\x01\xA0V[`@Qa\0\xC3\x91\x90a\x06\x9CV[`@Q\x80\x91\x03\x90\xF3[a\0\xDFa\0\xDA6`\x04a\x07\x06V[a\x022V[`@Q\x90\x15\x15\x81R` \x01a\0\xC3V[`\x02T[`@Q\x90\x81R` \x01a\0\xC3V[a\0\xDFa\x01\x0F6`\x04a\x070V[a\x02LV[`@Q`\x12\x81R` \x01a\0\xC3V[a\0\xDFa\x0116`\x04a\x07\x06V[a\x02pV[a\0\xF3a\x01D6`\x04a\x07lV[`\x01`\x01`\xA0\x1B\x03\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x90V[a\0\xB6a\x02\x92V[a\0\xDFa\x01u6`\x04a\x07\x06V[a\x02\xA1V[a\0\xDFa\x01\x886`\x04a\x07\x06V[a\x03!V[a\0\xF3a\x01\x9B6`\x04a\x07\x8EV[a\x03/V[```\x03\x80Ta\x01\xAF\x90a\x07\xC1V[\x80`\x1F\x01` \x80\x91\x04\x02` \x01`@Q\x90\x81\x01`@R\x80\x92\x91\x90\x81\x81R` \x01\x82\x80Ta\x01\xDB\x90a\x07\xC1V[\x80\x15a\x02(W\x80`\x1F\x10a\x01\xFDWa\x01\0\x80\x83T\x04\x02\x83R\x91` \x01\x91a\x02(V[\x82\x01\x91\x90`\0R` `\0 \x90[\x81T\x81R\x90`\x01\x01\x90` \x01\x80\x83\x11a\x02\x0BW\x82\x90\x03`\x1F\x16\x82\x01\x91[PPPPP\x90P\x90V[`\x003a\x02@\x81\x85\x85a\x03ZV[`\x01\x91PP[\x92\x91PPV[`\x003a\x02Z\x85\x82\x85a\x04~V[a\x02e\x85\x85\x85a\x04\xF8V[P`\x01\x94\x93PPPPV[`\x003a\x02@\x81\x85\x85a\x02\x83\x83\x83a\x03/V[a\x02\x8D\x91\x90a\x07\xFBV[a\x03ZV[```\x04\x80Ta\x01\xAF\x90a\x07\xC1V[`\x003\x81a\x02\xAF\x82\x86a\x03/V[\x90P\x83\x81\x10\x15a\x03\x14W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`%`$\x82\x01R\x7FERC20: decreased allowance below`D\x82\x01Rd zero`\xD8\x1B`d\x82\x01R`\x84\x01[`@Q\x80\x91\x03\x90\xFD[a\x02e\x82\x86\x86\x84\x03a\x03ZV[`\x003a\x02@\x81\x85\x85a\x04\xF8V[`\x01`\x01`\xA0\x1B\x03\x91\x82\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x90\x94\x16\x82R\x91\x90\x91R T\x90V[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x03\xBCW`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`$\x80\x82\x01R\x7FERC20: approve from the zero add`D\x82\x01Rcress`\xE0\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x04\x1DW`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`\"`$\x82\x01R\x7FERC20: approve to the zero addre`D\x82\x01Rass`\xF0\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x83\x81\x16`\0\x81\x81R`\x01` \x90\x81R`@\x80\x83 \x94\x87\x16\x80\x84R\x94\x82R\x91\x82\x90 \x85\x90U\x90Q\x84\x81R\x7F\x8C[\xE1\xE5\xEB\xEC}[\xD1OqB}\x1E\x84\xF3\xDD\x03\x14\xC0\xF7\xB2)\x1E[ \n\xC8\xC7\xC3\xB9%\x91\x01`@Q\x80\x91\x03\x90\xA3PPPV[`\0a\x04\x8A\x84\x84a\x03/V[\x90P`\0\x19\x81\x14a\x04\xF2W\x81\x81\x10\x15a\x04\xE5W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`\x1D`$\x82\x01R\x7FERC20: insufficient allowance\0\0\0`D\x82\x01R`d\x01a\x03\x0BV[a\x04\xF2\x84\x84\x84\x84\x03a\x03ZV[PPPPV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x05\\W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`%`$\x82\x01R\x7FERC20: transfer from the zero ad`D\x82\x01Rddress`\xD8\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x05\xBEW`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`#`$\x82\x01R\x7FERC20: transfer to the zero addr`D\x82\x01Rbess`\xE8\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x83\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x81\x81\x10\x15a\x066W`@QbF\x1B\xCD`\xE5\x1B\x81R` `\x04\x82\x01R`&`$\x82\x01R\x7FERC20: transfer amount exceeds b`D\x82\x01Realance`\xD0\x1B`d\x82\x01R`\x84\x01a\x03\x0BV[`\x01`\x01`\xA0\x1B\x03\x84\x81\x16`\0\x81\x81R` \x81\x81R`@\x80\x83 \x87\x87\x03\x90U\x93\x87\x16\x80\x83R\x91\x84\x90 \x80T\x87\x01\x90U\x92Q\x85\x81R\x90\x92\x7F\xDD\xF2R\xAD\x1B\xE2\xC8\x9Bi\xC2\xB0h\xFC7\x8D\xAA\x95+\xA7\xF1c\xC4\xA1\x16(\xF5ZM\xF5#\xB3\xEF\x91\x01`@Q\x80\x91\x03\x90\xA3a\x04\xF2V[`\0` \x80\x83R\x83Q\x80\x82\x85\x01R`\0[\x81\x81\x10\x15a\x06\xC9W\x85\x81\x01\x83\x01Q\x85\x82\x01`@\x01R\x82\x01a\x06\xADV[P`\0`@\x82\x86\x01\x01R`@`\x1F\x19`\x1F\x83\x01\x16\x85\x01\x01\x92PPP\x92\x91PPV[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\x07\x01W`\0\x80\xFD[\x91\x90PV[`\0\x80`@\x83\x85\x03\x12\x15a\x07\x19W`\0\x80\xFD[a\x07\"\x83a\x06\xEAV[\x94` \x93\x90\x93\x015\x93PPPV[`\0\x80`\0``\x84\x86\x03\x12\x15a\x07EW`\0\x80\xFD[a\x07N\x84a\x06\xEAV[\x92Pa\x07\\` \x85\x01a\x06\xEAV[\x91P`@\x84\x015\x90P\x92P\x92P\x92V[`\0` \x82\x84\x03\x12\x15a\x07~W`\0\x80\xFD[a\x07\x87\x82a\x06\xEAV[\x93\x92PPPV[`\0\x80`@\x83\x85\x03\x12\x15a\x07\xA1W`\0\x80\xFD[a\x07\xAA\x83a\x06\xEAV[\x91Pa\x07\xB8` \x84\x01a\x06\xEAV[\x90P\x92P\x92\x90PV[`\x01\x81\x81\x1C\x90\x82\x16\x80a\x07\xD5W`\x7F\x82\x16\x91P[` \x82\x10\x81\x03a\x07\xF5WcNH{q`\xE0\x1B`\0R`\"`\x04R`$`\0\xFD[P\x91\x90PV[\x80\x82\x01\x80\x82\x11\x15a\x02FWcNH{q`\xE0\x1B`\0R`\x11`\x04R`$`\0\xFD\xFE\xA2dipfsX\"\x12 \x88\x0B\xFCy\xC6\xFA]\xBA\xB3/\x92(\xBB\xB3l\xEE(\x0F\x0F\xA4\xFA\"+Z\xD6;\xE4c\xCC\x02\xD4udsolcC\0\x08\x14\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0\x93W`\x005`\xE0\x1C\x80c1<\xE5g\x11a\0fW\x80c1<\xE5g\x14a\0\xFEW\x80cp\xA0\x821\x14a\x01\rW\x80c\x95\xD8\x9BA\x14a\x016W\x80c\xA9\x05\x9C\xBB\x14a\x01>W\x80c\xDDb\xED>\x14a\x01QW`\0\x80\xFD[\x80c\x06\xFD\xDE\x03\x14a\0\x98W\x80c\t^\xA7\xB3\x14a\0\xB6W\x80c\x18\x16\r\xDD\x14a\0\xD9W\x80c#\xB8r\xDD\x14a\0\xEBW[`\0\x80\xFD[a\0\xA0a\x01\x8AV[`@Qa\0\xAD\x91\x90a\x05jV[`@Q\x80\x91\x03\x90\xF3[a\0\xC9a\0\xC46`\x04a\x05\xD4V[a\x02\x1CV[`@Q\x90\x15\x15\x81R` \x01a\0\xADV[`\x02T[`@Q\x90\x81R` \x01a\0\xADV[a\0\xC9a\0\xF96`\x04a\x05\xFEV[a\x026V[`@Q`\x12\x81R` \x01a\0\xADV[a\0\xDDa\x01\x1B6`\x04a\x06:V[`\x01`\x01`\xA0\x1B\x03\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x90V[a\0\xA0a\x02ZV[a\0\xC9a\x01L6`\x04a\x05\xD4V[a\x02iV[a\0\xDDa\x01_6`\x04a\x06\\V[`\x01`\x01`\xA0\x1B\x03\x91\x82\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x90\x94\x16\x82R\x91\x90\x91R T\x90V[```\x03\x80Ta\x01\x99\x90a\x06\x8FV[\x80`\x1F\x01` \x80\x91\x04\x02` \x01`@Q\x90\x81\x01`@R\x80\x92\x91\x90\x81\x81R` \x01\x82\x80Ta\x01\xC5\x90a\x06\x8FV[\x80\x15a\x02\x12W\x80`\x1F\x10a\x01\xE7Wa\x01\0\x80\x83T\x04\x02\x83R\x91` \x01\x91a\x02\x12V[\x82\x01\x91\x90`\0R` `\0 \x90[\x81T\x81R\x90`\x01\x01\x90` \x01\x80\x83\x11a\x01\xF5W\x82\x90\x03`\x1F\x16\x82\x01\x91[PPPPP\x90P\x90V[`\x003a\x02*\x81\x85\x85a\x02wV[`\x01\x91PP[\x92\x91PPV[`\x003a\x02D\x85\x82\x85a\x02\x89V[a\x02O\x85\x85\x85a\x03\x0CV[P`\x01\x94\x93PPPPV[```\x04\x80Ta\x01\x99\x90a\x06\x8FV[`\x003a\x02*\x81\x85\x85a\x03\x0CV[a\x02\x84\x83\x83\x83`\x01a\x03kV[PPPV[`\x01`\x01`\xA0\x1B\x03\x83\x81\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x86\x16\x83R\x92\x90R T`\0\x19\x81\x14a\x03\x06W\x81\x81\x10\x15a\x02\xF7W`@Qc}\xC7\xA0\xD9`\xE1\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x84\x16`\x04\x82\x01R`$\x81\x01\x82\x90R`D\x81\x01\x83\x90R`d\x01[`@Q\x80\x91\x03\x90\xFD[a\x03\x06\x84\x84\x84\x84\x03`\0a\x03kV[PPPPV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x036W`@QcKc~\x8F`\xE1\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x03`W`@Qc\xECD/\x05`\xE0\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[a\x02\x84\x83\x83\x83a\x04@V[`\x01`\x01`\xA0\x1B\x03\x84\x16a\x03\x95W`@Qc\xE6\x02\xDF\x05`\xE0\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x03\xBFW`@QcJ\x14\x06\xB1`\xE1\x1B\x81R`\0`\x04\x82\x01R`$\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x80\x85\x16`\0\x90\x81R`\x01` \x90\x81R`@\x80\x83 \x93\x87\x16\x83R\x92\x90R \x82\x90U\x80\x15a\x03\x06W\x82`\x01`\x01`\xA0\x1B\x03\x16\x84`\x01`\x01`\xA0\x1B\x03\x16\x7F\x8C[\xE1\xE5\xEB\xEC}[\xD1OqB}\x1E\x84\xF3\xDD\x03\x14\xC0\xF7\xB2)\x1E[ \n\xC8\xC7\xC3\xB9%\x84`@Qa\x042\x91\x81R` \x01\x90V[`@Q\x80\x91\x03\x90\xA3PPPPV[`\x01`\x01`\xA0\x1B\x03\x83\x16a\x04kW\x80`\x02`\0\x82\x82Ta\x04`\x91\x90a\x06\xC9V[\x90\x91UPa\x04\xDD\x90PV[`\x01`\x01`\xA0\x1B\x03\x83\x16`\0\x90\x81R` \x81\x90R`@\x90 T\x81\x81\x10\x15a\x04\xBEW`@Qc9\x144\xE3`\xE2\x1B\x81R`\x01`\x01`\xA0\x1B\x03\x85\x16`\x04\x82\x01R`$\x81\x01\x82\x90R`D\x81\x01\x83\x90R`d\x01a\x02\xEEV[`\x01`\x01`\xA0\x1B\x03\x84\x16`\0\x90\x81R` \x81\x90R`@\x90 \x90\x82\x90\x03\x90U[`\x01`\x01`\xA0\x1B\x03\x82\x16a\x04\xF9W`\x02\x80T\x82\x90\x03\x90Ua\x05\x18V[`\x01`\x01`\xA0\x1B\x03\x82\x16`\0\x90\x81R` \x81\x90R`@\x90 \x80T\x82\x01\x90U[\x81`\x01`\x01`\xA0\x1B\x03\x16\x83`\x01`\x01`\xA0\x1B\x03\x16\x7F\xDD\xF2R\xAD\x1B\xE2\xC8\x9Bi\xC2\xB0h\xFC7\x8D\xAA\x95+\xA7\xF1c\xC4\xA1\x16(\xF5ZM\xF5#\xB3\xEF\x83`@Qa\x05]\x91\x81R` \x01\x90V[`@Q\x80\x91\x03\x90\xA3PPPV[`\0` \x80\x83R\x83Q\x80\x82\x85\x01R`\0[\x81\x81\x10\x15a\x05\x97W\x85\x81\x01\x83\x01Q\x85\x82\x01`@\x01R\x82\x01a\x05{V[P`\0`@\x82\x86\x01\x01R`@`\x1F\x19`\x1F\x83\x01\x16\x85\x01\x01\x92PPP\x92\x91PPV[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\x05\xCFW`\0\x80\xFD[\x91\x90PV[`\0\x80`@\x83\x85\x03\x12\x15a\x05\xE7W`\0\x80\xFD[a\x05\xF0\x83a\x05\xB8V[\x94` \x93\x90\x93\x015\x93PPPV[`\0\x80`\0``\x84\x86\x03\x12\x15a\x06\x13W`\0\x80\xFD[a\x06\x1C\x84a\x05\xB8V[\x92Pa\x06*` \x85\x01a\x05\xB8V[\x91P`@\x84\x015\x90P\x92P\x92P\x92V[`\0` \x82\x84\x03\x12\x15a\x06LW`\0\x80\xFD[a\x06U\x82a\x05\xB8V[\x93\x92PPPV[`\0\x80`@\x83\x85\x03\x12\x15a\x06oW`\0\x80\xFD[a\x06x\x83a\x05\xB8V[\x91Pa\x06\x86` \x84\x01a\x05\xB8V[\x90P\x92P\x92\x90PV[`\x01\x81\x81\x1C\x90\x82\x16\x80a\x06\xA3W`\x7F\x82\x16\x91P[` \x82\x10\x81\x03a\x06\xC3WcNH{q`\xE0\x1B`\0R`\"`\x04R`$`\0\xFD[P\x91\x90PV[\x80\x82\x01\x80\x82\x11\x15a\x020WcNH{q`\xE0\x1B`\0R`\x11`\x04R`$`\0\xFD\xFE\xA2dipfsX\"\x12 \x870.B\xA6c\xFD`y\xCA\xF7o\xF4\xBF\xA3\x1E\xB5\xD9L=\r\x9F`Y:\xF4)h\x07\xC1\\\x1AdsolcC\0\x08\x14\x003";
     /// The deployed bytecode of the contract.
     pub static MOCKTOKEN_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
@@ -557,10 +632,10 @@ pub mod mock_token {
         pub fn approve(
             &self,
             spender: ::ethers::core::types::Address,
-            amount: ::ethers::core::types::U256,
+            value: ::ethers::core::types::U256,
         ) -> ::ethers::contract::builders::ContractCall<M, bool> {
             self.0
-                .method_hash([9, 94, 167, 179], (spender, amount))
+                .method_hash([9, 94, 167, 179], (spender, value))
                 .expect("method not found (this should never happen)")
         }
         ///Calls the contract's `balanceOf` (0x70a08231) function
@@ -576,26 +651,6 @@ pub mod mock_token {
         pub fn decimals(&self) -> ::ethers::contract::builders::ContractCall<M, u8> {
             self.0
                 .method_hash([49, 60, 229, 103], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `decreaseAllowance` (0xa457c2d7) function
-        pub fn decrease_allowance(
-            &self,
-            spender: ::ethers::core::types::Address,
-            subtracted_value: ::ethers::core::types::U256,
-        ) -> ::ethers::contract::builders::ContractCall<M, bool> {
-            self.0
-                .method_hash([164, 87, 194, 215], (spender, subtracted_value))
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `increaseAllowance` (0x39509351) function
-        pub fn increase_allowance(
-            &self,
-            spender: ::ethers::core::types::Address,
-            added_value: ::ethers::core::types::U256,
-        ) -> ::ethers::contract::builders::ContractCall<M, bool> {
-            self.0
-                .method_hash([57, 80, 147, 81], (spender, added_value))
                 .expect("method not found (this should never happen)")
         }
         ///Calls the contract's `name` (0x06fdde03) function
@@ -626,10 +681,10 @@ pub mod mock_token {
         pub fn transfer(
             &self,
             to: ::ethers::core::types::Address,
-            amount: ::ethers::core::types::U256,
+            value: ::ethers::core::types::U256,
         ) -> ::ethers::contract::builders::ContractCall<M, bool> {
             self.0
-                .method_hash([169, 5, 156, 187], (to, amount))
+                .method_hash([169, 5, 156, 187], (to, value))
                 .expect("method not found (this should never happen)")
         }
         ///Calls the contract's `transferFrom` (0x23b872dd) function
@@ -637,10 +692,10 @@ pub mod mock_token {
             &self,
             from: ::ethers::core::types::Address,
             to: ::ethers::core::types::Address,
-            amount: ::ethers::core::types::U256,
+            value: ::ethers::core::types::U256,
         ) -> ::ethers::contract::builders::ContractCall<M, bool> {
             self.0
-                .method_hash([35, 184, 114, 221], (from, to, amount))
+                .method_hash([35, 184, 114, 221], (from, to, value))
                 .expect("method not found (this should never happen)")
         }
         ///Gets the contract's `Approval` event
@@ -678,6 +733,300 @@ pub mod mock_token {
     for MockToken<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
+        }
+    }
+    ///Custom Error type `ERC20InsufficientAllowance` with signature `ERC20InsufficientAllowance(address,uint256,uint256)` and selector `0xfb8f41b2`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "ERC20InsufficientAllowance",
+        abi = "ERC20InsufficientAllowance(address,uint256,uint256)"
+    )]
+    pub struct ERC20InsufficientAllowance {
+        pub spender: ::ethers::core::types::Address,
+        pub allowance: ::ethers::core::types::U256,
+        pub needed: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `ERC20InsufficientBalance` with signature `ERC20InsufficientBalance(address,uint256,uint256)` and selector `0xe450d38c`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "ERC20InsufficientBalance",
+        abi = "ERC20InsufficientBalance(address,uint256,uint256)"
+    )]
+    pub struct ERC20InsufficientBalance {
+        pub sender: ::ethers::core::types::Address,
+        pub balance: ::ethers::core::types::U256,
+        pub needed: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `ERC20InvalidApprover` with signature `ERC20InvalidApprover(address)` and selector `0xe602df05`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "ERC20InvalidApprover", abi = "ERC20InvalidApprover(address)")]
+    pub struct ERC20InvalidApprover {
+        pub approver: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `ERC20InvalidReceiver` with signature `ERC20InvalidReceiver(address)` and selector `0xec442f05`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "ERC20InvalidReceiver", abi = "ERC20InvalidReceiver(address)")]
+    pub struct ERC20InvalidReceiver {
+        pub receiver: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `ERC20InvalidSender` with signature `ERC20InvalidSender(address)` and selector `0x96c6fd1e`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "ERC20InvalidSender", abi = "ERC20InvalidSender(address)")]
+    pub struct ERC20InvalidSender {
+        pub sender: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `ERC20InvalidSpender` with signature `ERC20InvalidSpender(address)` and selector `0x94280d62`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "ERC20InvalidSpender", abi = "ERC20InvalidSpender(address)")]
+    pub struct ERC20InvalidSpender {
+        pub spender: ::ethers::core::types::Address,
+    }
+    ///Container type for all of the contract's custom errors
+    #[derive(
+        Clone,
+        ::ethers::contract::EthAbiType,
+        serde::Serialize,
+        serde::Deserialize,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    pub enum MockTokenErrors {
+        ERC20InsufficientAllowance(ERC20InsufficientAllowance),
+        ERC20InsufficientBalance(ERC20InsufficientBalance),
+        ERC20InvalidApprover(ERC20InvalidApprover),
+        ERC20InvalidReceiver(ERC20InvalidReceiver),
+        ERC20InvalidSender(ERC20InvalidSender),
+        ERC20InvalidSpender(ERC20InvalidSpender),
+        /// The standard solidity revert string, with selector
+        /// Error(string) -- 0x08c379a0
+        RevertString(::std::string::String),
+    }
+    impl ::ethers::core::abi::AbiDecode for MockTokenErrors {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
+            let data = data.as_ref();
+            if let Ok(decoded) = <::std::string::String as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::RevertString(decoded));
+            }
+            if let Ok(decoded) = <ERC20InsufficientAllowance as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC20InsufficientAllowance(decoded));
+            }
+            if let Ok(decoded) = <ERC20InsufficientBalance as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC20InsufficientBalance(decoded));
+            }
+            if let Ok(decoded) = <ERC20InvalidApprover as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC20InvalidApprover(decoded));
+            }
+            if let Ok(decoded) = <ERC20InvalidReceiver as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC20InvalidReceiver(decoded));
+            }
+            if let Ok(decoded) = <ERC20InvalidSender as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC20InvalidSender(decoded));
+            }
+            if let Ok(decoded) = <ERC20InvalidSpender as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::ERC20InvalidSpender(decoded));
+            }
+            Err(::ethers::core::abi::Error::InvalidData.into())
+        }
+    }
+    impl ::ethers::core::abi::AbiEncode for MockTokenErrors {
+        fn encode(self) -> ::std::vec::Vec<u8> {
+            match self {
+                Self::ERC20InsufficientAllowance(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ERC20InsufficientBalance(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ERC20InvalidApprover(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ERC20InvalidReceiver(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ERC20InvalidSender(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::ERC20InvalidSpender(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::RevertString(s) => ::ethers::core::abi::AbiEncode::encode(s),
+            }
+        }
+    }
+    impl ::ethers::contract::ContractRevert for MockTokenErrors {
+        fn valid_selector(selector: [u8; 4]) -> bool {
+            match selector {
+                [0x08, 0xc3, 0x79, 0xa0] => true,
+                _ if selector
+                    == <ERC20InsufficientAllowance as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ERC20InsufficientBalance as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ERC20InvalidApprover as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ERC20InvalidReceiver as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ERC20InvalidSender as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ERC20InvalidSpender as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ => false,
+            }
+        }
+    }
+    impl ::core::fmt::Display for MockTokenErrors {
+        fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+            match self {
+                Self::ERC20InsufficientAllowance(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::ERC20InsufficientBalance(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::ERC20InvalidApprover(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::ERC20InvalidReceiver(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::ERC20InvalidSender(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::ERC20InvalidSpender(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::RevertString(s) => ::core::fmt::Display::fmt(s, f),
+            }
+        }
+    }
+    impl ::core::convert::From<::std::string::String> for MockTokenErrors {
+        fn from(value: String) -> Self {
+            Self::RevertString(value)
+        }
+    }
+    impl ::core::convert::From<ERC20InsufficientAllowance> for MockTokenErrors {
+        fn from(value: ERC20InsufficientAllowance) -> Self {
+            Self::ERC20InsufficientAllowance(value)
+        }
+    }
+    impl ::core::convert::From<ERC20InsufficientBalance> for MockTokenErrors {
+        fn from(value: ERC20InsufficientBalance) -> Self {
+            Self::ERC20InsufficientBalance(value)
+        }
+    }
+    impl ::core::convert::From<ERC20InvalidApprover> for MockTokenErrors {
+        fn from(value: ERC20InvalidApprover) -> Self {
+            Self::ERC20InvalidApprover(value)
+        }
+    }
+    impl ::core::convert::From<ERC20InvalidReceiver> for MockTokenErrors {
+        fn from(value: ERC20InvalidReceiver) -> Self {
+            Self::ERC20InvalidReceiver(value)
+        }
+    }
+    impl ::core::convert::From<ERC20InvalidSender> for MockTokenErrors {
+        fn from(value: ERC20InvalidSender) -> Self {
+            Self::ERC20InvalidSender(value)
+        }
+    }
+    impl ::core::convert::From<ERC20InvalidSpender> for MockTokenErrors {
+        fn from(value: ERC20InvalidSpender) -> Self {
+            Self::ERC20InvalidSpender(value)
         }
     }
     #[derive(
@@ -800,7 +1149,7 @@ pub mod mock_token {
     #[ethcall(name = "approve", abi = "approve(address,uint256)")]
     pub struct ApproveCall {
         pub spender: ::ethers::core::types::Address,
-        pub amount: ::ethers::core::types::U256,
+        pub value: ::ethers::core::types::U256,
     }
     ///Container type for all input parameters for the `balanceOf` function with signature `balanceOf(address)` and selector `0x70a08231`
     #[derive(
@@ -834,42 +1183,6 @@ pub mod mock_token {
     )]
     #[ethcall(name = "decimals", abi = "decimals()")]
     pub struct DecimalsCall;
-    ///Container type for all input parameters for the `decreaseAllowance` function with signature `decreaseAllowance(address,uint256)` and selector `0xa457c2d7`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthCall,
-        ::ethers::contract::EthDisplay,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    #[ethcall(name = "decreaseAllowance", abi = "decreaseAllowance(address,uint256)")]
-    pub struct DecreaseAllowanceCall {
-        pub spender: ::ethers::core::types::Address,
-        pub subtracted_value: ::ethers::core::types::U256,
-    }
-    ///Container type for all input parameters for the `increaseAllowance` function with signature `increaseAllowance(address,uint256)` and selector `0x39509351`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthCall,
-        ::ethers::contract::EthDisplay,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    #[ethcall(name = "increaseAllowance", abi = "increaseAllowance(address,uint256)")]
-    pub struct IncreaseAllowanceCall {
-        pub spender: ::ethers::core::types::Address,
-        pub added_value: ::ethers::core::types::U256,
-    }
     ///Container type for all input parameters for the `name` function with signature `name()` and selector `0x06fdde03`
     #[derive(
         Clone,
@@ -931,7 +1244,7 @@ pub mod mock_token {
     #[ethcall(name = "transfer", abi = "transfer(address,uint256)")]
     pub struct TransferCall {
         pub to: ::ethers::core::types::Address,
-        pub amount: ::ethers::core::types::U256,
+        pub value: ::ethers::core::types::U256,
     }
     ///Container type for all input parameters for the `transferFrom` function with signature `transferFrom(address,address,uint256)` and selector `0x23b872dd`
     #[derive(
@@ -950,7 +1263,7 @@ pub mod mock_token {
     pub struct TransferFromCall {
         pub from: ::ethers::core::types::Address,
         pub to: ::ethers::core::types::Address,
-        pub amount: ::ethers::core::types::U256,
+        pub value: ::ethers::core::types::U256,
     }
     ///Container type for all of the contract's call
     #[derive(
@@ -968,8 +1281,6 @@ pub mod mock_token {
         Approve(ApproveCall),
         BalanceOf(BalanceOfCall),
         Decimals(DecimalsCall),
-        DecreaseAllowance(DecreaseAllowanceCall),
-        IncreaseAllowance(IncreaseAllowanceCall),
         Name(NameCall),
         Symbol(SymbolCall),
         TotalSupply(TotalSupplyCall),
@@ -1000,16 +1311,6 @@ pub mod mock_token {
                 data,
             ) {
                 return Ok(Self::Decimals(decoded));
-            }
-            if let Ok(decoded) = <DecreaseAllowanceCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::DecreaseAllowance(decoded));
-            }
-            if let Ok(decoded) = <IncreaseAllowanceCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::IncreaseAllowance(decoded));
             }
             if let Ok(decoded) = <NameCall as ::ethers::core::abi::AbiDecode>::decode(
                 data,
@@ -1052,12 +1353,6 @@ pub mod mock_token {
                 Self::Decimals(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
-                Self::DecreaseAllowance(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::IncreaseAllowance(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
                 Self::Name(element) => ::ethers::core::abi::AbiEncode::encode(element),
                 Self::Symbol(element) => ::ethers::core::abi::AbiEncode::encode(element),
                 Self::TotalSupply(element) => {
@@ -1079,8 +1374,6 @@ pub mod mock_token {
                 Self::Approve(element) => ::core::fmt::Display::fmt(element, f),
                 Self::BalanceOf(element) => ::core::fmt::Display::fmt(element, f),
                 Self::Decimals(element) => ::core::fmt::Display::fmt(element, f),
-                Self::DecreaseAllowance(element) => ::core::fmt::Display::fmt(element, f),
-                Self::IncreaseAllowance(element) => ::core::fmt::Display::fmt(element, f),
                 Self::Name(element) => ::core::fmt::Display::fmt(element, f),
                 Self::Symbol(element) => ::core::fmt::Display::fmt(element, f),
                 Self::TotalSupply(element) => ::core::fmt::Display::fmt(element, f),
@@ -1107,16 +1400,6 @@ pub mod mock_token {
     impl ::core::convert::From<DecimalsCall> for MockTokenCalls {
         fn from(value: DecimalsCall) -> Self {
             Self::Decimals(value)
-        }
-    }
-    impl ::core::convert::From<DecreaseAllowanceCall> for MockTokenCalls {
-        fn from(value: DecreaseAllowanceCall) -> Self {
-            Self::DecreaseAllowance(value)
-        }
-    }
-    impl ::core::convert::From<IncreaseAllowanceCall> for MockTokenCalls {
-        fn from(value: IncreaseAllowanceCall) -> Self {
-            Self::IncreaseAllowance(value)
         }
     }
     impl ::core::convert::From<NameCall> for MockTokenCalls {
@@ -1200,34 +1483,6 @@ pub mod mock_token {
         Hash
     )]
     pub struct DecimalsReturn(pub u8);
-    ///Container type for all return fields from the `decreaseAllowance` function with signature `decreaseAllowance(address,uint256)` and selector `0xa457c2d7`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct DecreaseAllowanceReturn(pub bool);
-    ///Container type for all return fields from the `increaseAllowance` function with signature `increaseAllowance(address,uint256)` and selector `0x39509351`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct IncreaseAllowanceReturn(pub bool);
     ///Container type for all return fields from the `name` function with signature `name()` and selector `0x06fdde03`
     #[derive(
         Clone,

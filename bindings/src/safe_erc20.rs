@@ -1,4 +1,4 @@
-pub use ecdsa::*;
+pub use safe_erc20::*;
 /// This module was auto-generated with ethers-rs Abigen.
 /// More information at: <https://github.com/gakonst/ethers-rs>
 #[allow(
@@ -9,7 +9,7 @@ pub use ecdsa::*;
     dead_code,
     non_camel_case_types,
 )]
-pub mod ecdsa {
+pub mod safe_erc20 {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
@@ -18,26 +18,31 @@ pub mod ecdsa {
             events: ::std::collections::BTreeMap::new(),
             errors: ::core::convert::From::from([
                 (
-                    ::std::borrow::ToOwned::to_owned("ECDSAInvalidSignature"),
+                    ::std::borrow::ToOwned::to_owned("SafeERC20FailedDecreaseAllowance"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ECDSAInvalidSignature",
-                            ),
-                            inputs: ::std::vec![],
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("ECDSAInvalidSignatureLength"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::AbiError {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ECDSAInvalidSignatureLength",
+                                "SafeERC20FailedDecreaseAllowance",
                             ),
                             inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("length"),
+                                    name: ::std::borrow::ToOwned::to_owned("spender"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("currentAllowance"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("requestedDecrease"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
                                     ),
@@ -50,20 +55,18 @@ pub mod ecdsa {
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ECDSAInvalidSignatureS"),
+                    ::std::borrow::ToOwned::to_owned("SafeERC20FailedOperation"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ECDSAInvalidSignatureS",
+                                "SafeERC20FailedOperation",
                             ),
                             inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("s"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
-                                        32usize,
-                                    ),
+                                    name: ::std::borrow::ToOwned::to_owned("token"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                        ::std::borrow::ToOwned::to_owned("address"),
                                     ),
                                 },
                             ],
@@ -76,44 +79,44 @@ pub mod ecdsa {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static ECDSA_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+    pub static SAFEERC20_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
         __abi,
     );
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xF7\xA7\xEB\x87\x8F=\xBD\xA4\x0F\xF7\xBF\xB3\x80\xAB\x94\xA5\xAAqy\x84\xDF\xFE>\x02\xF3D\xC7\xC7\xE3\xBCe\x16dsolcC\0\x08\x14\x003";
+    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xF77$d\x03\xF6B\xDB\x0E\xBC8z\xE59g\xE2\xB4\x8A\xC5\xEF\xF8\xC1\xE6\x88\x8B\xEBO\x86\x81\xE9?1dsolcC\0\x08\x14\x003";
     /// The bytecode of the contract.
-    pub static ECDSA_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+    pub static SAFEERC20_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xF7\xA7\xEB\x87\x8F=\xBD\xA4\x0F\xF7\xBF\xB3\x80\xAB\x94\xA5\xAAqy\x84\xDF\xFE>\x02\xF3D\xC7\xC7\xE3\xBCe\x16dsolcC\0\x08\x14\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xF77$d\x03\xF6B\xDB\x0E\xBC8z\xE59g\xE2\xB4\x8A\xC5\xEF\xF8\xC1\xE6\x88\x8B\xEBO\x86\x81\xE9?1dsolcC\0\x08\x14\x003";
     /// The deployed bytecode of the contract.
-    pub static ECDSA_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+    pub static SAFEERC20_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
     );
-    pub struct ECDSA<M>(::ethers::contract::Contract<M>);
-    impl<M> ::core::clone::Clone for ECDSA<M> {
+    pub struct SafeERC20<M>(::ethers::contract::Contract<M>);
+    impl<M> ::core::clone::Clone for SafeERC20<M> {
         fn clone(&self) -> Self {
             Self(::core::clone::Clone::clone(&self.0))
         }
     }
-    impl<M> ::core::ops::Deref for ECDSA<M> {
+    impl<M> ::core::ops::Deref for SafeERC20<M> {
         type Target = ::ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M> ::core::ops::DerefMut for ECDSA<M> {
+    impl<M> ::core::ops::DerefMut for SafeERC20<M> {
         fn deref_mut(&mut self) -> &mut Self::Target {
             &mut self.0
         }
     }
-    impl<M> ::core::fmt::Debug for ECDSA<M> {
+    impl<M> ::core::fmt::Debug for SafeERC20<M> {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-            f.debug_tuple(::core::stringify!(ECDSA)).field(&self.address()).finish()
+            f.debug_tuple(::core::stringify!(SafeERC20)).field(&self.address()).finish()
         }
     }
-    impl<M: ::ethers::providers::Middleware> ECDSA<M> {
+    impl<M: ::ethers::providers::Middleware> SafeERC20<M> {
         /// Creates a new contract instance with the specified `ethers` client at
         /// `address`. The contract derefs to a `ethers::Contract` object.
         pub fn new<T: Into<::ethers::core::types::Address>>(
@@ -123,7 +126,7 @@ pub mod ecdsa {
             Self(
                 ::ethers::contract::Contract::new(
                     address.into(),
-                    ECDSA_ABI.clone(),
+                    SAFEERC20_ABI.clone(),
                     client,
                 ),
             )
@@ -159,8 +162,8 @@ pub mod ecdsa {
             ::ethers::contract::ContractError<M>,
         > {
             let factory = ::ethers::contract::ContractFactory::new(
-                ECDSA_ABI.clone(),
-                ECDSA_BYTECODE.clone().into(),
+                SAFEERC20_ABI.clone(),
+                SAFEERC20_BYTECODE.clone().into(),
                 client,
             );
             let deployer = factory.deploy(constructor_args)?;
@@ -169,27 +172,12 @@ pub mod ecdsa {
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-    for ECDSA<M> {
+    for SafeERC20<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
     }
-    ///Custom Error type `ECDSAInvalidSignature` with signature `ECDSAInvalidSignature()` and selector `0xf645eedf`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthError,
-        ::ethers::contract::EthDisplay,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    #[etherror(name = "ECDSAInvalidSignature", abi = "ECDSAInvalidSignature()")]
-    pub struct ECDSAInvalidSignature;
-    ///Custom Error type `ECDSAInvalidSignatureLength` with signature `ECDSAInvalidSignatureLength(uint256)` and selector `0xfce698f7`
+    ///Custom Error type `SafeERC20FailedDecreaseAllowance` with signature `SafeERC20FailedDecreaseAllowance(address,uint256,uint256)` and selector `0xe570110f`
     #[derive(
         Clone,
         ::ethers::contract::EthError,
@@ -203,13 +191,15 @@ pub mod ecdsa {
         Hash
     )]
     #[etherror(
-        name = "ECDSAInvalidSignatureLength",
-        abi = "ECDSAInvalidSignatureLength(uint256)"
+        name = "SafeERC20FailedDecreaseAllowance",
+        abi = "SafeERC20FailedDecreaseAllowance(address,uint256,uint256)"
     )]
-    pub struct ECDSAInvalidSignatureLength {
-        pub length: ::ethers::core::types::U256,
+    pub struct SafeERC20FailedDecreaseAllowance {
+        pub spender: ::ethers::core::types::Address,
+        pub current_allowance: ::ethers::core::types::U256,
+        pub requested_decrease: ::ethers::core::types::U256,
     }
-    ///Custom Error type `ECDSAInvalidSignatureS` with signature `ECDSAInvalidSignatureS(bytes32)` and selector `0xd78bce0c`
+    ///Custom Error type `SafeERC20FailedOperation` with signature `SafeERC20FailedOperation(address)` and selector `0x5274afe7`
     #[derive(
         Clone,
         ::ethers::contract::EthError,
@@ -222,9 +212,12 @@ pub mod ecdsa {
         Eq,
         Hash
     )]
-    #[etherror(name = "ECDSAInvalidSignatureS", abi = "ECDSAInvalidSignatureS(bytes32)")]
-    pub struct ECDSAInvalidSignatureS {
-        pub s: [u8; 32],
+    #[etherror(
+        name = "SafeERC20FailedOperation",
+        abi = "SafeERC20FailedOperation(address)"
+    )]
+    pub struct SafeERC20FailedOperation {
+        pub token: ::ethers::core::types::Address,
     }
     ///Container type for all of the contract's custom errors
     #[derive(
@@ -237,15 +230,14 @@ pub mod ecdsa {
         Eq,
         Hash
     )]
-    pub enum ECDSAErrors {
-        ECDSAInvalidSignature(ECDSAInvalidSignature),
-        ECDSAInvalidSignatureLength(ECDSAInvalidSignatureLength),
-        ECDSAInvalidSignatureS(ECDSAInvalidSignatureS),
+    pub enum SafeERC20Errors {
+        SafeERC20FailedDecreaseAllowance(SafeERC20FailedDecreaseAllowance),
+        SafeERC20FailedOperation(SafeERC20FailedOperation),
         /// The standard solidity revert string, with selector
         /// Error(string) -- 0x08c379a0
         RevertString(::std::string::String),
     }
-    impl ::ethers::core::abi::AbiDecode for ECDSAErrors {
+    impl ::ethers::core::abi::AbiDecode for SafeERC20Errors {
         fn decode(
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
@@ -255,94 +247,74 @@ pub mod ecdsa {
             ) {
                 return Ok(Self::RevertString(decoded));
             }
-            if let Ok(decoded) = <ECDSAInvalidSignature as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <SafeERC20FailedDecreaseAllowance as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
-                return Ok(Self::ECDSAInvalidSignature(decoded));
+                return Ok(Self::SafeERC20FailedDecreaseAllowance(decoded));
             }
-            if let Ok(decoded) = <ECDSAInvalidSignatureLength as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <SafeERC20FailedOperation as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
-                return Ok(Self::ECDSAInvalidSignatureLength(decoded));
-            }
-            if let Ok(decoded) = <ECDSAInvalidSignatureS as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::ECDSAInvalidSignatureS(decoded));
+                return Ok(Self::SafeERC20FailedOperation(decoded));
             }
             Err(::ethers::core::abi::Error::InvalidData.into())
         }
     }
-    impl ::ethers::core::abi::AbiEncode for ECDSAErrors {
+    impl ::ethers::core::abi::AbiEncode for SafeERC20Errors {
         fn encode(self) -> ::std::vec::Vec<u8> {
             match self {
-                Self::ECDSAInvalidSignature(element) => {
+                Self::SafeERC20FailedDecreaseAllowance(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
-                Self::ECDSAInvalidSignatureLength(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::ECDSAInvalidSignatureS(element) => {
+                Self::SafeERC20FailedOperation(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::RevertString(s) => ::ethers::core::abi::AbiEncode::encode(s),
             }
         }
     }
-    impl ::ethers::contract::ContractRevert for ECDSAErrors {
+    impl ::ethers::contract::ContractRevert for SafeERC20Errors {
         fn valid_selector(selector: [u8; 4]) -> bool {
             match selector {
                 [0x08, 0xc3, 0x79, 0xa0] => true,
                 _ if selector
-                    == <ECDSAInvalidSignature as ::ethers::contract::EthError>::selector() => {
+                    == <SafeERC20FailedDecreaseAllowance as ::ethers::contract::EthError>::selector() => {
                     true
                 }
                 _ if selector
-                    == <ECDSAInvalidSignatureLength as ::ethers::contract::EthError>::selector() => {
-                    true
-                }
-                _ if selector
-                    == <ECDSAInvalidSignatureS as ::ethers::contract::EthError>::selector() => {
+                    == <SafeERC20FailedOperation as ::ethers::contract::EthError>::selector() => {
                     true
                 }
                 _ => false,
             }
         }
     }
-    impl ::core::fmt::Display for ECDSAErrors {
+    impl ::core::fmt::Display for SafeERC20Errors {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             match self {
-                Self::ECDSAInvalidSignature(element) => {
+                Self::SafeERC20FailedDecreaseAllowance(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
-                Self::ECDSAInvalidSignatureLength(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::ECDSAInvalidSignatureS(element) => {
+                Self::SafeERC20FailedOperation(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
                 Self::RevertString(s) => ::core::fmt::Display::fmt(s, f),
             }
         }
     }
-    impl ::core::convert::From<::std::string::String> for ECDSAErrors {
+    impl ::core::convert::From<::std::string::String> for SafeERC20Errors {
         fn from(value: String) -> Self {
             Self::RevertString(value)
         }
     }
-    impl ::core::convert::From<ECDSAInvalidSignature> for ECDSAErrors {
-        fn from(value: ECDSAInvalidSignature) -> Self {
-            Self::ECDSAInvalidSignature(value)
+    impl ::core::convert::From<SafeERC20FailedDecreaseAllowance> for SafeERC20Errors {
+        fn from(value: SafeERC20FailedDecreaseAllowance) -> Self {
+            Self::SafeERC20FailedDecreaseAllowance(value)
         }
     }
-    impl ::core::convert::From<ECDSAInvalidSignatureLength> for ECDSAErrors {
-        fn from(value: ECDSAInvalidSignatureLength) -> Self {
-            Self::ECDSAInvalidSignatureLength(value)
-        }
-    }
-    impl ::core::convert::From<ECDSAInvalidSignatureS> for ECDSAErrors {
-        fn from(value: ECDSAInvalidSignatureS) -> Self {
-            Self::ECDSAInvalidSignatureS(value)
+    impl ::core::convert::From<SafeERC20FailedOperation> for SafeERC20Errors {
+        fn from(value: SafeERC20FailedOperation) -> Self {
+            Self::SafeERC20FailedOperation(value)
         }
     }
 }

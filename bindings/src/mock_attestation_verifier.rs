@@ -10,41 +10,12 @@ pub use mock_attestation_verifier::*;
     non_camel_case_types,
 )]
 pub mod mock_attestation_verifier {
+    pub use super::super::shared_types::*;
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
             constructor: ::core::option::Option::None,
             functions: ::core::convert::From::from([
-                (
-                    ::std::borrow::ToOwned::to_owned("isVerified"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("isVerified"),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("address"),
-                                    ),
-                                },
-                            ],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
-                                        32usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("bytes32"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::Pure,
-                        },
-                    ],
-                ),
                 (
                     ::std::borrow::ToOwned::to_owned("verify"),
                     ::std::vec![
@@ -102,24 +73,6 @@ pub mod mock_attestation_verifier {
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("enclaveCPUs"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
-                                        256usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("uint256"),
-                                    ),
-                                },
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("enclaveMemory"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
-                                        256usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("uint256"),
-                                    ),
-                                },
-                                ::ethers::core::abi::ethabi::Param {
                                     name: ::std::borrow::ToOwned::to_owned("timestamp"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
@@ -133,34 +86,37 @@ pub mod mock_attestation_verifier {
                             constant: ::core::option::Option::None,
                             state_mutability: ::ethers::core::abi::ethabi::StateMutability::Pure,
                         },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("whitelistEnclave"),
-                    ::std::vec![
                         ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("whitelistEnclave"),
+                            name: ::std::borrow::ToOwned::to_owned("verify"),
                             inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("imageId"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
-                                        32usize,
-                                    ),
+                                    name: ::std::borrow::ToOwned::to_owned("signature"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Bytes,
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                        ::std::borrow::ToOwned::to_owned("bytes"),
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("enclaveKey"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    name: ::std::borrow::ToOwned::to_owned("attestation"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Tuple(
+                                        ::std::vec![
+                                            ::ethers::core::abi::ethabi::ParamType::Bytes,
+                                            ::ethers::core::abi::ethabi::ParamType::Bytes,
+                                            ::ethers::core::abi::ethabi::ParamType::Bytes,
+                                            ::ethers::core::abi::ethabi::ParamType::Bytes,
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(256usize),
+                                        ],
+                                    ),
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("address"),
+                                        ::std::borrow::ToOwned::to_owned(
+                                            "struct IAttestationVerifier.Attestation",
+                                        ),
                                     ),
                                 },
                             ],
                             outputs: ::std::vec![],
                             constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
+                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::Pure,
                         },
                     ],
                 ),
@@ -176,13 +132,13 @@ pub mod mock_attestation_verifier {
         ::ethers::core::abi::Abi,
     > = ::ethers::contract::Lazy::new(__abi);
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[Pa\x03!\x80a\0 `\09`\0\xF3\xFE`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0LW`\x005`\xE0\x1C\x80c`h\r`\x14a\0QW\x80c\x8Ev\n\xFE\x14a\0eW\x80c\xAC\x0F\x0B\xD5\x14a\0vW\x80c\xB9 \x9E3\x14a\0\x8EW[`\0\x80\xFD[a\0ca\0_6`\x04a\0\xD0V[PPV[\0[a\0ca\0s6`\x04a\x01\x9FV[PV[a\0ca\0\x846`\x04a\x01\xDCV[PPPPPPPPV[a\0\xA2a\0\x9C6`\x04a\x02\xC9V[P`\0\x90V[`@Q\x90\x81R` \x01`@Q\x80\x91\x03\x90\xF3[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\0\xCBW`\0\x80\xFD[\x91\x90PV[`\0\x80`@\x83\x85\x03\x12\x15a\0\xE3W`\0\x80\xFD[\x825\x91Pa\0\xF3` \x84\x01a\0\xB4V[\x90P\x92P\x92\x90PV[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x82`\x1F\x83\x01\x12a\x01#W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x01>Wa\x01>a\0\xFCV[`@Q`\x1F\x83\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x82\x82\x11\x81\x83\x10\x17\x15a\x01fWa\x01fa\0\xFCV[\x81`@R\x83\x81R\x86` \x85\x88\x01\x01\x11\x15a\x01\x7FW`\0\x80\xFD[\x83` \x87\x01` \x83\x017`\0` \x85\x83\x01\x01R\x80\x94PPPPP\x92\x91PPV[`\0` \x82\x84\x03\x12\x15a\x01\xB1W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x81\x11\x15a\x01\xC8W`\0\x80\xFD[a\x01\xD4\x84\x82\x85\x01a\x01\x12V[\x94\x93PPPPV[`\0\x80`\0\x80`\0\x80`\0\x80a\x01\0\x89\x8B\x03\x12\x15a\x01\xF9W`\0\x80\xFD[\x885g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x02\x11W`\0\x80\xFD[a\x02\x1D\x8C\x83\x8D\x01a\x01\x12V[\x99P` \x8B\x015\x91P\x80\x82\x11\x15a\x023W`\0\x80\xFD[a\x02?\x8C\x83\x8D\x01a\x01\x12V[\x98P`@\x8B\x015\x91P\x80\x82\x11\x15a\x02UW`\0\x80\xFD[a\x02a\x8C\x83\x8D\x01a\x01\x12V[\x97P``\x8B\x015\x91P\x80\x82\x11\x15a\x02wW`\0\x80\xFD[a\x02\x83\x8C\x83\x8D\x01a\x01\x12V[\x96P`\x80\x8B\x015\x91P\x80\x82\x11\x15a\x02\x99W`\0\x80\xFD[Pa\x02\xA6\x8B\x82\x8C\x01a\x01\x12V[\x98\x9B\x97\x9AP\x95\x98\x94\x97\x96`\xA0\x86\x015\x96P`\xC0\x86\x015\x95`\xE0\x015\x94P\x92PPPV[`\0` \x82\x84\x03\x12\x15a\x02\xDBW`\0\x80\xFD[a\x02\xE4\x82a\0\xB4V[\x93\x92PPPV\xFE\xA2dipfsX\"\x12 p]\xDB{\xFF\xCB)\xB5.=\x1E\xE1\xCE\xAA\xD5\xAB\xAF\xBA\xA8\x9B\xB3=]\xDF>^\xAC.\xD6\xAD\xEF\x03dsolcC\0\x08\x14\x003";
+    const __BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[Pa\x03\xA4\x80a\0 `\09`\0\xF3\xFE`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0AW`\x005`\xE0\x1C\x80c\x8Ev\n\xFE\x14a\0FW\x80c\xADHq9\x14a\0YW\x80c\xEA\xC7\x08\xA3\x14a\0oW[`\0\x80\xFD[a\0Wa\0T6`\x04a\x01MV[PV[\0[a\0Wa\0g6`\x04a\x01\x8AV[PPPPPPV[a\0Wa\0}6`\x04a\x02dV[PPV[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`@Q`\xA0\x81\x01g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x81\x11\x82\x82\x10\x17\x15a\0\xBAWa\0\xBAa\0\x81V[`@R\x90V[`\0\x82`\x1F\x83\x01\x12a\0\xD1W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\0\xECWa\0\xECa\0\x81V[`@Q`\x1F\x83\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x82\x82\x11\x81\x83\x10\x17\x15a\x01\x14Wa\x01\x14a\0\x81V[\x81`@R\x83\x81R\x86` \x85\x88\x01\x01\x11\x15a\x01-W`\0\x80\xFD[\x83` \x87\x01` \x83\x017`\0` \x85\x83\x01\x01R\x80\x94PPPPP\x92\x91PPV[`\0` \x82\x84\x03\x12\x15a\x01_W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x81\x11\x15a\x01vW`\0\x80\xFD[a\x01\x82\x84\x82\x85\x01a\0\xC0V[\x94\x93PPPPV[`\0\x80`\0\x80`\0\x80`\xC0\x87\x89\x03\x12\x15a\x01\xA3W`\0\x80\xFD[\x865g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x01\xBBW`\0\x80\xFD[a\x01\xC7\x8A\x83\x8B\x01a\0\xC0V[\x97P` \x89\x015\x91P\x80\x82\x11\x15a\x01\xDDW`\0\x80\xFD[a\x01\xE9\x8A\x83\x8B\x01a\0\xC0V[\x96P`@\x89\x015\x91P\x80\x82\x11\x15a\x01\xFFW`\0\x80\xFD[a\x02\x0B\x8A\x83\x8B\x01a\0\xC0V[\x95P``\x89\x015\x91P\x80\x82\x11\x15a\x02!W`\0\x80\xFD[a\x02-\x8A\x83\x8B\x01a\0\xC0V[\x94P`\x80\x89\x015\x91P\x80\x82\x11\x15a\x02CW`\0\x80\xFD[Pa\x02P\x89\x82\x8A\x01a\0\xC0V[\x92PP`\xA0\x87\x015\x90P\x92\x95P\x92\x95P\x92\x95V[`\0\x80`@\x83\x85\x03\x12\x15a\x02wW`\0\x80\xFD[\x825g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x02\x8FW`\0\x80\xFD[a\x02\x9B\x86\x83\x87\x01a\0\xC0V[\x93P` \x85\x015\x91P\x80\x82\x11\x15a\x02\xB1W`\0\x80\xFD[\x90\x84\x01\x90`\xA0\x82\x87\x03\x12\x15a\x02\xC5W`\0\x80\xFD[a\x02\xCDa\0\x97V[\x825\x82\x81\x11\x15a\x02\xDCW`\0\x80\xFD[a\x02\xE8\x88\x82\x86\x01a\0\xC0V[\x82RP` \x83\x015\x82\x81\x11\x15a\x02\xFDW`\0\x80\xFD[a\x03\t\x88\x82\x86\x01a\0\xC0V[` \x83\x01RP`@\x83\x015\x82\x81\x11\x15a\x03!W`\0\x80\xFD[a\x03-\x88\x82\x86\x01a\0\xC0V[`@\x83\x01RP``\x83\x015\x82\x81\x11\x15a\x03EW`\0\x80\xFD[a\x03Q\x88\x82\x86\x01a\0\xC0V[``\x83\x01RP`\x80\x83\x015`\x80\x82\x01R\x80\x93PPPP\x92P\x92\x90PV\xFE\xA2dipfsX\"\x12 pDu\xB9\x8A2\xAD\x0Bu\x98\xF8$9v\xEETz\x9B]\xD4+\x007\xBDa\xDC3\x05\xDF\xFD\xD7\x03dsolcC\0\x08\x14\x003";
     /// The bytecode of the contract.
     pub static MOCKATTESTATIONVERIFIER_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0LW`\x005`\xE0\x1C\x80c`h\r`\x14a\0QW\x80c\x8Ev\n\xFE\x14a\0eW\x80c\xAC\x0F\x0B\xD5\x14a\0vW\x80c\xB9 \x9E3\x14a\0\x8EW[`\0\x80\xFD[a\0ca\0_6`\x04a\0\xD0V[PPV[\0[a\0ca\0s6`\x04a\x01\x9FV[PV[a\0ca\0\x846`\x04a\x01\xDCV[PPPPPPPPV[a\0\xA2a\0\x9C6`\x04a\x02\xC9V[P`\0\x90V[`@Q\x90\x81R` \x01`@Q\x80\x91\x03\x90\xF3[\x805`\x01`\x01`\xA0\x1B\x03\x81\x16\x81\x14a\0\xCBW`\0\x80\xFD[\x91\x90PV[`\0\x80`@\x83\x85\x03\x12\x15a\0\xE3W`\0\x80\xFD[\x825\x91Pa\0\xF3` \x84\x01a\0\xB4V[\x90P\x92P\x92\x90PV[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`\0\x82`\x1F\x83\x01\x12a\x01#W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x01>Wa\x01>a\0\xFCV[`@Q`\x1F\x83\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x82\x82\x11\x81\x83\x10\x17\x15a\x01fWa\x01fa\0\xFCV[\x81`@R\x83\x81R\x86` \x85\x88\x01\x01\x11\x15a\x01\x7FW`\0\x80\xFD[\x83` \x87\x01` \x83\x017`\0` \x85\x83\x01\x01R\x80\x94PPPPP\x92\x91PPV[`\0` \x82\x84\x03\x12\x15a\x01\xB1W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x81\x11\x15a\x01\xC8W`\0\x80\xFD[a\x01\xD4\x84\x82\x85\x01a\x01\x12V[\x94\x93PPPPV[`\0\x80`\0\x80`\0\x80`\0\x80a\x01\0\x89\x8B\x03\x12\x15a\x01\xF9W`\0\x80\xFD[\x885g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x02\x11W`\0\x80\xFD[a\x02\x1D\x8C\x83\x8D\x01a\x01\x12V[\x99P` \x8B\x015\x91P\x80\x82\x11\x15a\x023W`\0\x80\xFD[a\x02?\x8C\x83\x8D\x01a\x01\x12V[\x98P`@\x8B\x015\x91P\x80\x82\x11\x15a\x02UW`\0\x80\xFD[a\x02a\x8C\x83\x8D\x01a\x01\x12V[\x97P``\x8B\x015\x91P\x80\x82\x11\x15a\x02wW`\0\x80\xFD[a\x02\x83\x8C\x83\x8D\x01a\x01\x12V[\x96P`\x80\x8B\x015\x91P\x80\x82\x11\x15a\x02\x99W`\0\x80\xFD[Pa\x02\xA6\x8B\x82\x8C\x01a\x01\x12V[\x98\x9B\x97\x9AP\x95\x98\x94\x97\x96`\xA0\x86\x015\x96P`\xC0\x86\x015\x95`\xE0\x015\x94P\x92PPPV[`\0` \x82\x84\x03\x12\x15a\x02\xDBW`\0\x80\xFD[a\x02\xE4\x82a\0\xB4V[\x93\x92PPPV\xFE\xA2dipfsX\"\x12 p]\xDB{\xFF\xCB)\xB5.=\x1E\xE1\xCE\xAA\xD5\xAB\xAF\xBA\xA8\x9B\xB3=]\xDF>^\xAC.\xD6\xAD\xEF\x03dsolcC\0\x08\x14\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x10W`\0\x80\xFD[P`\x046\x10a\0AW`\x005`\xE0\x1C\x80c\x8Ev\n\xFE\x14a\0FW\x80c\xADHq9\x14a\0YW\x80c\xEA\xC7\x08\xA3\x14a\0oW[`\0\x80\xFD[a\0Wa\0T6`\x04a\x01MV[PV[\0[a\0Wa\0g6`\x04a\x01\x8AV[PPPPPPV[a\0Wa\0}6`\x04a\x02dV[PPV[cNH{q`\xE0\x1B`\0R`A`\x04R`$`\0\xFD[`@Q`\xA0\x81\x01g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x81\x11\x82\x82\x10\x17\x15a\0\xBAWa\0\xBAa\0\x81V[`@R\x90V[`\0\x82`\x1F\x83\x01\x12a\0\xD1W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\0\xECWa\0\xECa\0\x81V[`@Q`\x1F\x83\x01`\x1F\x19\x90\x81\x16`?\x01\x16\x81\x01\x90\x82\x82\x11\x81\x83\x10\x17\x15a\x01\x14Wa\x01\x14a\0\x81V[\x81`@R\x83\x81R\x86` \x85\x88\x01\x01\x11\x15a\x01-W`\0\x80\xFD[\x83` \x87\x01` \x83\x017`\0` \x85\x83\x01\x01R\x80\x94PPPPP\x92\x91PPV[`\0` \x82\x84\x03\x12\x15a\x01_W`\0\x80\xFD[\x815g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x81\x11\x15a\x01vW`\0\x80\xFD[a\x01\x82\x84\x82\x85\x01a\0\xC0V[\x94\x93PPPPV[`\0\x80`\0\x80`\0\x80`\xC0\x87\x89\x03\x12\x15a\x01\xA3W`\0\x80\xFD[\x865g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x01\xBBW`\0\x80\xFD[a\x01\xC7\x8A\x83\x8B\x01a\0\xC0V[\x97P` \x89\x015\x91P\x80\x82\x11\x15a\x01\xDDW`\0\x80\xFD[a\x01\xE9\x8A\x83\x8B\x01a\0\xC0V[\x96P`@\x89\x015\x91P\x80\x82\x11\x15a\x01\xFFW`\0\x80\xFD[a\x02\x0B\x8A\x83\x8B\x01a\0\xC0V[\x95P``\x89\x015\x91P\x80\x82\x11\x15a\x02!W`\0\x80\xFD[a\x02-\x8A\x83\x8B\x01a\0\xC0V[\x94P`\x80\x89\x015\x91P\x80\x82\x11\x15a\x02CW`\0\x80\xFD[Pa\x02P\x89\x82\x8A\x01a\0\xC0V[\x92PP`\xA0\x87\x015\x90P\x92\x95P\x92\x95P\x92\x95V[`\0\x80`@\x83\x85\x03\x12\x15a\x02wW`\0\x80\xFD[\x825g\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x80\x82\x11\x15a\x02\x8FW`\0\x80\xFD[a\x02\x9B\x86\x83\x87\x01a\0\xC0V[\x93P` \x85\x015\x91P\x80\x82\x11\x15a\x02\xB1W`\0\x80\xFD[\x90\x84\x01\x90`\xA0\x82\x87\x03\x12\x15a\x02\xC5W`\0\x80\xFD[a\x02\xCDa\0\x97V[\x825\x82\x81\x11\x15a\x02\xDCW`\0\x80\xFD[a\x02\xE8\x88\x82\x86\x01a\0\xC0V[\x82RP` \x83\x015\x82\x81\x11\x15a\x02\xFDW`\0\x80\xFD[a\x03\t\x88\x82\x86\x01a\0\xC0V[` \x83\x01RP`@\x83\x015\x82\x81\x11\x15a\x03!W`\0\x80\xFD[a\x03-\x88\x82\x86\x01a\0\xC0V[`@\x83\x01RP``\x83\x015\x82\x81\x11\x15a\x03EW`\0\x80\xFD[a\x03Q\x88\x82\x86\x01a\0\xC0V[``\x83\x01RP`\x80\x83\x015`\x80\x82\x01R\x80\x93PPPP\x92P\x92\x90PV\xFE\xA2dipfsX\"\x12 pDu\xB9\x8A2\xAD\x0Bu\x98\xF8$9v\xEETz\x9B]\xD4+\x007\xBDa\xDC3\x05\xDF\xFD\xD7\x03dsolcC\0\x08\x14\x003";
     /// The deployed bytecode of the contract.
     pub static MOCKATTESTATIONVERIFIER_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
@@ -265,15 +221,6 @@ pub mod mock_attestation_verifier {
             let deployer = ::ethers::contract::ContractDeployer::new(deployer);
             Ok(deployer)
         }
-        ///Calls the contract's `isVerified` (0xb9209e33) function
-        pub fn is_verified(
-            &self,
-            p0: ::ethers::core::types::Address,
-        ) -> ::ethers::contract::builders::ContractCall<M, [u8; 32]> {
-            self.0
-                .method_hash([185, 32, 158, 51], p0)
-                .expect("method not found (this should never happen)")
-        }
         ///Calls the contract's `verify` (0x8e760afe) function
         pub fn verify(
             &self,
@@ -283,7 +230,7 @@ pub mod mock_attestation_verifier {
                 .method_hash([142, 118, 10, 254], p0)
                 .expect("method not found (this should never happen)")
         }
-        ///Calls the contract's `verify` (0xac0f0bd5) function
+        ///Calls the contract's `verify` (0xad487139) function
         pub fn verify_with_attestation(
             &self,
             attestation: ::ethers::core::types::Bytes,
@@ -291,34 +238,23 @@ pub mod mock_attestation_verifier {
             pcr0: ::ethers::core::types::Bytes,
             pcr1: ::ethers::core::types::Bytes,
             pcr2: ::ethers::core::types::Bytes,
-            enclave_cp_us: ::ethers::core::types::U256,
-            enclave_memory: ::ethers::core::types::U256,
             timestamp: ::ethers::core::types::U256,
         ) -> ::ethers::contract::builders::ContractCall<M, ()> {
             self.0
                 .method_hash(
-                    [172, 15, 11, 213],
-                    (
-                        attestation,
-                        enclave_key,
-                        pcr0,
-                        pcr1,
-                        pcr2,
-                        enclave_cp_us,
-                        enclave_memory,
-                        timestamp,
-                    ),
+                    [173, 72, 113, 57],
+                    (attestation, enclave_key, pcr0, pcr1, pcr2, timestamp),
                 )
                 .expect("method not found (this should never happen)")
         }
-        ///Calls the contract's `whitelistEnclave` (0x60680d60) function
-        pub fn whitelist_enclave(
+        ///Calls the contract's `verify` (0xeac708a3) function
+        pub fn verify_with_signature(
             &self,
-            image_id: [u8; 32],
-            enclave_key: ::ethers::core::types::Address,
+            signature: ::ethers::core::types::Bytes,
+            attestation: Attestation,
         ) -> ::ethers::contract::builders::ContractCall<M, ()> {
             self.0
-                .method_hash([96, 104, 13, 96], (image_id, enclave_key))
+                .method_hash([234, 199, 8, 163], (signature, attestation))
                 .expect("method not found (this should never happen)")
         }
     }
@@ -328,21 +264,6 @@ pub mod mock_attestation_verifier {
             Self::new(contract.address(), contract.client())
         }
     }
-    ///Container type for all input parameters for the `isVerified` function with signature `isVerified(address)` and selector `0xb9209e33`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthCall,
-        ::ethers::contract::EthDisplay,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    #[ethcall(name = "isVerified", abi = "isVerified(address)")]
-    pub struct IsVerifiedCall(pub ::ethers::core::types::Address);
     ///Container type for all input parameters for the `verify` function with signature `verify(bytes)` and selector `0x8e760afe`
     #[derive(
         Clone,
@@ -358,7 +279,7 @@ pub mod mock_attestation_verifier {
     )]
     #[ethcall(name = "verify", abi = "verify(bytes)")]
     pub struct VerifyCall(pub ::ethers::core::types::Bytes);
-    ///Container type for all input parameters for the `verify` function with signature `verify(bytes,bytes,bytes,bytes,bytes,uint256,uint256,uint256)` and selector `0xac0f0bd5`
+    ///Container type for all input parameters for the `verify` function with signature `verify(bytes,bytes,bytes,bytes,bytes,uint256)` and selector `0xad487139`
     #[derive(
         Clone,
         ::ethers::contract::EthCall,
@@ -371,21 +292,16 @@ pub mod mock_attestation_verifier {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "verify",
-        abi = "verify(bytes,bytes,bytes,bytes,bytes,uint256,uint256,uint256)"
-    )]
+    #[ethcall(name = "verify", abi = "verify(bytes,bytes,bytes,bytes,bytes,uint256)")]
     pub struct VerifyWithAttestationCall {
         pub attestation: ::ethers::core::types::Bytes,
         pub enclave_key: ::ethers::core::types::Bytes,
         pub pcr0: ::ethers::core::types::Bytes,
         pub pcr1: ::ethers::core::types::Bytes,
         pub pcr2: ::ethers::core::types::Bytes,
-        pub enclave_cp_us: ::ethers::core::types::U256,
-        pub enclave_memory: ::ethers::core::types::U256,
         pub timestamp: ::ethers::core::types::U256,
     }
-    ///Container type for all input parameters for the `whitelistEnclave` function with signature `whitelistEnclave(bytes32,address)` and selector `0x60680d60`
+    ///Container type for all input parameters for the `verify` function with signature `verify(bytes,(bytes,bytes,bytes,bytes,uint256))` and selector `0xeac708a3`
     #[derive(
         Clone,
         ::ethers::contract::EthCall,
@@ -398,10 +314,10 @@ pub mod mock_attestation_verifier {
         Eq,
         Hash
     )]
-    #[ethcall(name = "whitelistEnclave", abi = "whitelistEnclave(bytes32,address)")]
-    pub struct WhitelistEnclaveCall {
-        pub image_id: [u8; 32],
-        pub enclave_key: ::ethers::core::types::Address,
+    #[ethcall(name = "verify", abi = "verify(bytes,(bytes,bytes,bytes,bytes,uint256))")]
+    pub struct VerifyWithSignatureCall {
+        pub signature: ::ethers::core::types::Bytes,
+        pub attestation: Attestation,
     }
     ///Container type for all of the contract's call
     #[derive(
@@ -415,21 +331,15 @@ pub mod mock_attestation_verifier {
         Hash
     )]
     pub enum MockAttestationVerifierCalls {
-        IsVerified(IsVerifiedCall),
         Verify(VerifyCall),
         VerifyWithAttestation(VerifyWithAttestationCall),
-        WhitelistEnclave(WhitelistEnclaveCall),
+        VerifyWithSignature(VerifyWithSignatureCall),
     }
     impl ::ethers::core::abi::AbiDecode for MockAttestationVerifierCalls {
         fn decode(
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
             let data = data.as_ref();
-            if let Ok(decoded) = <IsVerifiedCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::IsVerified(decoded));
-            }
             if let Ok(decoded) = <VerifyCall as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
@@ -440,10 +350,10 @@ pub mod mock_attestation_verifier {
             ) {
                 return Ok(Self::VerifyWithAttestation(decoded));
             }
-            if let Ok(decoded) = <WhitelistEnclaveCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <VerifyWithSignatureCall as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
-                return Ok(Self::WhitelistEnclave(decoded));
+                return Ok(Self::VerifyWithSignature(decoded));
             }
             Err(::ethers::core::abi::Error::InvalidData.into())
         }
@@ -451,14 +361,11 @@ pub mod mock_attestation_verifier {
     impl ::ethers::core::abi::AbiEncode for MockAttestationVerifierCalls {
         fn encode(self) -> Vec<u8> {
             match self {
-                Self::IsVerified(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
                 Self::Verify(element) => ::ethers::core::abi::AbiEncode::encode(element),
                 Self::VerifyWithAttestation(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
-                Self::WhitelistEnclave(element) => {
+                Self::VerifyWithSignature(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
             }
@@ -467,18 +374,14 @@ pub mod mock_attestation_verifier {
     impl ::core::fmt::Display for MockAttestationVerifierCalls {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             match self {
-                Self::IsVerified(element) => ::core::fmt::Display::fmt(element, f),
                 Self::Verify(element) => ::core::fmt::Display::fmt(element, f),
                 Self::VerifyWithAttestation(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
-                Self::WhitelistEnclave(element) => ::core::fmt::Display::fmt(element, f),
+                Self::VerifyWithSignature(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
             }
-        }
-    }
-    impl ::core::convert::From<IsVerifiedCall> for MockAttestationVerifierCalls {
-        fn from(value: IsVerifiedCall) -> Self {
-            Self::IsVerified(value)
         }
     }
     impl ::core::convert::From<VerifyCall> for MockAttestationVerifierCalls {
@@ -492,23 +395,10 @@ pub mod mock_attestation_verifier {
             Self::VerifyWithAttestation(value)
         }
     }
-    impl ::core::convert::From<WhitelistEnclaveCall> for MockAttestationVerifierCalls {
-        fn from(value: WhitelistEnclaveCall) -> Self {
-            Self::WhitelistEnclave(value)
+    impl ::core::convert::From<VerifyWithSignatureCall>
+    for MockAttestationVerifierCalls {
+        fn from(value: VerifyWithSignatureCall) -> Self {
+            Self::VerifyWithSignature(value)
         }
     }
-    ///Container type for all return fields from the `isVerified` function with signature `isVerified(address)` and selector `0xb9209e33`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct IsVerifiedReturn(pub [u8; 32]);
 }

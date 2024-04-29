@@ -1,4 +1,4 @@
-pub use ierc1822_proxiable_upgradeable::*;
+pub use i_beacon::*;
 /// This module was auto-generated with ethers-rs Abigen.
 /// More information at: <https://github.com/gakonst/ethers-rs>
 #[allow(
@@ -9,26 +9,24 @@ pub use ierc1822_proxiable_upgradeable::*;
     dead_code,
     non_camel_case_types,
 )]
-pub mod ierc1822_proxiable_upgradeable {
+pub mod i_beacon {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
             constructor: ::core::option::Option::None,
             functions: ::core::convert::From::from([
                 (
-                    ::std::borrow::ToOwned::to_owned("proxiableUUID"),
+                    ::std::borrow::ToOwned::to_owned("implementation"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("proxiableUUID"),
+                            name: ::std::borrow::ToOwned::to_owned("implementation"),
                             inputs: ::std::vec![],
                             outputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
                                     name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
-                                        32usize,
-                                    ),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                        ::std::borrow::ToOwned::to_owned("address"),
                                     ),
                                 },
                             ],
@@ -45,34 +43,32 @@ pub mod ierc1822_proxiable_upgradeable {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static IERC1822PROXIABLEUPGRADEABLE_ABI: ::ethers::contract::Lazy<
-        ::ethers::core::abi::Abi,
-    > = ::ethers::contract::Lazy::new(__abi);
-    pub struct IERC1822ProxiableUpgradeable<M>(::ethers::contract::Contract<M>);
-    impl<M> ::core::clone::Clone for IERC1822ProxiableUpgradeable<M> {
+    pub static IBEACON_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+        __abi,
+    );
+    pub struct IBeacon<M>(::ethers::contract::Contract<M>);
+    impl<M> ::core::clone::Clone for IBeacon<M> {
         fn clone(&self) -> Self {
             Self(::core::clone::Clone::clone(&self.0))
         }
     }
-    impl<M> ::core::ops::Deref for IERC1822ProxiableUpgradeable<M> {
+    impl<M> ::core::ops::Deref for IBeacon<M> {
         type Target = ::ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M> ::core::ops::DerefMut for IERC1822ProxiableUpgradeable<M> {
+    impl<M> ::core::ops::DerefMut for IBeacon<M> {
         fn deref_mut(&mut self) -> &mut Self::Target {
             &mut self.0
         }
     }
-    impl<M> ::core::fmt::Debug for IERC1822ProxiableUpgradeable<M> {
+    impl<M> ::core::fmt::Debug for IBeacon<M> {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-            f.debug_tuple(::core::stringify!(IERC1822ProxiableUpgradeable))
-                .field(&self.address())
-                .finish()
+            f.debug_tuple(::core::stringify!(IBeacon)).field(&self.address()).finish()
         }
     }
-    impl<M: ::ethers::providers::Middleware> IERC1822ProxiableUpgradeable<M> {
+    impl<M: ::ethers::providers::Middleware> IBeacon<M> {
         /// Creates a new contract instance with the specified `ethers` client at
         /// `address`. The contract derefs to a `ethers::Contract` object.
         pub fn new<T: Into<::ethers::core::types::Address>>(
@@ -82,27 +78,30 @@ pub mod ierc1822_proxiable_upgradeable {
             Self(
                 ::ethers::contract::Contract::new(
                     address.into(),
-                    IERC1822PROXIABLEUPGRADEABLE_ABI.clone(),
+                    IBEACON_ABI.clone(),
                     client,
                 ),
             )
         }
-        ///Calls the contract's `proxiableUUID` (0x52d1902d) function
-        pub fn proxiable_uuid(
+        ///Calls the contract's `implementation` (0x5c60da1b) function
+        pub fn implementation(
             &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, [u8; 32]> {
+        ) -> ::ethers::contract::builders::ContractCall<
+            M,
+            ::ethers::core::types::Address,
+        > {
             self.0
-                .method_hash([82, 209, 144, 45], ())
+                .method_hash([92, 96, 218, 27], ())
                 .expect("method not found (this should never happen)")
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-    for IERC1822ProxiableUpgradeable<M> {
+    for IBeacon<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
     }
-    ///Container type for all input parameters for the `proxiableUUID` function with signature `proxiableUUID()` and selector `0x52d1902d`
+    ///Container type for all input parameters for the `implementation` function with signature `implementation()` and selector `0x5c60da1b`
     #[derive(
         Clone,
         ::ethers::contract::EthCall,
@@ -115,9 +114,9 @@ pub mod ierc1822_proxiable_upgradeable {
         Eq,
         Hash
     )]
-    #[ethcall(name = "proxiableUUID", abi = "proxiableUUID()")]
-    pub struct ProxiableUUIDCall;
-    ///Container type for all return fields from the `proxiableUUID` function with signature `proxiableUUID()` and selector `0x52d1902d`
+    #[ethcall(name = "implementation", abi = "implementation()")]
+    pub struct ImplementationCall;
+    ///Container type for all return fields from the `implementation` function with signature `implementation()` and selector `0x5c60da1b`
     #[derive(
         Clone,
         ::ethers::contract::EthAbiType,
@@ -130,5 +129,5 @@ pub mod ierc1822_proxiable_upgradeable {
         Eq,
         Hash
     )]
-    pub struct ProxiableUUIDReturn(pub [u8; 32]);
+    pub struct ImplementationReturn(pub ::ethers::core::types::Address);
 }

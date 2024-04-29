@@ -1,4 +1,4 @@
-pub use ecdsa::*;
+pub use address::*;
 /// This module was auto-generated with ethers-rs Abigen.
 /// More information at: <https://github.com/gakonst/ethers-rs>
 #[allow(
@@ -9,7 +9,7 @@ pub use ecdsa::*;
     dead_code,
     non_camel_case_types,
 )]
-pub mod ecdsa {
+pub mod address {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
@@ -18,55 +18,47 @@ pub mod ecdsa {
             events: ::std::collections::BTreeMap::new(),
             errors: ::core::convert::From::from([
                 (
-                    ::std::borrow::ToOwned::to_owned("ECDSAInvalidSignature"),
+                    ::std::borrow::ToOwned::to_owned("AddressEmptyCode"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("AddressEmptyCode"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("target"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("AddressInsufficientBalance"),
                     ::std::vec![
                         ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ECDSAInvalidSignature",
+                                "AddressInsufficientBalance",
                             ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("account"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("FailedInnerCall"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("FailedInnerCall"),
                             inputs: ::std::vec![],
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("ECDSAInvalidSignatureLength"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::AbiError {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ECDSAInvalidSignatureLength",
-                            ),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("length"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
-                                        256usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("uint256"),
-                                    ),
-                                },
-                            ],
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("ECDSAInvalidSignatureS"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::AbiError {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ECDSAInvalidSignatureS",
-                            ),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("s"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
-                                        32usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("bytes32"),
-                                    ),
-                                },
-                            ],
                         },
                     ],
                 ),
@@ -76,44 +68,44 @@ pub mod ecdsa {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static ECDSA_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+    pub static ADDRESS_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
         __abi,
     );
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xF7\xA7\xEB\x87\x8F=\xBD\xA4\x0F\xF7\xBF\xB3\x80\xAB\x94\xA5\xAAqy\x84\xDF\xFE>\x02\xF3D\xC7\xC7\xE3\xBCe\x16dsolcC\0\x08\x14\x003";
+    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xB3\xC4\x8D\xE8\xAA\xF7o\x9D\x1C\x8D1\x80>\x0E\x9D\xC0<\x0Ce\xB6\x06\xDDi\xAD\xC0:P\x13\xF8\xEC\xFE\xD8dsolcC\0\x08\x14\x003";
     /// The bytecode of the contract.
-    pub static ECDSA_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+    pub static ADDRESS_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xF7\xA7\xEB\x87\x8F=\xBD\xA4\x0F\xF7\xBF\xB3\x80\xAB\x94\xA5\xAAqy\x84\xDF\xFE>\x02\xF3D\xC7\xC7\xE3\xBCe\x16dsolcC\0\x08\x14\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xB3\xC4\x8D\xE8\xAA\xF7o\x9D\x1C\x8D1\x80>\x0E\x9D\xC0<\x0Ce\xB6\x06\xDDi\xAD\xC0:P\x13\xF8\xEC\xFE\xD8dsolcC\0\x08\x14\x003";
     /// The deployed bytecode of the contract.
-    pub static ECDSA_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+    pub static ADDRESS_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
     );
-    pub struct ECDSA<M>(::ethers::contract::Contract<M>);
-    impl<M> ::core::clone::Clone for ECDSA<M> {
+    pub struct Address<M>(::ethers::contract::Contract<M>);
+    impl<M> ::core::clone::Clone for Address<M> {
         fn clone(&self) -> Self {
             Self(::core::clone::Clone::clone(&self.0))
         }
     }
-    impl<M> ::core::ops::Deref for ECDSA<M> {
+    impl<M> ::core::ops::Deref for Address<M> {
         type Target = ::ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M> ::core::ops::DerefMut for ECDSA<M> {
+    impl<M> ::core::ops::DerefMut for Address<M> {
         fn deref_mut(&mut self) -> &mut Self::Target {
             &mut self.0
         }
     }
-    impl<M> ::core::fmt::Debug for ECDSA<M> {
+    impl<M> ::core::fmt::Debug for Address<M> {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-            f.debug_tuple(::core::stringify!(ECDSA)).field(&self.address()).finish()
+            f.debug_tuple(::core::stringify!(Address)).field(&self.address()).finish()
         }
     }
-    impl<M: ::ethers::providers::Middleware> ECDSA<M> {
+    impl<M: ::ethers::providers::Middleware> Address<M> {
         /// Creates a new contract instance with the specified `ethers` client at
         /// `address`. The contract derefs to a `ethers::Contract` object.
         pub fn new<T: Into<::ethers::core::types::Address>>(
@@ -123,7 +115,7 @@ pub mod ecdsa {
             Self(
                 ::ethers::contract::Contract::new(
                     address.into(),
-                    ECDSA_ABI.clone(),
+                    ADDRESS_ABI.clone(),
                     client,
                 ),
             )
@@ -159,8 +151,8 @@ pub mod ecdsa {
             ::ethers::contract::ContractError<M>,
         > {
             let factory = ::ethers::contract::ContractFactory::new(
-                ECDSA_ABI.clone(),
-                ECDSA_BYTECODE.clone().into(),
+                ADDRESS_ABI.clone(),
+                ADDRESS_BYTECODE.clone().into(),
                 client,
             );
             let deployer = factory.deploy(constructor_args)?;
@@ -169,12 +161,12 @@ pub mod ecdsa {
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-    for ECDSA<M> {
+    for Address<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
     }
-    ///Custom Error type `ECDSAInvalidSignature` with signature `ECDSAInvalidSignature()` and selector `0xf645eedf`
+    ///Custom Error type `AddressEmptyCode` with signature `AddressEmptyCode(address)` and selector `0x9996b315`
     #[derive(
         Clone,
         ::ethers::contract::EthError,
@@ -187,9 +179,11 @@ pub mod ecdsa {
         Eq,
         Hash
     )]
-    #[etherror(name = "ECDSAInvalidSignature", abi = "ECDSAInvalidSignature()")]
-    pub struct ECDSAInvalidSignature;
-    ///Custom Error type `ECDSAInvalidSignatureLength` with signature `ECDSAInvalidSignatureLength(uint256)` and selector `0xfce698f7`
+    #[etherror(name = "AddressEmptyCode", abi = "AddressEmptyCode(address)")]
+    pub struct AddressEmptyCode {
+        pub target: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `AddressInsufficientBalance` with signature `AddressInsufficientBalance(address)` and selector `0xcd786059`
     #[derive(
         Clone,
         ::ethers::contract::EthError,
@@ -203,13 +197,13 @@ pub mod ecdsa {
         Hash
     )]
     #[etherror(
-        name = "ECDSAInvalidSignatureLength",
-        abi = "ECDSAInvalidSignatureLength(uint256)"
+        name = "AddressInsufficientBalance",
+        abi = "AddressInsufficientBalance(address)"
     )]
-    pub struct ECDSAInvalidSignatureLength {
-        pub length: ::ethers::core::types::U256,
+    pub struct AddressInsufficientBalance {
+        pub account: ::ethers::core::types::Address,
     }
-    ///Custom Error type `ECDSAInvalidSignatureS` with signature `ECDSAInvalidSignatureS(bytes32)` and selector `0xd78bce0c`
+    ///Custom Error type `FailedInnerCall` with signature `FailedInnerCall()` and selector `0x1425ea42`
     #[derive(
         Clone,
         ::ethers::contract::EthError,
@@ -222,10 +216,8 @@ pub mod ecdsa {
         Eq,
         Hash
     )]
-    #[etherror(name = "ECDSAInvalidSignatureS", abi = "ECDSAInvalidSignatureS(bytes32)")]
-    pub struct ECDSAInvalidSignatureS {
-        pub s: [u8; 32],
-    }
+    #[etherror(name = "FailedInnerCall", abi = "FailedInnerCall()")]
+    pub struct FailedInnerCall;
     ///Container type for all of the contract's custom errors
     #[derive(
         Clone,
@@ -237,15 +229,15 @@ pub mod ecdsa {
         Eq,
         Hash
     )]
-    pub enum ECDSAErrors {
-        ECDSAInvalidSignature(ECDSAInvalidSignature),
-        ECDSAInvalidSignatureLength(ECDSAInvalidSignatureLength),
-        ECDSAInvalidSignatureS(ECDSAInvalidSignatureS),
+    pub enum AddressErrors {
+        AddressEmptyCode(AddressEmptyCode),
+        AddressInsufficientBalance(AddressInsufficientBalance),
+        FailedInnerCall(FailedInnerCall),
         /// The standard solidity revert string, with selector
         /// Error(string) -- 0x08c379a0
         RevertString(::std::string::String),
     }
-    impl ::ethers::core::abi::AbiDecode for ECDSAErrors {
+    impl ::ethers::core::abi::AbiDecode for AddressErrors {
         fn decode(
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
@@ -255,94 +247,90 @@ pub mod ecdsa {
             ) {
                 return Ok(Self::RevertString(decoded));
             }
-            if let Ok(decoded) = <ECDSAInvalidSignature as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <AddressEmptyCode as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
-                return Ok(Self::ECDSAInvalidSignature(decoded));
+                return Ok(Self::AddressEmptyCode(decoded));
             }
-            if let Ok(decoded) = <ECDSAInvalidSignatureLength as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <AddressInsufficientBalance as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
-                return Ok(Self::ECDSAInvalidSignatureLength(decoded));
+                return Ok(Self::AddressInsufficientBalance(decoded));
             }
-            if let Ok(decoded) = <ECDSAInvalidSignatureS as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <FailedInnerCall as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
-                return Ok(Self::ECDSAInvalidSignatureS(decoded));
+                return Ok(Self::FailedInnerCall(decoded));
             }
             Err(::ethers::core::abi::Error::InvalidData.into())
         }
     }
-    impl ::ethers::core::abi::AbiEncode for ECDSAErrors {
+    impl ::ethers::core::abi::AbiEncode for AddressErrors {
         fn encode(self) -> ::std::vec::Vec<u8> {
             match self {
-                Self::ECDSAInvalidSignature(element) => {
+                Self::AddressEmptyCode(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
-                Self::ECDSAInvalidSignatureLength(element) => {
+                Self::AddressInsufficientBalance(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
-                Self::ECDSAInvalidSignatureS(element) => {
+                Self::FailedInnerCall(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::RevertString(s) => ::ethers::core::abi::AbiEncode::encode(s),
             }
         }
     }
-    impl ::ethers::contract::ContractRevert for ECDSAErrors {
+    impl ::ethers::contract::ContractRevert for AddressErrors {
         fn valid_selector(selector: [u8; 4]) -> bool {
             match selector {
                 [0x08, 0xc3, 0x79, 0xa0] => true,
                 _ if selector
-                    == <ECDSAInvalidSignature as ::ethers::contract::EthError>::selector() => {
+                    == <AddressEmptyCode as ::ethers::contract::EthError>::selector() => {
                     true
                 }
                 _ if selector
-                    == <ECDSAInvalidSignatureLength as ::ethers::contract::EthError>::selector() => {
+                    == <AddressInsufficientBalance as ::ethers::contract::EthError>::selector() => {
                     true
                 }
                 _ if selector
-                    == <ECDSAInvalidSignatureS as ::ethers::contract::EthError>::selector() => {
+                    == <FailedInnerCall as ::ethers::contract::EthError>::selector() => {
                     true
                 }
                 _ => false,
             }
         }
     }
-    impl ::core::fmt::Display for ECDSAErrors {
+    impl ::core::fmt::Display for AddressErrors {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             match self {
-                Self::ECDSAInvalidSignature(element) => {
+                Self::AddressEmptyCode(element) => ::core::fmt::Display::fmt(element, f),
+                Self::AddressInsufficientBalance(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
-                Self::ECDSAInvalidSignatureLength(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::ECDSAInvalidSignatureS(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
+                Self::FailedInnerCall(element) => ::core::fmt::Display::fmt(element, f),
                 Self::RevertString(s) => ::core::fmt::Display::fmt(s, f),
             }
         }
     }
-    impl ::core::convert::From<::std::string::String> for ECDSAErrors {
+    impl ::core::convert::From<::std::string::String> for AddressErrors {
         fn from(value: String) -> Self {
             Self::RevertString(value)
         }
     }
-    impl ::core::convert::From<ECDSAInvalidSignature> for ECDSAErrors {
-        fn from(value: ECDSAInvalidSignature) -> Self {
-            Self::ECDSAInvalidSignature(value)
+    impl ::core::convert::From<AddressEmptyCode> for AddressErrors {
+        fn from(value: AddressEmptyCode) -> Self {
+            Self::AddressEmptyCode(value)
         }
     }
-    impl ::core::convert::From<ECDSAInvalidSignatureLength> for ECDSAErrors {
-        fn from(value: ECDSAInvalidSignatureLength) -> Self {
-            Self::ECDSAInvalidSignatureLength(value)
+    impl ::core::convert::From<AddressInsufficientBalance> for AddressErrors {
+        fn from(value: AddressInsufficientBalance) -> Self {
+            Self::AddressInsufficientBalance(value)
         }
     }
-    impl ::core::convert::From<ECDSAInvalidSignatureS> for ECDSAErrors {
-        fn from(value: ECDSAInvalidSignatureS) -> Self {
-            Self::ECDSAInvalidSignatureS(value)
+    impl ::core::convert::From<FailedInnerCall> for AddressErrors {
+        fn from(value: FailedInnerCall) -> Self {
+            Self::FailedInnerCall(value)
         }
     }
 }

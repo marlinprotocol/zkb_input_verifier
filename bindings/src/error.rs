@@ -14,1086 +14,806 @@ pub mod error {
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
             constructor: ::core::option::Option::None,
-            functions: ::core::convert::From::from([
+            functions: ::std::collections::BTreeMap::new(),
+            events: ::std::collections::BTreeMap::new(),
+            errors: ::core::convert::From::from([
                 (
-                    ::std::borrow::ToOwned::to_owned("ALREADY_JOINED_MARKET"),
+                    ::std::borrow::ToOwned::to_owned("AlreadyABlacklistedImage"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ALREADY_JOINED_MARKET",
+                                "AlreadyABlacklistedImage",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("imageId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("AlreadyJoinedMarket"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "AlreadyJoinedMarket",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ARITY_MISMATCH"),
+                    ::std::borrow::ToOwned::to_owned("ArityMismatch"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("ARITY_MISMATCH"),
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("ArityMismatch"),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ASSIGN_ONLY_TO_IDLE_GENERATORS"),
+                    ::std::borrow::ToOwned::to_owned("AssignOnlyToIdleGenerators"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ASSIGN_ONLY_TO_IDLE_GENERATORS",
+                                "AssignOnlyToIdleGenerators",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ATTESTATION_TIMEOUT"),
+                    ::std::borrow::ToOwned::to_owned("AttestationTimeout"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("AttestationTimeout"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("BlacklistedImage"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("BlacklistedImage"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("imageId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("CannotAssignExpiredTasks"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ATTESTATION_TIMEOUT",
+                                "CannotAssignExpiredTasks",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("CANNOT_BE_ADMIN_LESS"),
+                    ::std::borrow::ToOwned::to_owned("CannotBeAdminLess"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("CannotBeAdminLess"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("CannotBeMoreThanDeclaredCompute"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "CANNOT_BE_ADMIN_LESS",
+                                "CannotBeMoreThanDeclaredCompute",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("CANNOT_BE_ZERO"),
+                    ::std::borrow::ToOwned::to_owned("CannotBeSlashed"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("CANNOT_BE_ZERO"),
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("CannotBeSlashed"),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("CANNOT_USE_MATCHING_ENGINE_ROLE"),
+                    ::std::borrow::ToOwned::to_owned("CannotBeZero"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "CANNOT_USE_MATCHING_ENGINE_ROLE",
-                            ),
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("CannotBeZero"),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("CAN_N0T_BE_SLASHED"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("CAN_N0T_BE_SLASHED"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("CAN_NOT_ASSIGN_EXPIRED_TASKS"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "CAN_NOT_ASSIGN_EXPIRED_TASKS",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned(
-                        "CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE",
+                        "CannotLeaveMarketWithActiveRequest",
                     ),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE",
+                                "CannotLeaveMarketWithActiveRequest",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("CannotLeaveWithActiveMarket"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "CannotLeaveWithActiveMarket",
+                            ),
+                            inputs: ::std::vec![],
                         },
                     ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned(
-                        "CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST",
+                        "CannotModifyImagesForPublicMarkets",
                     ),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST",
+                                "CannotModifyImagesForPublicMarkets",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("CAN_NOT_LEAVE_WITH_ACTIVE_MARKET"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "CAN_NOT_LEAVE_WITH_ACTIVE_MARKET",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("CAN_NOT_SLASH_USING_VALID_INPUTS"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "CAN_NOT_SLASH_USING_VALID_INPUTS",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("ENCLAVE_KEY_NOT_VERIFIED"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ENCLAVE_KEY_NOT_VERIFIED",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("EXCEEDS_ACCEPTABLE_RANGE"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "EXCEEDS_ACCEPTABLE_RANGE",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("GENERATOR_ALREADY_EXISTS"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "GENERATOR_ALREADY_EXISTS",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("INACTIVE_MARKET"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("INACTIVE_MARKET"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("INCORRECT_IMAGE_ID"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("INCORRECT_IMAGE_ID"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned(
-                        "INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE",
+                        "CannotRemoveDefaultImageFromMarket",
                     ),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE",
+                                "CannotRemoveDefaultImageFromMarket",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("marketId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("imageId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("CannotSlashUsingValidInputs"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "CannotSlashUsingValidInputs",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("CannotUseMatchingEngineRole"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "CannotUseMatchingEngineRole",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("INSUFFICIENT_STAKE_TO_LOCK"),
+                    ::std::borrow::ToOwned::to_owned("EnclaveKeyNotVerified"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "INSUFFICIENT_STAKE_TO_LOCK",
+                                "EnclaveKeyNotVerified",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("INVALID_CONTRACT_ADDRESS"),
+                    ::std::borrow::ToOwned::to_owned("ExceedsAcceptableRange"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "INVALID_CONTRACT_ADDRESS",
+                                "ExceedsAcceptableRange",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("INVALID_ECIES_ACL"),
+                    ::std::borrow::ToOwned::to_owned("FailedAddingToFamily"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("INVALID_ECIES_ACL"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("INVALID_ENCLAVE_KEY"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "INVALID_ENCLAVE_KEY",
+                                "FailedAddingToFamily",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("imageId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("familyId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("FailedWhitelistingImages"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "FailedWhitelistingImages",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("imageId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("GeneratorAlreadyExists"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "GeneratorAlreadyExists",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("INVALID_ENCLAVE_SIGNATURE"),
+                    ::std::borrow::ToOwned::to_owned("InactiveMarket"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("InactiveMarket"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("IncorrectImageId"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("IncorrectImageId"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InferredImageIdIsDifferent"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "INVALID_ENCLAVE_SIGNATURE",
+                                "InferredImageIdIsDifferent",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("INVALID_GENERATOR"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("INVALID_GENERATOR"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned(
-                        "INVALID_GENERATOR_STATE_PER_MARKET",
+                        "InsufficientGeneratorComputeAvailable",
                     ),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "INVALID_GENERATOR_STATE_PER_MARKET",
+                                "InsufficientGeneratorComputeAvailable",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("INVALID_INPUTS"),
+                    ::std::borrow::ToOwned::to_owned("InsufficientStakeToLock"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("INVALID_INPUTS"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("INVALID_MARKET"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("INVALID_MARKET"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("INVALID_PROOF"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("INVALID_PROOF"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("KEY_ALREADY_EXISTS"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("KEY_ALREADY_EXISTS"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("MARKET_ALREADY_EXISTS"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "MARKET_ALREADY_EXISTS",
+                                "InsufficientStakeToLock",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidContractAddress"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "InvalidContractAddress",
+                            ),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidECIESACL"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("InvalidECIESACL"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidEnclaveKey"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("InvalidEnclaveKey"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidEnclaveSignature"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "InvalidEnclaveSignature",
+                            ),
+                            inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    name: ::std::borrow::ToOwned::to_owned(
+                                        "invalidSignerAddress",
+                                    ),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
+                                        ::std::borrow::ToOwned::to_owned("address"),
                                     ),
                                 },
                             ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidGenerator"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("InvalidGenerator"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidGeneratorStatePerMarket"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "InvalidGeneratorStatePerMarket",
+                            ),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidInputs"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("InvalidInputs"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidMarket"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("InvalidMarket"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidProof"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("InvalidProof"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("KeyAlreadyExists"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("KeyAlreadyExists"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("_address"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("MarketAlreadyExists"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "MarketAlreadyExists",
+                            ),
+                            inputs: ::std::vec![],
                         },
                     ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned(
-                        "MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED",
+                        "MaxParallelRequestsPerMarketExceeded",
                     ),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED",
+                                "MaxParallelRequestsPerMarketExceeded",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ONLY_ADMIN_CAN_CALL"),
+                    ::std::borrow::ToOwned::to_owned("MustBeAnEnclave"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ONLY_ADMIN_CAN_CALL",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("MustBeAnEnclave"),
+                            inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    name: ::std::borrow::ToOwned::to_owned("imageId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::FixedBytes(
+                                        32usize,
+                                    ),
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
+                                        ::std::borrow::ToOwned::to_owned("bytes32"),
                                     ),
                                 },
                             ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ONLY_ASSIGNED_ASKS_CAN_BE_PROVED"),
+                    ::std::borrow::ToOwned::to_owned("OnlyAdminCanCall"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ONLY_ASSIGNED_ASKS_CAN_BE_PROVED",
-                            ),
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("OnlyAdminCanCall"),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("OnlyAssignedAsksCanBeProved"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "OnlyAssignedAsksCanBeProved",
+                            ),
+                            inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
                                     ),
                                 },
                             ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("OnlyExpiredAsksCanBeCancelled"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "OnlyExpiredAsksCanBeCancelled",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("OnlyGeneratorCanDiscardRequest"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "OnlyGeneratorCanDiscardRequest",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("OnlyMarketCreator"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("OnlyMarketCreator"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("OnlyMatchingEngineCanAssign"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "OnlyMatchingEngineCanAssign",
+                            ),
+                            inputs: ::std::vec![],
                         },
                     ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned(
-                        "ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED",
+                        "OnlyValidGeneratorsCanRequestExit",
                     ),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED",
+                                "OnlyValidGeneratorsCanRequestExit",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned(
-                        "ONLY_GENERATOR_CAN_DISCARD_REQUEST",
-                    ),
+                    ::std::borrow::ToOwned::to_owned("OnlyWorkingGenerators"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ONLY_GENERATOR_CAN_DISCARD_REQUEST",
+                                "OnlyWorkingGenerators",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ONLY_MATCHING_ENGINE_CAN_ASSIGN"),
+                    ::std::borrow::ToOwned::to_owned("ProofPriceMismatch"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ONLY_MATCHING_ENGINE_CAN_ASSIGN",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("ProofPriceMismatch"),
+                            inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
                                     ),
                                 },
                             ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned(
-                        "ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT",
-                    ),
+                    ::std::borrow::ToOwned::to_owned("ProofTimeMismatch"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("ProofTimeMismatch"),
+                            inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
                                     ),
                                 },
                             ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("ONLY_WORKING_GENERATORS"),
+                    ::std::borrow::ToOwned::to_owned("PublicMarketsDontNeedKey"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "ONLY_WORKING_GENERATORS",
+                                "PublicMarketsDontNeedKey",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("PROOF_PRICE_MISMATCH"),
+                    ::std::borrow::ToOwned::to_owned("ReduceComputeRequestNotInPlace"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "PROOF_PRICE_MISMATCH",
+                                "ReduceComputeRequestNotInPlace",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("PROOF_TIME_MISMATCH"),
+                    ::std::borrow::ToOwned::to_owned("ReductionRequestNotValid"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "PROOF_TIME_MISMATCH",
+                                "ReductionRequestNotValid",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("PUBLIC_MARKETS_DONT_NEED_KEY"),
+                    ::std::borrow::ToOwned::to_owned("RequestAlreadyInPlace"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "PUBLIC_MARKETS_DONT_NEED_KEY",
+                                "RequestAlreadyInPlace",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned(
-                        "REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE",
-                    ),
+                    ::std::borrow::ToOwned::to_owned("ShouldBeInAssignedState"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE",
+                                "ShouldBeInAssignedState",
                             ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
+                            inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
                                     ),
                                 },
                             ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("REDUCTION_REQUEST_NOT_VALID"),
+                    ::std::borrow::ToOwned::to_owned("ShouldBeInCreateState"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "REDUCTION_REQUEST_NOT_VALID",
+                                "ShouldBeInCreateState",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("REQUEST_ALREADY_IN_PLACE"),
+                    ::std::borrow::ToOwned::to_owned("ShouldBeInCrossedDeadlineState"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "REQUEST_ALREADY_IN_PLACE",
+                                "ShouldBeInCrossedDeadlineState",
                             ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
+                            inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
+                                    name: ::std::borrow::ToOwned::to_owned("askId"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
                                     internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
                                     ),
                                 },
                             ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
                 (
-                    ::std::borrow::ToOwned::to_owned("SHOULD_BE_IN_ASSIGNED_STATE"),
+                    ::std::borrow::ToOwned::to_owned("UnstakeRequestNotInPlace"),
                     ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
+                        ::ethers::core::abi::ethabi::AbiError {
                             name: ::std::borrow::ToOwned::to_owned(
-                                "SHOULD_BE_IN_ASSIGNED_STATE",
+                                "UnstakeRequestNotInPlace",
                             ),
                             inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("SHOULD_BE_IN_CREATE_STATE"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "SHOULD_BE_IN_CREATE_STATE",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned(
-                        "SHOULD_BE_IN_CROSSED_DEADLINE_STATE",
-                    ),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "SHOULD_BE_IN_CROSSED_DEADLINE_STATE",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
-                ),
-                (
-                    ::std::borrow::ToOwned::to_owned("UNSTAKE_REQUEST_NOT_IN_PLACE"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned(
-                                "UNSTAKE_REQUEST_NOT_IN_PLACE",
-                            ),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::String,
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("string"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
                         },
                     ],
                 ),
             ]),
-            events: ::std::collections::BTreeMap::new(),
-            errors: ::std::collections::BTreeMap::new(),
             receive: false,
             fallback: false,
         }
@@ -1103,13 +823,13 @@ pub mod error {
         __abi,
     );
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"a\t\xCEa\0:`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14a\0-WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\x046\x10a\x02\xC5W`\x005`\xE0\x1C\x80c\x95\xB7#\xC2\x11a\x01\x8CW\x80c\xBD0\x85\xB2\x11a\0\xF3W\x80c\xDA.I\xB3\x11a\0\xACW\x80c\xDE\x1FA\xA1\x11a\0\x86W\x80c\xDE\x1FA\xA1\x14a\x08\xC4W\x80c\xED\x1A\xEE\x10\x14a\x08\xE5W\x80c\xEET\x92\xB5\x14a\t\x07W\x80c\xFA\xC3\xC0\x99\x14a\t)W`\0\x80\xFD[\x80c\xDA.I\xB3\x14a\x08^W\x80c\xDC]\xA8$\x14a\x08\x80W\x80c\xDD\xAC\xD5S\x14a\x08\xA2W`\0\x80\xFD[\x80c\xBD0\x85\xB2\x14a\x07\x94W\x80c\xBD\x89\xB3\xBC\x14a\x07\xB6W\x80c\xBFF\xF4\xD0\x14a\x07\xD7W\x80c\xC2hC\xE6\x14a\x07\xF9W\x80c\xC5\xEC?\xB9\x14a\x08\x1AW\x80c\xD1,H\x88\x14a\x08<W`\0\x80\xFD[\x80c\xA3\x92\x9B\xB3\x11a\x01EW\x80c\xA3\x92\x9B\xB3\x14a\x06\xCBW\x80c\xA8y\x01\xF8\x14a\x06\xEDW\x80c\xAB\r\x9B\xB6\x14a\x07\x0FW\x80c\xABiV^\x14a\x070W\x80c\xB1\x1B\xAE\xAF\x14a\x07QW\x80c\xB1](\x11\x14a\x07sW`\0\x80\xFD[\x80c\x95\xB7#\xC2\x14a\x06\x01W\x80c\x9Bm\xED\x16\x14a\x06#W\x80c\x9F\xC7\xA1\x84\x14a\x06EW\x80c\xA0\x15\xA2$\x14a\x06gW\x80c\xA1\xBB\\b\x14a\x06\x88W\x80c\xA1\xF3\xE0R\x14a\x06\xA9W`\0\x80\xFD[\x80cO\xC8\xD1z\x11a\x020W\x80cm\xB0\xFF\x1D\x11a\x01\xE9W\x80cm\xB0\xFF\x1D\x14a\x05:W\x80cn\xFA\x9F\xCD\x14a\x05[W\x80cq.\xB0\x87\x14a\x05|W\x80ct\xB1gH\x14a\x05\x9EW\x80c\x92\x95\xC7[\x14a\x05\xBFW\x80c\x93x\x16,\x14a\x05\xE0W`\0\x80\xFD[\x80cO\xC8\xD1z\x14a\x04pW\x80c^|\xD3'\x14a\x04\x91W\x80c`\xF6\xE4@\x14a\x04\xB3W\x80ch[\xB0\xFF\x14a\x04\xD5W\x80ci!\x13\xEF\x14a\x04\xF7W\x80clY/%\x14a\x05\x19W`\0\x80\xFD[\x80c\x16\x8A\x1E\xCF\x11a\x02\x82W\x80c\x16\x8A\x1E\xCF\x14a\x03\xA9W\x80c\x19\x0C\xA5\x8B\x14a\x03\xCAW\x80c\x1F\x118\xE0\x14a\x03\xEBW\x80c-N\xF0M\x14a\x04\x0CW\x80c<weg\x14a\x04-W\x80c?\xC6\xB7~\x14a\x04OW`\0\x80\xFD[\x80c\x06\xA2\xC0,\x14a\x02\xCAW\x80c\n/\xD5\x07\x14a\x03\x01W\x80c\nj\xE5]\x14a\x03\"W\x80c\x0C\x8D\x1B\n\x14a\x03DW\x80c\r\xF3V\x0F\x14a\x03fW\x80c\x14\t\xC3\x97\x14a\x03\x87W[`\0\x80\xFD[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x08\xE7`\xF3\x1B\x81RP\x81V[`@Qa\x02\xF8\x91\x90a\tJV[`@Q\x80\x91\x03\x90\xF3[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG9`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bTR5`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b*)\x19`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a#\x99`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bTR3`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x08'`\xF3\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA3`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x10M`\xF2\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a&\x99`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS7`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG7`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aM3`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b*)\x1B`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b \x98\x99`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x11\xCCM`\xEA\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b#\x98\x99`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA9`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x11\xCD`\xF2\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a \x9B`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b()\x9B`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA1`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a#\x9B`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA5`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bA11`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b()\x99`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bTR1`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA7`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aM1`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bG15`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS9`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bG11`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG3`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a&\x9B`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bA13`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x13M`\xF2\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\n\ng`\xEB\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG1`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x04\x13\x13`\xEC\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aM5`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS5`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS3`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x04s\x13`\xEC\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bG13`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS1`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a \x99`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x14\x14\xCD`\xEA\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x15\x14\x8D`\xEA\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG5`\xF0\x1B\x81RP\x81V[`\0` \x80\x83R\x83Q\x80\x82\x85\x01R`\0[\x81\x81\x10\x15a\twW\x85\x81\x01\x83\x01Q\x85\x82\x01`@\x01R\x82\x01a\t[V[P`\0`@\x82\x86\x01\x01R`@`\x1F\x19`\x1F\x83\x01\x16\x85\x01\x01\x92PPP\x92\x91PPV\xFE\xA2dipfsX\"\x12 {\xEFZC\xBF$:\xA3\x8B\x19Q]\xC6c\xA7w6\xC2\x93\xF2\x1C-\x0F+\x0Ez\xAC$V\x99\xDE\xA2dsolcC\0\x08\x14\x003";
+    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 ^\x93\xC1q1d`\x1D^Bo\xD8\xC3\xF0\xC7\x19\xCA\x93\x82\x0C\xDC\xC2\xC4\x8A\x03\x11\xB1\x80\xB9\x9Cm\x14dsolcC\0\x08\x14\x003";
     /// The bytecode of the contract.
     pub static ERROR_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\x046\x10a\x02\xC5W`\x005`\xE0\x1C\x80c\x95\xB7#\xC2\x11a\x01\x8CW\x80c\xBD0\x85\xB2\x11a\0\xF3W\x80c\xDA.I\xB3\x11a\0\xACW\x80c\xDE\x1FA\xA1\x11a\0\x86W\x80c\xDE\x1FA\xA1\x14a\x08\xC4W\x80c\xED\x1A\xEE\x10\x14a\x08\xE5W\x80c\xEET\x92\xB5\x14a\t\x07W\x80c\xFA\xC3\xC0\x99\x14a\t)W`\0\x80\xFD[\x80c\xDA.I\xB3\x14a\x08^W\x80c\xDC]\xA8$\x14a\x08\x80W\x80c\xDD\xAC\xD5S\x14a\x08\xA2W`\0\x80\xFD[\x80c\xBD0\x85\xB2\x14a\x07\x94W\x80c\xBD\x89\xB3\xBC\x14a\x07\xB6W\x80c\xBFF\xF4\xD0\x14a\x07\xD7W\x80c\xC2hC\xE6\x14a\x07\xF9W\x80c\xC5\xEC?\xB9\x14a\x08\x1AW\x80c\xD1,H\x88\x14a\x08<W`\0\x80\xFD[\x80c\xA3\x92\x9B\xB3\x11a\x01EW\x80c\xA3\x92\x9B\xB3\x14a\x06\xCBW\x80c\xA8y\x01\xF8\x14a\x06\xEDW\x80c\xAB\r\x9B\xB6\x14a\x07\x0FW\x80c\xABiV^\x14a\x070W\x80c\xB1\x1B\xAE\xAF\x14a\x07QW\x80c\xB1](\x11\x14a\x07sW`\0\x80\xFD[\x80c\x95\xB7#\xC2\x14a\x06\x01W\x80c\x9Bm\xED\x16\x14a\x06#W\x80c\x9F\xC7\xA1\x84\x14a\x06EW\x80c\xA0\x15\xA2$\x14a\x06gW\x80c\xA1\xBB\\b\x14a\x06\x88W\x80c\xA1\xF3\xE0R\x14a\x06\xA9W`\0\x80\xFD[\x80cO\xC8\xD1z\x11a\x020W\x80cm\xB0\xFF\x1D\x11a\x01\xE9W\x80cm\xB0\xFF\x1D\x14a\x05:W\x80cn\xFA\x9F\xCD\x14a\x05[W\x80cq.\xB0\x87\x14a\x05|W\x80ct\xB1gH\x14a\x05\x9EW\x80c\x92\x95\xC7[\x14a\x05\xBFW\x80c\x93x\x16,\x14a\x05\xE0W`\0\x80\xFD[\x80cO\xC8\xD1z\x14a\x04pW\x80c^|\xD3'\x14a\x04\x91W\x80c`\xF6\xE4@\x14a\x04\xB3W\x80ch[\xB0\xFF\x14a\x04\xD5W\x80ci!\x13\xEF\x14a\x04\xF7W\x80clY/%\x14a\x05\x19W`\0\x80\xFD[\x80c\x16\x8A\x1E\xCF\x11a\x02\x82W\x80c\x16\x8A\x1E\xCF\x14a\x03\xA9W\x80c\x19\x0C\xA5\x8B\x14a\x03\xCAW\x80c\x1F\x118\xE0\x14a\x03\xEBW\x80c-N\xF0M\x14a\x04\x0CW\x80c<weg\x14a\x04-W\x80c?\xC6\xB7~\x14a\x04OW`\0\x80\xFD[\x80c\x06\xA2\xC0,\x14a\x02\xCAW\x80c\n/\xD5\x07\x14a\x03\x01W\x80c\nj\xE5]\x14a\x03\"W\x80c\x0C\x8D\x1B\n\x14a\x03DW\x80c\r\xF3V\x0F\x14a\x03fW\x80c\x14\t\xC3\x97\x14a\x03\x87W[`\0\x80\xFD[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x08\xE7`\xF3\x1B\x81RP\x81V[`@Qa\x02\xF8\x91\x90a\tJV[`@Q\x80\x91\x03\x90\xF3[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG9`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bTR5`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b*)\x19`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a#\x99`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bTR3`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x08'`\xF3\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA3`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x10M`\xF2\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a&\x99`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS7`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG7`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aM3`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b*)\x1B`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b \x98\x99`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x11\xCCM`\xEA\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b#\x98\x99`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA9`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x11\xCD`\xF2\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a \x9B`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b()\x9B`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA1`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a#\x9B`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA5`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bA11`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b()\x99`\xE9\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bTR1`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aA7`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aM1`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bG15`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS9`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bG11`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG3`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a&\x9B`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bA13`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a\x13M`\xF2\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\n\ng`\xEB\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG1`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x04\x13\x13`\xEC\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aM5`\xF0\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS5`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS3`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x04s\x13`\xEC\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bG13`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01bPS1`\xE8\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01a \x99`\xF1\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x14\x14\xCD`\xEA\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x03\x81R` \x01b\x15\x14\x8D`\xEA\x1B\x81RP\x81V[a\x02\xEB`@Q\x80`@\x01`@R\x80`\x02\x81R` \x01aG5`\xF0\x1B\x81RP\x81V[`\0` \x80\x83R\x83Q\x80\x82\x85\x01R`\0[\x81\x81\x10\x15a\twW\x85\x81\x01\x83\x01Q\x85\x82\x01`@\x01R\x82\x01a\t[V[P`\0`@\x82\x86\x01\x01R`@`\x1F\x19`\x1F\x83\x01\x16\x85\x01\x01\x92PPP\x92\x91PPV\xFE\xA2dipfsX\"\x12 {\xEFZC\xBF$:\xA3\x8B\x19Q]\xC6c\xA7w6\xC2\x93\xF2\x1C-\x0F+\x0Ez\xAC$V\x99\xDE\xA2dsolcC\0\x08\x14\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 ^\x93\xC1q1d`\x1D^Bo\xD8\xC3\xF0\xC7\x19\xCA\x93\x82\x0C\xDC\xC2\xC4\x8A\x03\x11\xB1\x80\xB9\x9Cm\x14dsolcC\0\x08\x14\x003";
     /// The deployed bytecode of the contract.
     pub static ERROR_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
@@ -1190,398 +910,6 @@ pub mod error {
             let deployer = ::ethers::contract::ContractDeployer::new(deployer);
             Ok(deployer)
         }
-        ///Calls the contract's `ALREADY_JOINED_MARKET` (0x2d4ef04d) function
-        pub fn already_joined_market(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([45, 78, 240, 77], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ARITY_MISMATCH` (0x1409c397) function
-        pub fn arity_mismatch(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([20, 9, 195, 151], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ASSIGN_ONLY_TO_IDLE_GENERATORS` (0x6db0ff1d) function
-        pub fn assign_only_to_idle_generators(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([109, 176, 255, 29], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ATTESTATION_TIMEOUT` (0x60f6e440) function
-        pub fn attestation_timeout(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([96, 246, 228, 64], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CANNOT_BE_ADMIN_LESS` (0xde1f41a1) function
-        pub fn cannot_be_admin_less(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([222, 31, 65, 161], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CANNOT_BE_ZERO` (0x190ca58b) function
-        pub fn cannot_be_zero(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([25, 12, 165, 139], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CANNOT_USE_MATCHING_ENGINE_ROLE` (0x6c592f25) function
-        pub fn cannot_use_matching_engine_role(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([108, 89, 47, 37], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CAN_N0T_BE_SLASHED` (0x1f1138e0) function
-        pub fn can_n0t_be_slashed(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([31, 17, 56, 224], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CAN_NOT_ASSIGN_EXPIRED_TASKS` (0x9fc7a184) function
-        pub fn can_not_assign_expired_tasks(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([159, 199, 161, 132], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE` (0x4fc8d17a) function
-        pub fn can_not_be_more_than_declared_compute(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([79, 200, 209, 122], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST` (0xb15d2811) function
-        pub fn can_not_leave_market_with_active_request(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([177, 93, 40, 17], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CAN_NOT_LEAVE_WITH_ACTIVE_MARKET` (0xab0d9bb6) function
-        pub fn can_not_leave_with_active_market(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([171, 13, 155, 182], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `CAN_NOT_SLASH_USING_VALID_INPUTS` (0x5e7cd327) function
-        pub fn can_not_slash_using_valid_inputs(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([94, 124, 211, 39], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ENCLAVE_KEY_NOT_VERIFIED` (0x6efa9fcd) function
-        pub fn enclave_key_not_verified(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([110, 250, 159, 205], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `EXCEEDS_ACCEPTABLE_RANGE` (0xa015a224) function
-        pub fn exceeds_acceptable_range(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([160, 21, 162, 36], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `GENERATOR_ALREADY_EXISTS` (0xbd89b3bc) function
-        pub fn generator_already_exists(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([189, 137, 179, 188], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INACTIVE_MARKET` (0xab69565e) function
-        pub fn inactive_market(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([171, 105, 86, 94], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INCORRECT_IMAGE_ID` (0x95b723c2) function
-        pub fn incorrect_image_id(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([149, 183, 35, 194], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE` (0xfac3c099) function
-        pub fn insufficient_generator_compute_available(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([250, 195, 192, 153], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INSUFFICIENT_STAKE_TO_LOCK` (0x9378162c) function
-        pub fn insufficient_stake_to_lock(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([147, 120, 22, 44], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_CONTRACT_ADDRESS` (0x168a1ecf) function
-        pub fn invalid_contract_address(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([22, 138, 30, 207], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_ECIES_ACL` (0xb11baeaf) function
-        pub fn invalid_ecies_acl(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([177, 27, 174, 175], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_ENCLAVE_KEY` (0x3fc6b77e) function
-        pub fn invalid_enclave_key(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([63, 198, 183, 126], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_ENCLAVE_SIGNATURE` (0xbf46f4d0) function
-        pub fn invalid_enclave_signature(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([191, 70, 244, 208], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_GENERATOR` (0x0df3560f) function
-        pub fn invalid_generator(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([13, 243, 86, 15], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_GENERATOR_STATE_PER_MARKET` (0x0a2fd507) function
-        pub fn invalid_generator_state_per_market(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([10, 47, 213, 7], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_INPUTS` (0x0c8d1b0a) function
-        pub fn invalid_inputs(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([12, 141, 27, 10], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_MARKET` (0xa1bb5c62) function
-        pub fn invalid_market(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([161, 187, 92, 98], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `INVALID_PROOF` (0x712eb087) function
-        pub fn invalid_proof(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([113, 46, 176, 135], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `KEY_ALREADY_EXISTS` (0xdc5da824) function
-        pub fn key_already_exists(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([220, 93, 168, 36], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `MARKET_ALREADY_EXISTS` (0xc26843e6) function
-        pub fn market_already_exists(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([194, 104, 67, 230], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED` (0x692113ef) function
-        pub fn max_parallel_requests_per_market_exceeded(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([105, 33, 19, 239], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ONLY_ADMIN_CAN_CALL` (0x74b16748) function
-        pub fn only_admin_can_call(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([116, 177, 103, 72], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ONLY_ASSIGNED_ASKS_CAN_BE_PROVED` (0xc5ec3fb9) function
-        pub fn only_assigned_asks_can_be_proved(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([197, 236, 63, 185], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED` (0xed1aee10) function
-        pub fn only_expired_asks_can_be_cancelled(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([237, 26, 238, 16], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ONLY_GENERATOR_CAN_DISCARD_REQUEST` (0xa3929bb3) function
-        pub fn only_generator_can_discard_request(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([163, 146, 155, 179], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ONLY_MATCHING_ENGINE_CAN_ASSIGN` (0xee5492b5) function
-        pub fn only_matching_engine_can_assign(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([238, 84, 146, 181], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT` (0x06a2c02c) function
-        pub fn only_valid_generators_can_request_exit(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([6, 162, 192, 44], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `ONLY_WORKING_GENERATORS` (0x9295c75b) function
-        pub fn only_working_generators(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([146, 149, 199, 91], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `PROOF_PRICE_MISMATCH` (0x9b6ded16) function
-        pub fn proof_price_mismatch(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([155, 109, 237, 22], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `PROOF_TIME_MISMATCH` (0xd12c4888) function
-        pub fn proof_time_mismatch(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([209, 44, 72, 136], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `PUBLIC_MARKETS_DONT_NEED_KEY` (0xa1f3e052) function
-        pub fn public_markets_dont_need_key(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([161, 243, 224, 82], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE` (0xa87901f8) function
-        pub fn reduce_compute_request_not_in_place(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([168, 121, 1, 248], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `REDUCTION_REQUEST_NOT_VALID` (0x685bb0ff) function
-        pub fn reduction_request_not_valid(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([104, 91, 176, 255], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `REQUEST_ALREADY_IN_PLACE` (0x0a6ae55d) function
-        pub fn request_already_in_place(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([10, 106, 229, 93], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `SHOULD_BE_IN_ASSIGNED_STATE` (0xbd3085b2) function
-        pub fn should_be_in_assigned_state(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([189, 48, 133, 178], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `SHOULD_BE_IN_CREATE_STATE` (0xddacd553) function
-        pub fn should_be_in_create_state(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([221, 172, 213, 83], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `SHOULD_BE_IN_CROSSED_DEADLINE_STATE` (0x3c776567) function
-        pub fn should_be_in_crossed_deadline_state(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([60, 119, 101, 103], ())
-                .expect("method not found (this should never happen)")
-        }
-        ///Calls the contract's `UNSTAKE_REQUEST_NOT_IN_PLACE` (0xda2e49b3) function
-        pub fn unstake_request_not_in_place(
-            &self,
-        ) -> ::ethers::contract::builders::ContractCall<M, ::std::string::String> {
-            self.0
-                .method_hash([218, 46, 73, 179], ())
-                .expect("method not found (this should never happen)")
-        }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
     for Error<M> {
@@ -1589,10 +917,10 @@ pub mod error {
             Self::new(contract.address(), contract.client())
         }
     }
-    ///Container type for all input parameters for the `ALREADY_JOINED_MARKET` function with signature `ALREADY_JOINED_MARKET()` and selector `0x2d4ef04d`
+    ///Custom Error type `AlreadyABlacklistedImage` with signature `AlreadyABlacklistedImage(bytes32)` and selector `0x345ae73a`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1602,12 +930,17 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "ALREADY_JOINED_MARKET", abi = "ALREADY_JOINED_MARKET()")]
-    pub struct AlreadyJoinedMarketCall;
-    ///Container type for all input parameters for the `ARITY_MISMATCH` function with signature `ARITY_MISMATCH()` and selector `0x1409c397`
+    #[etherror(
+        name = "AlreadyABlacklistedImage",
+        abi = "AlreadyABlacklistedImage(bytes32)"
+    )]
+    pub struct AlreadyABlacklistedImage {
+        pub image_id: [u8; 32],
+    }
+    ///Custom Error type `AlreadyJoinedMarket` with signature `AlreadyJoinedMarket()` and selector `0xad6d603c`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1617,12 +950,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "ARITY_MISMATCH", abi = "ARITY_MISMATCH()")]
-    pub struct ArityMismatchCall;
-    ///Container type for all input parameters for the `ASSIGN_ONLY_TO_IDLE_GENERATORS` function with signature `ASSIGN_ONLY_TO_IDLE_GENERATORS()` and selector `0x6db0ff1d`
+    #[etherror(name = "AlreadyJoinedMarket", abi = "AlreadyJoinedMarket()")]
+    pub struct AlreadyJoinedMarket;
+    ///Custom Error type `ArityMismatch` with signature `ArityMismatch()` and selector `0xc21fe6bf`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1632,15 +965,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "ASSIGN_ONLY_TO_IDLE_GENERATORS",
-        abi = "ASSIGN_ONLY_TO_IDLE_GENERATORS()"
-    )]
-    pub struct AssignOnlyToIdleGeneratorsCall;
-    ///Container type for all input parameters for the `ATTESTATION_TIMEOUT` function with signature `ATTESTATION_TIMEOUT()` and selector `0x60f6e440`
+    #[etherror(name = "ArityMismatch", abi = "ArityMismatch()")]
+    pub struct ArityMismatch;
+    ///Custom Error type `AssignOnlyToIdleGenerators` with signature `AssignOnlyToIdleGenerators()` and selector `0x439f4ca7`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1650,12 +980,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "ATTESTATION_TIMEOUT", abi = "ATTESTATION_TIMEOUT()")]
-    pub struct AttestationTimeoutCall;
-    ///Container type for all input parameters for the `CANNOT_BE_ADMIN_LESS` function with signature `CANNOT_BE_ADMIN_LESS()` and selector `0xde1f41a1`
+    #[etherror(
+        name = "AssignOnlyToIdleGenerators",
+        abi = "AssignOnlyToIdleGenerators()"
+    )]
+    pub struct AssignOnlyToIdleGenerators;
+    ///Custom Error type `AttestationTimeout` with signature `AttestationTimeout()` and selector `0x4d59de39`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1665,12 +998,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "CANNOT_BE_ADMIN_LESS", abi = "CANNOT_BE_ADMIN_LESS()")]
-    pub struct CannotBeAdminLessCall;
-    ///Container type for all input parameters for the `CANNOT_BE_ZERO` function with signature `CANNOT_BE_ZERO()` and selector `0x190ca58b`
+    #[etherror(name = "AttestationTimeout", abi = "AttestationTimeout()")]
+    pub struct AttestationTimeout;
+    ///Custom Error type `BlacklistedImage` with signature `BlacklistedImage(bytes32)` and selector `0x89b7628c`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1680,12 +1013,14 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "CANNOT_BE_ZERO", abi = "CANNOT_BE_ZERO()")]
-    pub struct CannotBeZeroCall;
-    ///Container type for all input parameters for the `CANNOT_USE_MATCHING_ENGINE_ROLE` function with signature `CANNOT_USE_MATCHING_ENGINE_ROLE()` and selector `0x6c592f25`
+    #[etherror(name = "BlacklistedImage", abi = "BlacklistedImage(bytes32)")]
+    pub struct BlacklistedImage {
+        pub image_id: [u8; 32],
+    }
+    ///Custom Error type `CannotAssignExpiredTasks` with signature `CannotAssignExpiredTasks()` and selector `0xe832909a`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1695,15 +1030,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "CANNOT_USE_MATCHING_ENGINE_ROLE",
-        abi = "CANNOT_USE_MATCHING_ENGINE_ROLE()"
-    )]
-    pub struct CannotUseMatchingEngineRoleCall;
-    ///Container type for all input parameters for the `CAN_N0T_BE_SLASHED` function with signature `CAN_N0T_BE_SLASHED()` and selector `0x1f1138e0`
+    #[etherror(name = "CannotAssignExpiredTasks", abi = "CannotAssignExpiredTasks()")]
+    pub struct CannotAssignExpiredTasks;
+    ///Custom Error type `CannotBeAdminLess` with signature `CannotBeAdminLess()` and selector `0xb42456a9`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1713,12 +1045,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "CAN_N0T_BE_SLASHED", abi = "CAN_N0T_BE_SLASHED()")]
-    pub struct CanN0TBeSlashedCall;
-    ///Container type for all input parameters for the `CAN_NOT_ASSIGN_EXPIRED_TASKS` function with signature `CAN_NOT_ASSIGN_EXPIRED_TASKS()` and selector `0x9fc7a184`
+    #[etherror(name = "CannotBeAdminLess", abi = "CannotBeAdminLess()")]
+    pub struct CannotBeAdminLess;
+    ///Custom Error type `CannotBeMoreThanDeclaredCompute` with signature `CannotBeMoreThanDeclaredCompute()` and selector `0x7d993890`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1728,15 +1060,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "CAN_NOT_ASSIGN_EXPIRED_TASKS",
-        abi = "CAN_NOT_ASSIGN_EXPIRED_TASKS()"
+    #[etherror(
+        name = "CannotBeMoreThanDeclaredCompute",
+        abi = "CannotBeMoreThanDeclaredCompute()"
     )]
-    pub struct CanNotAssignExpiredTasksCall;
-    ///Container type for all input parameters for the `CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE` function with signature `CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE()` and selector `0x4fc8d17a`
+    pub struct CannotBeMoreThanDeclaredCompute;
+    ///Custom Error type `CannotBeSlashed` with signature `CannotBeSlashed()` and selector `0xed3df300`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1746,15 +1078,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE",
-        abi = "CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE()"
-    )]
-    pub struct CanNotBeMoreThanDeclaredComputeCall;
-    ///Container type for all input parameters for the `CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST` function with signature `CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST()` and selector `0xb15d2811`
+    #[etherror(name = "CannotBeSlashed", abi = "CannotBeSlashed()")]
+    pub struct CannotBeSlashed;
+    ///Custom Error type `CannotBeZero` with signature `CannotBeZero()` and selector `0x1e1d0ab5`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1764,15 +1093,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST",
-        abi = "CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST()"
-    )]
-    pub struct CanNotLeaveMarketWithActiveRequestCall;
-    ///Container type for all input parameters for the `CAN_NOT_LEAVE_WITH_ACTIVE_MARKET` function with signature `CAN_NOT_LEAVE_WITH_ACTIVE_MARKET()` and selector `0xab0d9bb6`
+    #[etherror(name = "CannotBeZero", abi = "CannotBeZero()")]
+    pub struct CannotBeZero;
+    ///Custom Error type `CannotLeaveMarketWithActiveRequest` with signature `CannotLeaveMarketWithActiveRequest()` and selector `0xb81f61c0`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1782,15 +1108,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "CAN_NOT_LEAVE_WITH_ACTIVE_MARKET",
-        abi = "CAN_NOT_LEAVE_WITH_ACTIVE_MARKET()"
+    #[etherror(
+        name = "CannotLeaveMarketWithActiveRequest",
+        abi = "CannotLeaveMarketWithActiveRequest()"
     )]
-    pub struct CanNotLeaveWithActiveMarketCall;
-    ///Container type for all input parameters for the `CAN_NOT_SLASH_USING_VALID_INPUTS` function with signature `CAN_NOT_SLASH_USING_VALID_INPUTS()` and selector `0x5e7cd327`
+    pub struct CannotLeaveMarketWithActiveRequest;
+    ///Custom Error type `CannotLeaveWithActiveMarket` with signature `CannotLeaveWithActiveMarket()` and selector `0xf8c23053`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1800,15 +1126,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "CAN_NOT_SLASH_USING_VALID_INPUTS",
-        abi = "CAN_NOT_SLASH_USING_VALID_INPUTS()"
+    #[etherror(
+        name = "CannotLeaveWithActiveMarket",
+        abi = "CannotLeaveWithActiveMarket()"
     )]
-    pub struct CanNotSlashUsingValidInputsCall;
-    ///Container type for all input parameters for the `ENCLAVE_KEY_NOT_VERIFIED` function with signature `ENCLAVE_KEY_NOT_VERIFIED()` and selector `0x6efa9fcd`
+    pub struct CannotLeaveWithActiveMarket;
+    ///Custom Error type `CannotModifyImagesForPublicMarkets` with signature `CannotModifyImagesForPublicMarkets()` and selector `0x7afcef7f`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1818,12 +1144,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "ENCLAVE_KEY_NOT_VERIFIED", abi = "ENCLAVE_KEY_NOT_VERIFIED()")]
-    pub struct EnclaveKeyNotVerifiedCall;
-    ///Container type for all input parameters for the `EXCEEDS_ACCEPTABLE_RANGE` function with signature `EXCEEDS_ACCEPTABLE_RANGE()` and selector `0xa015a224`
+    #[etherror(
+        name = "CannotModifyImagesForPublicMarkets",
+        abi = "CannotModifyImagesForPublicMarkets()"
+    )]
+    pub struct CannotModifyImagesForPublicMarkets;
+    ///Custom Error type `CannotRemoveDefaultImageFromMarket` with signature `CannotRemoveDefaultImageFromMarket(uint256,bytes32)` and selector `0xb565f792`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1833,12 +1162,18 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "EXCEEDS_ACCEPTABLE_RANGE", abi = "EXCEEDS_ACCEPTABLE_RANGE()")]
-    pub struct ExceedsAcceptableRangeCall;
-    ///Container type for all input parameters for the `GENERATOR_ALREADY_EXISTS` function with signature `GENERATOR_ALREADY_EXISTS()` and selector `0xbd89b3bc`
+    #[etherror(
+        name = "CannotRemoveDefaultImageFromMarket",
+        abi = "CannotRemoveDefaultImageFromMarket(uint256,bytes32)"
+    )]
+    pub struct CannotRemoveDefaultImageFromMarket {
+        pub market_id: ::ethers::core::types::U256,
+        pub image_id: [u8; 32],
+    }
+    ///Custom Error type `CannotSlashUsingValidInputs` with signature `CannotSlashUsingValidInputs(uint256)` and selector `0x80d35e7a`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1848,12 +1183,17 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "GENERATOR_ALREADY_EXISTS", abi = "GENERATOR_ALREADY_EXISTS()")]
-    pub struct GeneratorAlreadyExistsCall;
-    ///Container type for all input parameters for the `INACTIVE_MARKET` function with signature `INACTIVE_MARKET()` and selector `0xab69565e`
+    #[etherror(
+        name = "CannotSlashUsingValidInputs",
+        abi = "CannotSlashUsingValidInputs(uint256)"
+    )]
+    pub struct CannotSlashUsingValidInputs {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `CannotUseMatchingEngineRole` with signature `CannotUseMatchingEngineRole()` and selector `0x01948f42`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1863,12 +1203,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INACTIVE_MARKET", abi = "INACTIVE_MARKET()")]
-    pub struct InactiveMarketCall;
-    ///Container type for all input parameters for the `INCORRECT_IMAGE_ID` function with signature `INCORRECT_IMAGE_ID()` and selector `0x95b723c2`
+    #[etherror(
+        name = "CannotUseMatchingEngineRole",
+        abi = "CannotUseMatchingEngineRole()"
+    )]
+    pub struct CannotUseMatchingEngineRole;
+    ///Custom Error type `EnclaveKeyNotVerified` with signature `EnclaveKeyNotVerified()` and selector `0xa135a55d`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1878,12 +1221,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INCORRECT_IMAGE_ID", abi = "INCORRECT_IMAGE_ID()")]
-    pub struct IncorrectImageIdCall;
-    ///Container type for all input parameters for the `INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE` function with signature `INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE()` and selector `0xfac3c099`
+    #[etherror(name = "EnclaveKeyNotVerified", abi = "EnclaveKeyNotVerified()")]
+    pub struct EnclaveKeyNotVerified;
+    ///Custom Error type `ExceedsAcceptableRange` with signature `ExceedsAcceptableRange()` and selector `0xca5e622f`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1893,15 +1236,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE",
-        abi = "INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE()"
-    )]
-    pub struct InsufficientGeneratorComputeAvailableCall;
-    ///Container type for all input parameters for the `INSUFFICIENT_STAKE_TO_LOCK` function with signature `INSUFFICIENT_STAKE_TO_LOCK()` and selector `0x9378162c`
+    #[etherror(name = "ExceedsAcceptableRange", abi = "ExceedsAcceptableRange()")]
+    pub struct ExceedsAcceptableRange;
+    ///Custom Error type `FailedAddingToFamily` with signature `FailedAddingToFamily(bytes32,bytes32)` and selector `0xcfac77c3`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1911,12 +1251,18 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INSUFFICIENT_STAKE_TO_LOCK", abi = "INSUFFICIENT_STAKE_TO_LOCK()")]
-    pub struct InsufficientStakeToLockCall;
-    ///Container type for all input parameters for the `INVALID_CONTRACT_ADDRESS` function with signature `INVALID_CONTRACT_ADDRESS()` and selector `0x168a1ecf`
+    #[etherror(
+        name = "FailedAddingToFamily",
+        abi = "FailedAddingToFamily(bytes32,bytes32)"
+    )]
+    pub struct FailedAddingToFamily {
+        pub image_id: [u8; 32],
+        pub family_id: [u8; 32],
+    }
+    ///Custom Error type `FailedWhitelistingImages` with signature `FailedWhitelistingImages(bytes32)` and selector `0xc6a23213`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1926,12 +1272,17 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_CONTRACT_ADDRESS", abi = "INVALID_CONTRACT_ADDRESS()")]
-    pub struct InvalidContractAddressCall;
-    ///Container type for all input parameters for the `INVALID_ECIES_ACL` function with signature `INVALID_ECIES_ACL()` and selector `0xb11baeaf`
+    #[etherror(
+        name = "FailedWhitelistingImages",
+        abi = "FailedWhitelistingImages(bytes32)"
+    )]
+    pub struct FailedWhitelistingImages {
+        pub image_id: [u8; 32],
+    }
+    ///Custom Error type `GeneratorAlreadyExists` with signature `GeneratorAlreadyExists()` and selector `0x5874f97b`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1941,12 +1292,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_ECIES_ACL", abi = "INVALID_ECIES_ACL()")]
-    pub struct InvalidEciesAclCall;
-    ///Container type for all input parameters for the `INVALID_ENCLAVE_KEY` function with signature `INVALID_ENCLAVE_KEY()` and selector `0x3fc6b77e`
+    #[etherror(name = "GeneratorAlreadyExists", abi = "GeneratorAlreadyExists()")]
+    pub struct GeneratorAlreadyExists;
+    ///Custom Error type `InactiveMarket` with signature `InactiveMarket()` and selector `0xbd2da74c`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1956,12 +1307,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_ENCLAVE_KEY", abi = "INVALID_ENCLAVE_KEY()")]
-    pub struct InvalidEnclaveKeyCall;
-    ///Container type for all input parameters for the `INVALID_ENCLAVE_SIGNATURE` function with signature `INVALID_ENCLAVE_SIGNATURE()` and selector `0xbf46f4d0`
+    #[etherror(name = "InactiveMarket", abi = "InactiveMarket()")]
+    pub struct InactiveMarket;
+    ///Custom Error type `IncorrectImageId` with signature `IncorrectImageId()` and selector `0xc465e69d`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1971,12 +1322,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_ENCLAVE_SIGNATURE", abi = "INVALID_ENCLAVE_SIGNATURE()")]
-    pub struct InvalidEnclaveSignatureCall;
-    ///Container type for all input parameters for the `INVALID_GENERATOR` function with signature `INVALID_GENERATOR()` and selector `0x0df3560f`
+    #[etherror(name = "IncorrectImageId", abi = "IncorrectImageId()")]
+    pub struct IncorrectImageId;
+    ///Custom Error type `InferredImageIdIsDifferent` with signature `InferredImageIdIsDifferent()` and selector `0x18b43556`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -1986,12 +1337,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_GENERATOR", abi = "INVALID_GENERATOR()")]
-    pub struct InvalidGeneratorCall;
-    ///Container type for all input parameters for the `INVALID_GENERATOR_STATE_PER_MARKET` function with signature `INVALID_GENERATOR_STATE_PER_MARKET()` and selector `0x0a2fd507`
+    #[etherror(
+        name = "InferredImageIdIsDifferent",
+        abi = "InferredImageIdIsDifferent()"
+    )]
+    pub struct InferredImageIdIsDifferent;
+    ///Custom Error type `InsufficientGeneratorComputeAvailable` with signature `InsufficientGeneratorComputeAvailable()` and selector `0x08c915b8`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2001,15 +1355,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "INVALID_GENERATOR_STATE_PER_MARKET",
-        abi = "INVALID_GENERATOR_STATE_PER_MARKET()"
+    #[etherror(
+        name = "InsufficientGeneratorComputeAvailable",
+        abi = "InsufficientGeneratorComputeAvailable()"
     )]
-    pub struct InvalidGeneratorStatePerMarketCall;
-    ///Container type for all input parameters for the `INVALID_INPUTS` function with signature `INVALID_INPUTS()` and selector `0x0c8d1b0a`
+    pub struct InsufficientGeneratorComputeAvailable;
+    ///Custom Error type `InsufficientStakeToLock` with signature `InsufficientStakeToLock()` and selector `0xe0631462`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2019,12 +1373,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_INPUTS", abi = "INVALID_INPUTS()")]
-    pub struct InvalidInputsCall;
-    ///Container type for all input parameters for the `INVALID_MARKET` function with signature `INVALID_MARKET()` and selector `0xa1bb5c62`
+    #[etherror(name = "InsufficientStakeToLock", abi = "InsufficientStakeToLock()")]
+    pub struct InsufficientStakeToLock;
+    ///Custom Error type `InvalidContractAddress` with signature `InvalidContractAddress()` and selector `0xa710429d`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2034,12 +1388,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_MARKET", abi = "INVALID_MARKET()")]
-    pub struct InvalidMarketCall;
-    ///Container type for all input parameters for the `INVALID_PROOF` function with signature `INVALID_PROOF()` and selector `0x712eb087`
+    #[etherror(name = "InvalidContractAddress", abi = "InvalidContractAddress()")]
+    pub struct InvalidContractAddress;
+    ///Custom Error type `InvalidECIESACL` with signature `InvalidECIESACL()` and selector `0x338857e8`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2049,12 +1403,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "INVALID_PROOF", abi = "INVALID_PROOF()")]
-    pub struct InvalidProofCall;
-    ///Container type for all input parameters for the `KEY_ALREADY_EXISTS` function with signature `KEY_ALREADY_EXISTS()` and selector `0xdc5da824`
+    #[etherror(name = "InvalidECIESACL", abi = "InvalidECIESACL()")]
+    pub struct InvalidECIESACL;
+    ///Custom Error type `InvalidEnclaveKey` with signature `InvalidEnclaveKey()` and selector `0xd283335d`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2064,12 +1418,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "KEY_ALREADY_EXISTS", abi = "KEY_ALREADY_EXISTS()")]
-    pub struct KeyAlreadyExistsCall;
-    ///Container type for all input parameters for the `MARKET_ALREADY_EXISTS` function with signature `MARKET_ALREADY_EXISTS()` and selector `0xc26843e6`
+    #[etherror(name = "InvalidEnclaveKey", abi = "InvalidEnclaveKey()")]
+    pub struct InvalidEnclaveKey;
+    ///Custom Error type `InvalidEnclaveSignature` with signature `InvalidEnclaveSignature(address)` and selector `0x2880cb7f`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2079,12 +1433,17 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "MARKET_ALREADY_EXISTS", abi = "MARKET_ALREADY_EXISTS()")]
-    pub struct MarketAlreadyExistsCall;
-    ///Container type for all input parameters for the `MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED` function with signature `MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED()` and selector `0x692113ef`
+    #[etherror(
+        name = "InvalidEnclaveSignature",
+        abi = "InvalidEnclaveSignature(address)"
+    )]
+    pub struct InvalidEnclaveSignature {
+        pub invalid_signer_address: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `InvalidGenerator` with signature `InvalidGenerator()` and selector `0x6446f917`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2094,15 +1453,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED",
-        abi = "MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED()"
-    )]
-    pub struct MaxParallelRequestsPerMarketExceededCall;
-    ///Container type for all input parameters for the `ONLY_ADMIN_CAN_CALL` function with signature `ONLY_ADMIN_CAN_CALL()` and selector `0x74b16748`
+    #[etherror(name = "InvalidGenerator", abi = "InvalidGenerator()")]
+    pub struct InvalidGenerator;
+    ///Custom Error type `InvalidGeneratorStatePerMarket` with signature `InvalidGeneratorStatePerMarket()` and selector `0x264ef418`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2112,12 +1468,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "ONLY_ADMIN_CAN_CALL", abi = "ONLY_ADMIN_CAN_CALL()")]
-    pub struct OnlyAdminCanCallCall;
-    ///Container type for all input parameters for the `ONLY_ASSIGNED_ASKS_CAN_BE_PROVED` function with signature `ONLY_ASSIGNED_ASKS_CAN_BE_PROVED()` and selector `0xc5ec3fb9`
+    #[etherror(
+        name = "InvalidGeneratorStatePerMarket",
+        abi = "InvalidGeneratorStatePerMarket()"
+    )]
+    pub struct InvalidGeneratorStatePerMarket;
+    ///Custom Error type `InvalidInputs` with signature `InvalidInputs()` and selector `0xf34cfab6`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2127,15 +1486,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "ONLY_ASSIGNED_ASKS_CAN_BE_PROVED",
-        abi = "ONLY_ASSIGNED_ASKS_CAN_BE_PROVED()"
-    )]
-    pub struct OnlyAssignedAsksCanBeProvedCall;
-    ///Container type for all input parameters for the `ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED` function with signature `ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED()` and selector `0xed1aee10`
+    #[etherror(name = "InvalidInputs", abi = "InvalidInputs()")]
+    pub struct InvalidInputs;
+    ///Custom Error type `InvalidMarket` with signature `InvalidMarket()` and selector `0x9db8d5b1`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2145,15 +1501,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED",
-        abi = "ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED()"
-    )]
-    pub struct OnlyExpiredAsksCanBeCancelledCall;
-    ///Container type for all input parameters for the `ONLY_GENERATOR_CAN_DISCARD_REQUEST` function with signature `ONLY_GENERATOR_CAN_DISCARD_REQUEST()` and selector `0xa3929bb3`
+    #[etherror(name = "InvalidMarket", abi = "InvalidMarket()")]
+    pub struct InvalidMarket;
+    ///Custom Error type `InvalidProof` with signature `InvalidProof(uint256)` and selector `0x5e3fa051`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2163,15 +1516,14 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "ONLY_GENERATOR_CAN_DISCARD_REQUEST",
-        abi = "ONLY_GENERATOR_CAN_DISCARD_REQUEST()"
-    )]
-    pub struct OnlyGeneratorCanDiscardRequestCall;
-    ///Container type for all input parameters for the `ONLY_MATCHING_ENGINE_CAN_ASSIGN` function with signature `ONLY_MATCHING_ENGINE_CAN_ASSIGN()` and selector `0xee5492b5`
+    #[etherror(name = "InvalidProof", abi = "InvalidProof(uint256)")]
+    pub struct InvalidProof {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `KeyAlreadyExists` with signature `KeyAlreadyExists(address)` and selector `0xe0accd63`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2181,15 +1533,14 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "ONLY_MATCHING_ENGINE_CAN_ASSIGN",
-        abi = "ONLY_MATCHING_ENGINE_CAN_ASSIGN()"
-    )]
-    pub struct OnlyMatchingEngineCanAssignCall;
-    ///Container type for all input parameters for the `ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT` function with signature `ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT()` and selector `0x06a2c02c`
+    #[etherror(name = "KeyAlreadyExists", abi = "KeyAlreadyExists(address)")]
+    pub struct KeyAlreadyExists {
+        pub address: ::ethers::core::types::Address,
+    }
+    ///Custom Error type `MarketAlreadyExists` with signature `MarketAlreadyExists()` and selector `0x0313b285`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2199,15 +1550,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT",
-        abi = "ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT()"
-    )]
-    pub struct OnlyValidGeneratorsCanRequestExitCall;
-    ///Container type for all input parameters for the `ONLY_WORKING_GENERATORS` function with signature `ONLY_WORKING_GENERATORS()` and selector `0x9295c75b`
+    #[etherror(name = "MarketAlreadyExists", abi = "MarketAlreadyExists()")]
+    pub struct MarketAlreadyExists;
+    ///Custom Error type `MaxParallelRequestsPerMarketExceeded` with signature `MaxParallelRequestsPerMarketExceeded()` and selector `0xcabd50d7`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2217,12 +1565,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "ONLY_WORKING_GENERATORS", abi = "ONLY_WORKING_GENERATORS()")]
-    pub struct OnlyWorkingGeneratorsCall;
-    ///Container type for all input parameters for the `PROOF_PRICE_MISMATCH` function with signature `PROOF_PRICE_MISMATCH()` and selector `0x9b6ded16`
+    #[etherror(
+        name = "MaxParallelRequestsPerMarketExceeded",
+        abi = "MaxParallelRequestsPerMarketExceeded()"
+    )]
+    pub struct MaxParallelRequestsPerMarketExceeded;
+    ///Custom Error type `MustBeAnEnclave` with signature `MustBeAnEnclave(bytes32)` and selector `0x06356cb3`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2232,12 +1583,14 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "PROOF_PRICE_MISMATCH", abi = "PROOF_PRICE_MISMATCH()")]
-    pub struct ProofPriceMismatchCall;
-    ///Container type for all input parameters for the `PROOF_TIME_MISMATCH` function with signature `PROOF_TIME_MISMATCH()` and selector `0xd12c4888`
+    #[etherror(name = "MustBeAnEnclave", abi = "MustBeAnEnclave(bytes32)")]
+    pub struct MustBeAnEnclave {
+        pub image_id: [u8; 32],
+    }
+    ///Custom Error type `OnlyAdminCanCall` with signature `OnlyAdminCanCall()` and selector `0xa7f8eed6`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2247,12 +1600,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "PROOF_TIME_MISMATCH", abi = "PROOF_TIME_MISMATCH()")]
-    pub struct ProofTimeMismatchCall;
-    ///Container type for all input parameters for the `PUBLIC_MARKETS_DONT_NEED_KEY` function with signature `PUBLIC_MARKETS_DONT_NEED_KEY()` and selector `0xa1f3e052`
+    #[etherror(name = "OnlyAdminCanCall", abi = "OnlyAdminCanCall()")]
+    pub struct OnlyAdminCanCall;
+    ///Custom Error type `OnlyAssignedAsksCanBeProved` with signature `OnlyAssignedAsksCanBeProved(uint256)` and selector `0x16f2d83f`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2262,15 +1615,17 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "PUBLIC_MARKETS_DONT_NEED_KEY",
-        abi = "PUBLIC_MARKETS_DONT_NEED_KEY()"
+    #[etherror(
+        name = "OnlyAssignedAsksCanBeProved",
+        abi = "OnlyAssignedAsksCanBeProved(uint256)"
     )]
-    pub struct PublicMarketsDontNeedKeyCall;
-    ///Container type for all input parameters for the `REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE` function with signature `REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE()` and selector `0xa87901f8`
+    pub struct OnlyAssignedAsksCanBeProved {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `OnlyExpiredAsksCanBeCancelled` with signature `OnlyExpiredAsksCanBeCancelled(uint256)` and selector `0xa6d23aaa`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2280,15 +1635,17 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE",
-        abi = "REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE()"
+    #[etherror(
+        name = "OnlyExpiredAsksCanBeCancelled",
+        abi = "OnlyExpiredAsksCanBeCancelled(uint256)"
     )]
-    pub struct ReduceComputeRequestNotInPlaceCall;
-    ///Container type for all input parameters for the `REDUCTION_REQUEST_NOT_VALID` function with signature `REDUCTION_REQUEST_NOT_VALID()` and selector `0x685bb0ff`
+    pub struct OnlyExpiredAsksCanBeCancelled {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `OnlyGeneratorCanDiscardRequest` with signature `OnlyGeneratorCanDiscardRequest(uint256)` and selector `0x86d0ee98`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2298,15 +1655,17 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "REDUCTION_REQUEST_NOT_VALID",
-        abi = "REDUCTION_REQUEST_NOT_VALID()"
+    #[etherror(
+        name = "OnlyGeneratorCanDiscardRequest",
+        abi = "OnlyGeneratorCanDiscardRequest(uint256)"
     )]
-    pub struct ReductionRequestNotValidCall;
-    ///Container type for all input parameters for the `REQUEST_ALREADY_IN_PLACE` function with signature `REQUEST_ALREADY_IN_PLACE()` and selector `0x0a6ae55d`
+    pub struct OnlyGeneratorCanDiscardRequest {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `OnlyMarketCreator` with signature `OnlyMarketCreator()` and selector `0x38993a49`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2316,12 +1675,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "REQUEST_ALREADY_IN_PLACE", abi = "REQUEST_ALREADY_IN_PLACE()")]
-    pub struct RequestAlreadyInPlaceCall;
-    ///Container type for all input parameters for the `SHOULD_BE_IN_ASSIGNED_STATE` function with signature `SHOULD_BE_IN_ASSIGNED_STATE()` and selector `0xbd3085b2`
+    #[etherror(name = "OnlyMarketCreator", abi = "OnlyMarketCreator()")]
+    pub struct OnlyMarketCreator;
+    ///Custom Error type `OnlyMatchingEngineCanAssign` with signature `OnlyMatchingEngineCanAssign()` and selector `0x169759c1`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2331,15 +1690,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "SHOULD_BE_IN_ASSIGNED_STATE",
-        abi = "SHOULD_BE_IN_ASSIGNED_STATE()"
+    #[etherror(
+        name = "OnlyMatchingEngineCanAssign",
+        abi = "OnlyMatchingEngineCanAssign()"
     )]
-    pub struct ShouldBeInAssignedStateCall;
-    ///Container type for all input parameters for the `SHOULD_BE_IN_CREATE_STATE` function with signature `SHOULD_BE_IN_CREATE_STATE()` and selector `0xddacd553`
+    pub struct OnlyMatchingEngineCanAssign;
+    ///Custom Error type `OnlyValidGeneratorsCanRequestExit` with signature `OnlyValidGeneratorsCanRequestExit()` and selector `0xc0120a1c`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2349,12 +1708,15 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(name = "SHOULD_BE_IN_CREATE_STATE", abi = "SHOULD_BE_IN_CREATE_STATE()")]
-    pub struct ShouldBeInCreateStateCall;
-    ///Container type for all input parameters for the `SHOULD_BE_IN_CROSSED_DEADLINE_STATE` function with signature `SHOULD_BE_IN_CROSSED_DEADLINE_STATE()` and selector `0x3c776567`
+    #[etherror(
+        name = "OnlyValidGeneratorsCanRequestExit",
+        abi = "OnlyValidGeneratorsCanRequestExit()"
+    )]
+    pub struct OnlyValidGeneratorsCanRequestExit;
+    ///Custom Error type `OnlyWorkingGenerators` with signature `OnlyWorkingGenerators()` and selector `0x703b08e4`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2364,15 +1726,12 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "SHOULD_BE_IN_CROSSED_DEADLINE_STATE",
-        abi = "SHOULD_BE_IN_CROSSED_DEADLINE_STATE()"
-    )]
-    pub struct ShouldBeInCrossedDeadlineStateCall;
-    ///Container type for all input parameters for the `UNSTAKE_REQUEST_NOT_IN_PLACE` function with signature `UNSTAKE_REQUEST_NOT_IN_PLACE()` and selector `0xda2e49b3`
+    #[etherror(name = "OnlyWorkingGenerators", abi = "OnlyWorkingGenerators()")]
+    pub struct OnlyWorkingGenerators;
+    ///Custom Error type `ProofPriceMismatch` with signature `ProofPriceMismatch(uint256)` and selector `0xc4bb553a`
     #[derive(
         Clone,
-        ::ethers::contract::EthCall,
+        ::ethers::contract::EthError,
         ::ethers::contract::EthDisplay,
         serde::Serialize,
         serde::Deserialize,
@@ -2382,12 +1741,161 @@ pub mod error {
         Eq,
         Hash
     )]
-    #[ethcall(
-        name = "UNSTAKE_REQUEST_NOT_IN_PLACE",
-        abi = "UNSTAKE_REQUEST_NOT_IN_PLACE()"
+    #[etherror(name = "ProofPriceMismatch", abi = "ProofPriceMismatch(uint256)")]
+    pub struct ProofPriceMismatch {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `ProofTimeMismatch` with signature `ProofTimeMismatch(uint256)` and selector `0xf84faa49`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
     )]
-    pub struct UnstakeRequestNotInPlaceCall;
-    ///Container type for all of the contract's call
+    #[etherror(name = "ProofTimeMismatch", abi = "ProofTimeMismatch(uint256)")]
+    pub struct ProofTimeMismatch {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `PublicMarketsDontNeedKey` with signature `PublicMarketsDontNeedKey()` and selector `0x86922e2c`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "PublicMarketsDontNeedKey", abi = "PublicMarketsDontNeedKey()")]
+    pub struct PublicMarketsDontNeedKey;
+    ///Custom Error type `ReduceComputeRequestNotInPlace` with signature `ReduceComputeRequestNotInPlace()` and selector `0x8983609d`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "ReduceComputeRequestNotInPlace",
+        abi = "ReduceComputeRequestNotInPlace()"
+    )]
+    pub struct ReduceComputeRequestNotInPlace;
+    ///Custom Error type `ReductionRequestNotValid` with signature `ReductionRequestNotValid()` and selector `0x386cf407`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "ReductionRequestNotValid", abi = "ReductionRequestNotValid()")]
+    pub struct ReductionRequestNotValid;
+    ///Custom Error type `RequestAlreadyInPlace` with signature `RequestAlreadyInPlace()` and selector `0x7ec76390`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "RequestAlreadyInPlace", abi = "RequestAlreadyInPlace()")]
+    pub struct RequestAlreadyInPlace;
+    ///Custom Error type `ShouldBeInAssignedState` with signature `ShouldBeInAssignedState(uint256)` and selector `0x0d9485f1`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "ShouldBeInAssignedState",
+        abi = "ShouldBeInAssignedState(uint256)"
+    )]
+    pub struct ShouldBeInAssignedState {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `ShouldBeInCreateState` with signature `ShouldBeInCreateState()` and selector `0x7cb69d0a`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "ShouldBeInCreateState", abi = "ShouldBeInCreateState()")]
+    pub struct ShouldBeInCreateState;
+    ///Custom Error type `ShouldBeInCrossedDeadlineState` with signature `ShouldBeInCrossedDeadlineState(uint256)` and selector `0xb2cdf6a8`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(
+        name = "ShouldBeInCrossedDeadlineState",
+        abi = "ShouldBeInCrossedDeadlineState(uint256)"
+    )]
+    pub struct ShouldBeInCrossedDeadlineState {
+        pub ask_id: ::ethers::core::types::U256,
+    }
+    ///Custom Error type `UnstakeRequestNotInPlace` with signature `UnstakeRequestNotInPlace()` and selector `0xb28c1c0e`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "UnstakeRequestNotInPlace", abi = "UnstakeRequestNotInPlace()")]
+    pub struct UnstakeRequestNotInPlace;
+    ///Container type for all of the contract's custom errors
     #[derive(
         Clone,
         ::ethers::contract::EthAbiType,
@@ -2398,303 +1906,365 @@ pub mod error {
         Eq,
         Hash
     )]
-    pub enum ErrorCalls {
-        AlreadyJoinedMarket(AlreadyJoinedMarketCall),
-        ArityMismatch(ArityMismatchCall),
-        AssignOnlyToIdleGenerators(AssignOnlyToIdleGeneratorsCall),
-        AttestationTimeout(AttestationTimeoutCall),
-        CannotBeAdminLess(CannotBeAdminLessCall),
-        CannotBeZero(CannotBeZeroCall),
-        CannotUseMatchingEngineRole(CannotUseMatchingEngineRoleCall),
-        CanN0TBeSlashed(CanN0TBeSlashedCall),
-        CanNotAssignExpiredTasks(CanNotAssignExpiredTasksCall),
-        CanNotBeMoreThanDeclaredCompute(CanNotBeMoreThanDeclaredComputeCall),
-        CanNotLeaveMarketWithActiveRequest(CanNotLeaveMarketWithActiveRequestCall),
-        CanNotLeaveWithActiveMarket(CanNotLeaveWithActiveMarketCall),
-        CanNotSlashUsingValidInputs(CanNotSlashUsingValidInputsCall),
-        EnclaveKeyNotVerified(EnclaveKeyNotVerifiedCall),
-        ExceedsAcceptableRange(ExceedsAcceptableRangeCall),
-        GeneratorAlreadyExists(GeneratorAlreadyExistsCall),
-        InactiveMarket(InactiveMarketCall),
-        IncorrectImageId(IncorrectImageIdCall),
-        InsufficientGeneratorComputeAvailable(InsufficientGeneratorComputeAvailableCall),
-        InsufficientStakeToLock(InsufficientStakeToLockCall),
-        InvalidContractAddress(InvalidContractAddressCall),
-        InvalidEciesAcl(InvalidEciesAclCall),
-        InvalidEnclaveKey(InvalidEnclaveKeyCall),
-        InvalidEnclaveSignature(InvalidEnclaveSignatureCall),
-        InvalidGenerator(InvalidGeneratorCall),
-        InvalidGeneratorStatePerMarket(InvalidGeneratorStatePerMarketCall),
-        InvalidInputs(InvalidInputsCall),
-        InvalidMarket(InvalidMarketCall),
-        InvalidProof(InvalidProofCall),
-        KeyAlreadyExists(KeyAlreadyExistsCall),
-        MarketAlreadyExists(MarketAlreadyExistsCall),
-        MaxParallelRequestsPerMarketExceeded(MaxParallelRequestsPerMarketExceededCall),
-        OnlyAdminCanCall(OnlyAdminCanCallCall),
-        OnlyAssignedAsksCanBeProved(OnlyAssignedAsksCanBeProvedCall),
-        OnlyExpiredAsksCanBeCancelled(OnlyExpiredAsksCanBeCancelledCall),
-        OnlyGeneratorCanDiscardRequest(OnlyGeneratorCanDiscardRequestCall),
-        OnlyMatchingEngineCanAssign(OnlyMatchingEngineCanAssignCall),
-        OnlyValidGeneratorsCanRequestExit(OnlyValidGeneratorsCanRequestExitCall),
-        OnlyWorkingGenerators(OnlyWorkingGeneratorsCall),
-        ProofPriceMismatch(ProofPriceMismatchCall),
-        ProofTimeMismatch(ProofTimeMismatchCall),
-        PublicMarketsDontNeedKey(PublicMarketsDontNeedKeyCall),
-        ReduceComputeRequestNotInPlace(ReduceComputeRequestNotInPlaceCall),
-        ReductionRequestNotValid(ReductionRequestNotValidCall),
-        RequestAlreadyInPlace(RequestAlreadyInPlaceCall),
-        ShouldBeInAssignedState(ShouldBeInAssignedStateCall),
-        ShouldBeInCreateState(ShouldBeInCreateStateCall),
-        ShouldBeInCrossedDeadlineState(ShouldBeInCrossedDeadlineStateCall),
-        UnstakeRequestNotInPlace(UnstakeRequestNotInPlaceCall),
+    pub enum ErrorErrors {
+        AlreadyABlacklistedImage(AlreadyABlacklistedImage),
+        AlreadyJoinedMarket(AlreadyJoinedMarket),
+        ArityMismatch(ArityMismatch),
+        AssignOnlyToIdleGenerators(AssignOnlyToIdleGenerators),
+        AttestationTimeout(AttestationTimeout),
+        BlacklistedImage(BlacklistedImage),
+        CannotAssignExpiredTasks(CannotAssignExpiredTasks),
+        CannotBeAdminLess(CannotBeAdminLess),
+        CannotBeMoreThanDeclaredCompute(CannotBeMoreThanDeclaredCompute),
+        CannotBeSlashed(CannotBeSlashed),
+        CannotBeZero(CannotBeZero),
+        CannotLeaveMarketWithActiveRequest(CannotLeaveMarketWithActiveRequest),
+        CannotLeaveWithActiveMarket(CannotLeaveWithActiveMarket),
+        CannotModifyImagesForPublicMarkets(CannotModifyImagesForPublicMarkets),
+        CannotRemoveDefaultImageFromMarket(CannotRemoveDefaultImageFromMarket),
+        CannotSlashUsingValidInputs(CannotSlashUsingValidInputs),
+        CannotUseMatchingEngineRole(CannotUseMatchingEngineRole),
+        EnclaveKeyNotVerified(EnclaveKeyNotVerified),
+        ExceedsAcceptableRange(ExceedsAcceptableRange),
+        FailedAddingToFamily(FailedAddingToFamily),
+        FailedWhitelistingImages(FailedWhitelistingImages),
+        GeneratorAlreadyExists(GeneratorAlreadyExists),
+        InactiveMarket(InactiveMarket),
+        IncorrectImageId(IncorrectImageId),
+        InferredImageIdIsDifferent(InferredImageIdIsDifferent),
+        InsufficientGeneratorComputeAvailable(InsufficientGeneratorComputeAvailable),
+        InsufficientStakeToLock(InsufficientStakeToLock),
+        InvalidContractAddress(InvalidContractAddress),
+        InvalidECIESACL(InvalidECIESACL),
+        InvalidEnclaveKey(InvalidEnclaveKey),
+        InvalidEnclaveSignature(InvalidEnclaveSignature),
+        InvalidGenerator(InvalidGenerator),
+        InvalidGeneratorStatePerMarket(InvalidGeneratorStatePerMarket),
+        InvalidInputs(InvalidInputs),
+        InvalidMarket(InvalidMarket),
+        InvalidProof(InvalidProof),
+        KeyAlreadyExists(KeyAlreadyExists),
+        MarketAlreadyExists(MarketAlreadyExists),
+        MaxParallelRequestsPerMarketExceeded(MaxParallelRequestsPerMarketExceeded),
+        MustBeAnEnclave(MustBeAnEnclave),
+        OnlyAdminCanCall(OnlyAdminCanCall),
+        OnlyAssignedAsksCanBeProved(OnlyAssignedAsksCanBeProved),
+        OnlyExpiredAsksCanBeCancelled(OnlyExpiredAsksCanBeCancelled),
+        OnlyGeneratorCanDiscardRequest(OnlyGeneratorCanDiscardRequest),
+        OnlyMarketCreator(OnlyMarketCreator),
+        OnlyMatchingEngineCanAssign(OnlyMatchingEngineCanAssign),
+        OnlyValidGeneratorsCanRequestExit(OnlyValidGeneratorsCanRequestExit),
+        OnlyWorkingGenerators(OnlyWorkingGenerators),
+        ProofPriceMismatch(ProofPriceMismatch),
+        ProofTimeMismatch(ProofTimeMismatch),
+        PublicMarketsDontNeedKey(PublicMarketsDontNeedKey),
+        ReduceComputeRequestNotInPlace(ReduceComputeRequestNotInPlace),
+        ReductionRequestNotValid(ReductionRequestNotValid),
+        RequestAlreadyInPlace(RequestAlreadyInPlace),
+        ShouldBeInAssignedState(ShouldBeInAssignedState),
+        ShouldBeInCreateState(ShouldBeInCreateState),
+        ShouldBeInCrossedDeadlineState(ShouldBeInCrossedDeadlineState),
+        UnstakeRequestNotInPlace(UnstakeRequestNotInPlace),
+        /// The standard solidity revert string, with selector
+        /// Error(string) -- 0x08c379a0
+        RevertString(::std::string::String),
     }
-    impl ::ethers::core::abi::AbiDecode for ErrorCalls {
+    impl ::ethers::core::abi::AbiDecode for ErrorErrors {
         fn decode(
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
             let data = data.as_ref();
-            if let Ok(decoded) = <AlreadyJoinedMarketCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <::std::string::String as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::RevertString(decoded));
+            }
+            if let Ok(decoded) = <AlreadyABlacklistedImage as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::AlreadyABlacklistedImage(decoded));
+            }
+            if let Ok(decoded) = <AlreadyJoinedMarket as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::AlreadyJoinedMarket(decoded));
             }
-            if let Ok(decoded) = <ArityMismatchCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ArityMismatch as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ArityMismatch(decoded));
             }
-            if let Ok(decoded) = <AssignOnlyToIdleGeneratorsCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <AssignOnlyToIdleGenerators as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::AssignOnlyToIdleGenerators(decoded));
             }
-            if let Ok(decoded) = <AttestationTimeoutCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <AttestationTimeout as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::AttestationTimeout(decoded));
             }
-            if let Ok(decoded) = <CannotBeAdminLessCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <BlacklistedImage as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::BlacklistedImage(decoded));
+            }
+            if let Ok(decoded) = <CannotAssignExpiredTasks as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotAssignExpiredTasks(decoded));
+            }
+            if let Ok(decoded) = <CannotBeAdminLess as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::CannotBeAdminLess(decoded));
             }
-            if let Ok(decoded) = <CannotBeZeroCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <CannotBeMoreThanDeclaredCompute as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotBeMoreThanDeclaredCompute(decoded));
+            }
+            if let Ok(decoded) = <CannotBeSlashed as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotBeSlashed(decoded));
+            }
+            if let Ok(decoded) = <CannotBeZero as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::CannotBeZero(decoded));
             }
-            if let Ok(decoded) = <CannotUseMatchingEngineRoleCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <CannotLeaveMarketWithActiveRequest as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotLeaveMarketWithActiveRequest(decoded));
+            }
+            if let Ok(decoded) = <CannotLeaveWithActiveMarket as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotLeaveWithActiveMarket(decoded));
+            }
+            if let Ok(decoded) = <CannotModifyImagesForPublicMarkets as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotModifyImagesForPublicMarkets(decoded));
+            }
+            if let Ok(decoded) = <CannotRemoveDefaultImageFromMarket as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotRemoveDefaultImageFromMarket(decoded));
+            }
+            if let Ok(decoded) = <CannotSlashUsingValidInputs as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::CannotSlashUsingValidInputs(decoded));
+            }
+            if let Ok(decoded) = <CannotUseMatchingEngineRole as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::CannotUseMatchingEngineRole(decoded));
             }
-            if let Ok(decoded) = <CanN0TBeSlashedCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::CanN0TBeSlashed(decoded));
-            }
-            if let Ok(decoded) = <CanNotAssignExpiredTasksCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::CanNotAssignExpiredTasks(decoded));
-            }
-            if let Ok(decoded) = <CanNotBeMoreThanDeclaredComputeCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::CanNotBeMoreThanDeclaredCompute(decoded));
-            }
-            if let Ok(decoded) = <CanNotLeaveMarketWithActiveRequestCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::CanNotLeaveMarketWithActiveRequest(decoded));
-            }
-            if let Ok(decoded) = <CanNotLeaveWithActiveMarketCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::CanNotLeaveWithActiveMarket(decoded));
-            }
-            if let Ok(decoded) = <CanNotSlashUsingValidInputsCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
-                return Ok(Self::CanNotSlashUsingValidInputs(decoded));
-            }
-            if let Ok(decoded) = <EnclaveKeyNotVerifiedCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <EnclaveKeyNotVerified as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::EnclaveKeyNotVerified(decoded));
             }
-            if let Ok(decoded) = <ExceedsAcceptableRangeCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ExceedsAcceptableRange as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ExceedsAcceptableRange(decoded));
             }
-            if let Ok(decoded) = <GeneratorAlreadyExistsCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <FailedAddingToFamily as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::FailedAddingToFamily(decoded));
+            }
+            if let Ok(decoded) = <FailedWhitelistingImages as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::FailedWhitelistingImages(decoded));
+            }
+            if let Ok(decoded) = <GeneratorAlreadyExists as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::GeneratorAlreadyExists(decoded));
             }
-            if let Ok(decoded) = <InactiveMarketCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InactiveMarket as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InactiveMarket(decoded));
             }
-            if let Ok(decoded) = <IncorrectImageIdCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <IncorrectImageId as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::IncorrectImageId(decoded));
             }
-            if let Ok(decoded) = <InsufficientGeneratorComputeAvailableCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InferredImageIdIsDifferent as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::InferredImageIdIsDifferent(decoded));
+            }
+            if let Ok(decoded) = <InsufficientGeneratorComputeAvailable as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InsufficientGeneratorComputeAvailable(decoded));
             }
-            if let Ok(decoded) = <InsufficientStakeToLockCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InsufficientStakeToLock as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InsufficientStakeToLock(decoded));
             }
-            if let Ok(decoded) = <InvalidContractAddressCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidContractAddress as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidContractAddress(decoded));
             }
-            if let Ok(decoded) = <InvalidEciesAclCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidECIESACL as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
-                return Ok(Self::InvalidEciesAcl(decoded));
+                return Ok(Self::InvalidECIESACL(decoded));
             }
-            if let Ok(decoded) = <InvalidEnclaveKeyCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidEnclaveKey as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidEnclaveKey(decoded));
             }
-            if let Ok(decoded) = <InvalidEnclaveSignatureCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidEnclaveSignature as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidEnclaveSignature(decoded));
             }
-            if let Ok(decoded) = <InvalidGeneratorCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidGenerator as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidGenerator(decoded));
             }
-            if let Ok(decoded) = <InvalidGeneratorStatePerMarketCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidGeneratorStatePerMarket as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidGeneratorStatePerMarket(decoded));
             }
-            if let Ok(decoded) = <InvalidInputsCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidInputs as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidInputs(decoded));
             }
-            if let Ok(decoded) = <InvalidMarketCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidMarket as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidMarket(decoded));
             }
-            if let Ok(decoded) = <InvalidProofCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <InvalidProof as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::InvalidProof(decoded));
             }
-            if let Ok(decoded) = <KeyAlreadyExistsCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <KeyAlreadyExists as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::KeyAlreadyExists(decoded));
             }
-            if let Ok(decoded) = <MarketAlreadyExistsCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <MarketAlreadyExists as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::MarketAlreadyExists(decoded));
             }
-            if let Ok(decoded) = <MaxParallelRequestsPerMarketExceededCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <MaxParallelRequestsPerMarketExceeded as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::MaxParallelRequestsPerMarketExceeded(decoded));
             }
-            if let Ok(decoded) = <OnlyAdminCanCallCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <MustBeAnEnclave as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::MustBeAnEnclave(decoded));
+            }
+            if let Ok(decoded) = <OnlyAdminCanCall as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::OnlyAdminCanCall(decoded));
             }
-            if let Ok(decoded) = <OnlyAssignedAsksCanBeProvedCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <OnlyAssignedAsksCanBeProved as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::OnlyAssignedAsksCanBeProved(decoded));
             }
-            if let Ok(decoded) = <OnlyExpiredAsksCanBeCancelledCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <OnlyExpiredAsksCanBeCancelled as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::OnlyExpiredAsksCanBeCancelled(decoded));
             }
-            if let Ok(decoded) = <OnlyGeneratorCanDiscardRequestCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <OnlyGeneratorCanDiscardRequest as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::OnlyGeneratorCanDiscardRequest(decoded));
             }
-            if let Ok(decoded) = <OnlyMatchingEngineCanAssignCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <OnlyMarketCreator as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::OnlyMarketCreator(decoded));
+            }
+            if let Ok(decoded) = <OnlyMatchingEngineCanAssign as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::OnlyMatchingEngineCanAssign(decoded));
             }
-            if let Ok(decoded) = <OnlyValidGeneratorsCanRequestExitCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <OnlyValidGeneratorsCanRequestExit as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::OnlyValidGeneratorsCanRequestExit(decoded));
             }
-            if let Ok(decoded) = <OnlyWorkingGeneratorsCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <OnlyWorkingGenerators as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::OnlyWorkingGenerators(decoded));
             }
-            if let Ok(decoded) = <ProofPriceMismatchCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ProofPriceMismatch as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ProofPriceMismatch(decoded));
             }
-            if let Ok(decoded) = <ProofTimeMismatchCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ProofTimeMismatch as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ProofTimeMismatch(decoded));
             }
-            if let Ok(decoded) = <PublicMarketsDontNeedKeyCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <PublicMarketsDontNeedKey as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::PublicMarketsDontNeedKey(decoded));
             }
-            if let Ok(decoded) = <ReduceComputeRequestNotInPlaceCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ReduceComputeRequestNotInPlace as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ReduceComputeRequestNotInPlace(decoded));
             }
-            if let Ok(decoded) = <ReductionRequestNotValidCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ReductionRequestNotValid as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ReductionRequestNotValid(decoded));
             }
-            if let Ok(decoded) = <RequestAlreadyInPlaceCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <RequestAlreadyInPlace as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::RequestAlreadyInPlace(decoded));
             }
-            if let Ok(decoded) = <ShouldBeInAssignedStateCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ShouldBeInAssignedState as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ShouldBeInAssignedState(decoded));
             }
-            if let Ok(decoded) = <ShouldBeInCreateStateCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ShouldBeInCreateState as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ShouldBeInCreateState(decoded));
             }
-            if let Ok(decoded) = <ShouldBeInCrossedDeadlineStateCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <ShouldBeInCrossedDeadlineState as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::ShouldBeInCrossedDeadlineState(decoded));
             }
-            if let Ok(decoded) = <UnstakeRequestNotInPlaceCall as ::ethers::core::abi::AbiDecode>::decode(
+            if let Ok(decoded) = <UnstakeRequestNotInPlace as ::ethers::core::abi::AbiDecode>::decode(
                 data,
             ) {
                 return Ok(Self::UnstakeRequestNotInPlace(decoded));
@@ -2702,9 +2272,12 @@ pub mod error {
             Err(::ethers::core::abi::Error::InvalidData.into())
         }
     }
-    impl ::ethers::core::abi::AbiEncode for ErrorCalls {
-        fn encode(self) -> Vec<u8> {
+    impl ::ethers::core::abi::AbiEncode for ErrorErrors {
+        fn encode(self) -> ::std::vec::Vec<u8> {
             match self {
+                Self::AlreadyABlacklistedImage(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
                 Self::AlreadyJoinedMarket(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
@@ -2717,37 +2290,52 @@ pub mod error {
                 Self::AttestationTimeout(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
+                Self::BlacklistedImage(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::CannotAssignExpiredTasks(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
                 Self::CannotBeAdminLess(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::CannotBeMoreThanDeclaredCompute(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::CannotBeSlashed(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::CannotBeZero(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
+                Self::CannotLeaveMarketWithActiveRequest(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::CannotLeaveWithActiveMarket(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::CannotModifyImagesForPublicMarkets(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::CannotRemoveDefaultImageFromMarket(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::CannotSlashUsingValidInputs(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
                 Self::CannotUseMatchingEngineRole(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::CanN0TBeSlashed(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::CanNotAssignExpiredTasks(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::CanNotBeMoreThanDeclaredCompute(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::CanNotLeaveMarketWithActiveRequest(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::CanNotLeaveWithActiveMarket(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
-                Self::CanNotSlashUsingValidInputs(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::EnclaveKeyNotVerified(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::ExceedsAcceptableRange(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::FailedAddingToFamily(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::FailedWhitelistingImages(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::GeneratorAlreadyExists(element) => {
@@ -2759,6 +2347,9 @@ pub mod error {
                 Self::IncorrectImageId(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
+                Self::InferredImageIdIsDifferent(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
                 Self::InsufficientGeneratorComputeAvailable(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
@@ -2768,7 +2359,7 @@ pub mod error {
                 Self::InvalidContractAddress(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
-                Self::InvalidEciesAcl(element) => {
+                Self::InvalidECIESACL(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::InvalidEnclaveKey(element) => {
@@ -2801,6 +2392,9 @@ pub mod error {
                 Self::MaxParallelRequestsPerMarketExceeded(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
+                Self::MustBeAnEnclave(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
                 Self::OnlyAdminCanCall(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
@@ -2811,6 +2405,9 @@ pub mod error {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::OnlyGeneratorCanDiscardRequest(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::OnlyMarketCreator(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
                 Self::OnlyMatchingEngineCanAssign(element) => {
@@ -2852,12 +2449,252 @@ pub mod error {
                 Self::UnstakeRequestNotInPlace(element) => {
                     ::ethers::core::abi::AbiEncode::encode(element)
                 }
+                Self::RevertString(s) => ::ethers::core::abi::AbiEncode::encode(s),
             }
         }
     }
-    impl ::core::fmt::Display for ErrorCalls {
+    impl ::ethers::contract::ContractRevert for ErrorErrors {
+        fn valid_selector(selector: [u8; 4]) -> bool {
+            match selector {
+                [0x08, 0xc3, 0x79, 0xa0] => true,
+                _ if selector
+                    == <AlreadyABlacklistedImage as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <AlreadyJoinedMarket as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ArityMismatch as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <AssignOnlyToIdleGenerators as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <AttestationTimeout as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <BlacklistedImage as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotAssignExpiredTasks as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotBeAdminLess as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotBeMoreThanDeclaredCompute as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotBeSlashed as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotBeZero as ::ethers::contract::EthError>::selector() => true,
+                _ if selector
+                    == <CannotLeaveMarketWithActiveRequest as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotLeaveWithActiveMarket as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotModifyImagesForPublicMarkets as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotRemoveDefaultImageFromMarket as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotSlashUsingValidInputs as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <CannotUseMatchingEngineRole as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <EnclaveKeyNotVerified as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ExceedsAcceptableRange as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <FailedAddingToFamily as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <FailedWhitelistingImages as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <GeneratorAlreadyExists as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InactiveMarket as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <IncorrectImageId as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InferredImageIdIsDifferent as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InsufficientGeneratorComputeAvailable as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InsufficientStakeToLock as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidContractAddress as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidECIESACL as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidEnclaveKey as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidEnclaveSignature as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidGenerator as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidGeneratorStatePerMarket as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidInputs as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidMarket as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <InvalidProof as ::ethers::contract::EthError>::selector() => true,
+                _ if selector
+                    == <KeyAlreadyExists as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <MarketAlreadyExists as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <MaxParallelRequestsPerMarketExceeded as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <MustBeAnEnclave as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyAdminCanCall as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyAssignedAsksCanBeProved as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyExpiredAsksCanBeCancelled as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyGeneratorCanDiscardRequest as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyMarketCreator as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyMatchingEngineCanAssign as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyValidGeneratorsCanRequestExit as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <OnlyWorkingGenerators as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ProofPriceMismatch as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ProofTimeMismatch as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <PublicMarketsDontNeedKey as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ReduceComputeRequestNotInPlace as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ReductionRequestNotValid as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <RequestAlreadyInPlace as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ShouldBeInAssignedState as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ShouldBeInCreateState as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <ShouldBeInCrossedDeadlineState as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <UnstakeRequestNotInPlace as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ => false,
+            }
+        }
+    }
+    impl ::core::fmt::Display for ErrorErrors {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             match self {
+                Self::AlreadyABlacklistedImage(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
                 Self::AlreadyJoinedMarket(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
@@ -2868,25 +2705,32 @@ pub mod error {
                 Self::AttestationTimeout(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
+                Self::BlacklistedImage(element) => ::core::fmt::Display::fmt(element, f),
+                Self::CannotAssignExpiredTasks(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
                 Self::CannotBeAdminLess(element) => ::core::fmt::Display::fmt(element, f),
+                Self::CannotBeMoreThanDeclaredCompute(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::CannotBeSlashed(element) => ::core::fmt::Display::fmt(element, f),
                 Self::CannotBeZero(element) => ::core::fmt::Display::fmt(element, f),
+                Self::CannotLeaveMarketWithActiveRequest(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::CannotLeaveWithActiveMarket(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::CannotModifyImagesForPublicMarkets(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::CannotRemoveDefaultImageFromMarket(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::CannotSlashUsingValidInputs(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
                 Self::CannotUseMatchingEngineRole(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::CanN0TBeSlashed(element) => ::core::fmt::Display::fmt(element, f),
-                Self::CanNotAssignExpiredTasks(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::CanNotBeMoreThanDeclaredCompute(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::CanNotLeaveMarketWithActiveRequest(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::CanNotLeaveWithActiveMarket(element) => {
-                    ::core::fmt::Display::fmt(element, f)
-                }
-                Self::CanNotSlashUsingValidInputs(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
                 Self::EnclaveKeyNotVerified(element) => {
@@ -2895,11 +2739,20 @@ pub mod error {
                 Self::ExceedsAcceptableRange(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
+                Self::FailedAddingToFamily(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::FailedWhitelistingImages(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
                 Self::GeneratorAlreadyExists(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
                 Self::InactiveMarket(element) => ::core::fmt::Display::fmt(element, f),
                 Self::IncorrectImageId(element) => ::core::fmt::Display::fmt(element, f),
+                Self::InferredImageIdIsDifferent(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
                 Self::InsufficientGeneratorComputeAvailable(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
@@ -2909,7 +2762,7 @@ pub mod error {
                 Self::InvalidContractAddress(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
-                Self::InvalidEciesAcl(element) => ::core::fmt::Display::fmt(element, f),
+                Self::InvalidECIESACL(element) => ::core::fmt::Display::fmt(element, f),
                 Self::InvalidEnclaveKey(element) => ::core::fmt::Display::fmt(element, f),
                 Self::InvalidEnclaveSignature(element) => {
                     ::core::fmt::Display::fmt(element, f)
@@ -2928,6 +2781,7 @@ pub mod error {
                 Self::MaxParallelRequestsPerMarketExceeded(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
+                Self::MustBeAnEnclave(element) => ::core::fmt::Display::fmt(element, f),
                 Self::OnlyAdminCanCall(element) => ::core::fmt::Display::fmt(element, f),
                 Self::OnlyAssignedAsksCanBeProved(element) => {
                     ::core::fmt::Display::fmt(element, f)
@@ -2938,6 +2792,7 @@ pub mod error {
                 Self::OnlyGeneratorCanDiscardRequest(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
+                Self::OnlyMarketCreator(element) => ::core::fmt::Display::fmt(element, f),
                 Self::OnlyMatchingEngineCanAssign(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
@@ -2975,939 +2830,303 @@ pub mod error {
                 Self::UnstakeRequestNotInPlace(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
+                Self::RevertString(s) => ::core::fmt::Display::fmt(s, f),
             }
         }
     }
-    impl ::core::convert::From<AlreadyJoinedMarketCall> for ErrorCalls {
-        fn from(value: AlreadyJoinedMarketCall) -> Self {
+    impl ::core::convert::From<::std::string::String> for ErrorErrors {
+        fn from(value: String) -> Self {
+            Self::RevertString(value)
+        }
+    }
+    impl ::core::convert::From<AlreadyABlacklistedImage> for ErrorErrors {
+        fn from(value: AlreadyABlacklistedImage) -> Self {
+            Self::AlreadyABlacklistedImage(value)
+        }
+    }
+    impl ::core::convert::From<AlreadyJoinedMarket> for ErrorErrors {
+        fn from(value: AlreadyJoinedMarket) -> Self {
             Self::AlreadyJoinedMarket(value)
         }
     }
-    impl ::core::convert::From<ArityMismatchCall> for ErrorCalls {
-        fn from(value: ArityMismatchCall) -> Self {
+    impl ::core::convert::From<ArityMismatch> for ErrorErrors {
+        fn from(value: ArityMismatch) -> Self {
             Self::ArityMismatch(value)
         }
     }
-    impl ::core::convert::From<AssignOnlyToIdleGeneratorsCall> for ErrorCalls {
-        fn from(value: AssignOnlyToIdleGeneratorsCall) -> Self {
+    impl ::core::convert::From<AssignOnlyToIdleGenerators> for ErrorErrors {
+        fn from(value: AssignOnlyToIdleGenerators) -> Self {
             Self::AssignOnlyToIdleGenerators(value)
         }
     }
-    impl ::core::convert::From<AttestationTimeoutCall> for ErrorCalls {
-        fn from(value: AttestationTimeoutCall) -> Self {
+    impl ::core::convert::From<AttestationTimeout> for ErrorErrors {
+        fn from(value: AttestationTimeout) -> Self {
             Self::AttestationTimeout(value)
         }
     }
-    impl ::core::convert::From<CannotBeAdminLessCall> for ErrorCalls {
-        fn from(value: CannotBeAdminLessCall) -> Self {
+    impl ::core::convert::From<BlacklistedImage> for ErrorErrors {
+        fn from(value: BlacklistedImage) -> Self {
+            Self::BlacklistedImage(value)
+        }
+    }
+    impl ::core::convert::From<CannotAssignExpiredTasks> for ErrorErrors {
+        fn from(value: CannotAssignExpiredTasks) -> Self {
+            Self::CannotAssignExpiredTasks(value)
+        }
+    }
+    impl ::core::convert::From<CannotBeAdminLess> for ErrorErrors {
+        fn from(value: CannotBeAdminLess) -> Self {
             Self::CannotBeAdminLess(value)
         }
     }
-    impl ::core::convert::From<CannotBeZeroCall> for ErrorCalls {
-        fn from(value: CannotBeZeroCall) -> Self {
+    impl ::core::convert::From<CannotBeMoreThanDeclaredCompute> for ErrorErrors {
+        fn from(value: CannotBeMoreThanDeclaredCompute) -> Self {
+            Self::CannotBeMoreThanDeclaredCompute(value)
+        }
+    }
+    impl ::core::convert::From<CannotBeSlashed> for ErrorErrors {
+        fn from(value: CannotBeSlashed) -> Self {
+            Self::CannotBeSlashed(value)
+        }
+    }
+    impl ::core::convert::From<CannotBeZero> for ErrorErrors {
+        fn from(value: CannotBeZero) -> Self {
             Self::CannotBeZero(value)
         }
     }
-    impl ::core::convert::From<CannotUseMatchingEngineRoleCall> for ErrorCalls {
-        fn from(value: CannotUseMatchingEngineRoleCall) -> Self {
+    impl ::core::convert::From<CannotLeaveMarketWithActiveRequest> for ErrorErrors {
+        fn from(value: CannotLeaveMarketWithActiveRequest) -> Self {
+            Self::CannotLeaveMarketWithActiveRequest(value)
+        }
+    }
+    impl ::core::convert::From<CannotLeaveWithActiveMarket> for ErrorErrors {
+        fn from(value: CannotLeaveWithActiveMarket) -> Self {
+            Self::CannotLeaveWithActiveMarket(value)
+        }
+    }
+    impl ::core::convert::From<CannotModifyImagesForPublicMarkets> for ErrorErrors {
+        fn from(value: CannotModifyImagesForPublicMarkets) -> Self {
+            Self::CannotModifyImagesForPublicMarkets(value)
+        }
+    }
+    impl ::core::convert::From<CannotRemoveDefaultImageFromMarket> for ErrorErrors {
+        fn from(value: CannotRemoveDefaultImageFromMarket) -> Self {
+            Self::CannotRemoveDefaultImageFromMarket(value)
+        }
+    }
+    impl ::core::convert::From<CannotSlashUsingValidInputs> for ErrorErrors {
+        fn from(value: CannotSlashUsingValidInputs) -> Self {
+            Self::CannotSlashUsingValidInputs(value)
+        }
+    }
+    impl ::core::convert::From<CannotUseMatchingEngineRole> for ErrorErrors {
+        fn from(value: CannotUseMatchingEngineRole) -> Self {
             Self::CannotUseMatchingEngineRole(value)
         }
     }
-    impl ::core::convert::From<CanN0TBeSlashedCall> for ErrorCalls {
-        fn from(value: CanN0TBeSlashedCall) -> Self {
-            Self::CanN0TBeSlashed(value)
-        }
-    }
-    impl ::core::convert::From<CanNotAssignExpiredTasksCall> for ErrorCalls {
-        fn from(value: CanNotAssignExpiredTasksCall) -> Self {
-            Self::CanNotAssignExpiredTasks(value)
-        }
-    }
-    impl ::core::convert::From<CanNotBeMoreThanDeclaredComputeCall> for ErrorCalls {
-        fn from(value: CanNotBeMoreThanDeclaredComputeCall) -> Self {
-            Self::CanNotBeMoreThanDeclaredCompute(value)
-        }
-    }
-    impl ::core::convert::From<CanNotLeaveMarketWithActiveRequestCall> for ErrorCalls {
-        fn from(value: CanNotLeaveMarketWithActiveRequestCall) -> Self {
-            Self::CanNotLeaveMarketWithActiveRequest(value)
-        }
-    }
-    impl ::core::convert::From<CanNotLeaveWithActiveMarketCall> for ErrorCalls {
-        fn from(value: CanNotLeaveWithActiveMarketCall) -> Self {
-            Self::CanNotLeaveWithActiveMarket(value)
-        }
-    }
-    impl ::core::convert::From<CanNotSlashUsingValidInputsCall> for ErrorCalls {
-        fn from(value: CanNotSlashUsingValidInputsCall) -> Self {
-            Self::CanNotSlashUsingValidInputs(value)
-        }
-    }
-    impl ::core::convert::From<EnclaveKeyNotVerifiedCall> for ErrorCalls {
-        fn from(value: EnclaveKeyNotVerifiedCall) -> Self {
+    impl ::core::convert::From<EnclaveKeyNotVerified> for ErrorErrors {
+        fn from(value: EnclaveKeyNotVerified) -> Self {
             Self::EnclaveKeyNotVerified(value)
         }
     }
-    impl ::core::convert::From<ExceedsAcceptableRangeCall> for ErrorCalls {
-        fn from(value: ExceedsAcceptableRangeCall) -> Self {
+    impl ::core::convert::From<ExceedsAcceptableRange> for ErrorErrors {
+        fn from(value: ExceedsAcceptableRange) -> Self {
             Self::ExceedsAcceptableRange(value)
         }
     }
-    impl ::core::convert::From<GeneratorAlreadyExistsCall> for ErrorCalls {
-        fn from(value: GeneratorAlreadyExistsCall) -> Self {
+    impl ::core::convert::From<FailedAddingToFamily> for ErrorErrors {
+        fn from(value: FailedAddingToFamily) -> Self {
+            Self::FailedAddingToFamily(value)
+        }
+    }
+    impl ::core::convert::From<FailedWhitelistingImages> for ErrorErrors {
+        fn from(value: FailedWhitelistingImages) -> Self {
+            Self::FailedWhitelistingImages(value)
+        }
+    }
+    impl ::core::convert::From<GeneratorAlreadyExists> for ErrorErrors {
+        fn from(value: GeneratorAlreadyExists) -> Self {
             Self::GeneratorAlreadyExists(value)
         }
     }
-    impl ::core::convert::From<InactiveMarketCall> for ErrorCalls {
-        fn from(value: InactiveMarketCall) -> Self {
+    impl ::core::convert::From<InactiveMarket> for ErrorErrors {
+        fn from(value: InactiveMarket) -> Self {
             Self::InactiveMarket(value)
         }
     }
-    impl ::core::convert::From<IncorrectImageIdCall> for ErrorCalls {
-        fn from(value: IncorrectImageIdCall) -> Self {
+    impl ::core::convert::From<IncorrectImageId> for ErrorErrors {
+        fn from(value: IncorrectImageId) -> Self {
             Self::IncorrectImageId(value)
         }
     }
-    impl ::core::convert::From<InsufficientGeneratorComputeAvailableCall>
-    for ErrorCalls {
-        fn from(value: InsufficientGeneratorComputeAvailableCall) -> Self {
+    impl ::core::convert::From<InferredImageIdIsDifferent> for ErrorErrors {
+        fn from(value: InferredImageIdIsDifferent) -> Self {
+            Self::InferredImageIdIsDifferent(value)
+        }
+    }
+    impl ::core::convert::From<InsufficientGeneratorComputeAvailable> for ErrorErrors {
+        fn from(value: InsufficientGeneratorComputeAvailable) -> Self {
             Self::InsufficientGeneratorComputeAvailable(value)
         }
     }
-    impl ::core::convert::From<InsufficientStakeToLockCall> for ErrorCalls {
-        fn from(value: InsufficientStakeToLockCall) -> Self {
+    impl ::core::convert::From<InsufficientStakeToLock> for ErrorErrors {
+        fn from(value: InsufficientStakeToLock) -> Self {
             Self::InsufficientStakeToLock(value)
         }
     }
-    impl ::core::convert::From<InvalidContractAddressCall> for ErrorCalls {
-        fn from(value: InvalidContractAddressCall) -> Self {
+    impl ::core::convert::From<InvalidContractAddress> for ErrorErrors {
+        fn from(value: InvalidContractAddress) -> Self {
             Self::InvalidContractAddress(value)
         }
     }
-    impl ::core::convert::From<InvalidEciesAclCall> for ErrorCalls {
-        fn from(value: InvalidEciesAclCall) -> Self {
-            Self::InvalidEciesAcl(value)
+    impl ::core::convert::From<InvalidECIESACL> for ErrorErrors {
+        fn from(value: InvalidECIESACL) -> Self {
+            Self::InvalidECIESACL(value)
         }
     }
-    impl ::core::convert::From<InvalidEnclaveKeyCall> for ErrorCalls {
-        fn from(value: InvalidEnclaveKeyCall) -> Self {
+    impl ::core::convert::From<InvalidEnclaveKey> for ErrorErrors {
+        fn from(value: InvalidEnclaveKey) -> Self {
             Self::InvalidEnclaveKey(value)
         }
     }
-    impl ::core::convert::From<InvalidEnclaveSignatureCall> for ErrorCalls {
-        fn from(value: InvalidEnclaveSignatureCall) -> Self {
+    impl ::core::convert::From<InvalidEnclaveSignature> for ErrorErrors {
+        fn from(value: InvalidEnclaveSignature) -> Self {
             Self::InvalidEnclaveSignature(value)
         }
     }
-    impl ::core::convert::From<InvalidGeneratorCall> for ErrorCalls {
-        fn from(value: InvalidGeneratorCall) -> Self {
+    impl ::core::convert::From<InvalidGenerator> for ErrorErrors {
+        fn from(value: InvalidGenerator) -> Self {
             Self::InvalidGenerator(value)
         }
     }
-    impl ::core::convert::From<InvalidGeneratorStatePerMarketCall> for ErrorCalls {
-        fn from(value: InvalidGeneratorStatePerMarketCall) -> Self {
+    impl ::core::convert::From<InvalidGeneratorStatePerMarket> for ErrorErrors {
+        fn from(value: InvalidGeneratorStatePerMarket) -> Self {
             Self::InvalidGeneratorStatePerMarket(value)
         }
     }
-    impl ::core::convert::From<InvalidInputsCall> for ErrorCalls {
-        fn from(value: InvalidInputsCall) -> Self {
+    impl ::core::convert::From<InvalidInputs> for ErrorErrors {
+        fn from(value: InvalidInputs) -> Self {
             Self::InvalidInputs(value)
         }
     }
-    impl ::core::convert::From<InvalidMarketCall> for ErrorCalls {
-        fn from(value: InvalidMarketCall) -> Self {
+    impl ::core::convert::From<InvalidMarket> for ErrorErrors {
+        fn from(value: InvalidMarket) -> Self {
             Self::InvalidMarket(value)
         }
     }
-    impl ::core::convert::From<InvalidProofCall> for ErrorCalls {
-        fn from(value: InvalidProofCall) -> Self {
+    impl ::core::convert::From<InvalidProof> for ErrorErrors {
+        fn from(value: InvalidProof) -> Self {
             Self::InvalidProof(value)
         }
     }
-    impl ::core::convert::From<KeyAlreadyExistsCall> for ErrorCalls {
-        fn from(value: KeyAlreadyExistsCall) -> Self {
+    impl ::core::convert::From<KeyAlreadyExists> for ErrorErrors {
+        fn from(value: KeyAlreadyExists) -> Self {
             Self::KeyAlreadyExists(value)
         }
     }
-    impl ::core::convert::From<MarketAlreadyExistsCall> for ErrorCalls {
-        fn from(value: MarketAlreadyExistsCall) -> Self {
+    impl ::core::convert::From<MarketAlreadyExists> for ErrorErrors {
+        fn from(value: MarketAlreadyExists) -> Self {
             Self::MarketAlreadyExists(value)
         }
     }
-    impl ::core::convert::From<MaxParallelRequestsPerMarketExceededCall> for ErrorCalls {
-        fn from(value: MaxParallelRequestsPerMarketExceededCall) -> Self {
+    impl ::core::convert::From<MaxParallelRequestsPerMarketExceeded> for ErrorErrors {
+        fn from(value: MaxParallelRequestsPerMarketExceeded) -> Self {
             Self::MaxParallelRequestsPerMarketExceeded(value)
         }
     }
-    impl ::core::convert::From<OnlyAdminCanCallCall> for ErrorCalls {
-        fn from(value: OnlyAdminCanCallCall) -> Self {
+    impl ::core::convert::From<MustBeAnEnclave> for ErrorErrors {
+        fn from(value: MustBeAnEnclave) -> Self {
+            Self::MustBeAnEnclave(value)
+        }
+    }
+    impl ::core::convert::From<OnlyAdminCanCall> for ErrorErrors {
+        fn from(value: OnlyAdminCanCall) -> Self {
             Self::OnlyAdminCanCall(value)
         }
     }
-    impl ::core::convert::From<OnlyAssignedAsksCanBeProvedCall> for ErrorCalls {
-        fn from(value: OnlyAssignedAsksCanBeProvedCall) -> Self {
+    impl ::core::convert::From<OnlyAssignedAsksCanBeProved> for ErrorErrors {
+        fn from(value: OnlyAssignedAsksCanBeProved) -> Self {
             Self::OnlyAssignedAsksCanBeProved(value)
         }
     }
-    impl ::core::convert::From<OnlyExpiredAsksCanBeCancelledCall> for ErrorCalls {
-        fn from(value: OnlyExpiredAsksCanBeCancelledCall) -> Self {
+    impl ::core::convert::From<OnlyExpiredAsksCanBeCancelled> for ErrorErrors {
+        fn from(value: OnlyExpiredAsksCanBeCancelled) -> Self {
             Self::OnlyExpiredAsksCanBeCancelled(value)
         }
     }
-    impl ::core::convert::From<OnlyGeneratorCanDiscardRequestCall> for ErrorCalls {
-        fn from(value: OnlyGeneratorCanDiscardRequestCall) -> Self {
+    impl ::core::convert::From<OnlyGeneratorCanDiscardRequest> for ErrorErrors {
+        fn from(value: OnlyGeneratorCanDiscardRequest) -> Self {
             Self::OnlyGeneratorCanDiscardRequest(value)
         }
     }
-    impl ::core::convert::From<OnlyMatchingEngineCanAssignCall> for ErrorCalls {
-        fn from(value: OnlyMatchingEngineCanAssignCall) -> Self {
+    impl ::core::convert::From<OnlyMarketCreator> for ErrorErrors {
+        fn from(value: OnlyMarketCreator) -> Self {
+            Self::OnlyMarketCreator(value)
+        }
+    }
+    impl ::core::convert::From<OnlyMatchingEngineCanAssign> for ErrorErrors {
+        fn from(value: OnlyMatchingEngineCanAssign) -> Self {
             Self::OnlyMatchingEngineCanAssign(value)
         }
     }
-    impl ::core::convert::From<OnlyValidGeneratorsCanRequestExitCall> for ErrorCalls {
-        fn from(value: OnlyValidGeneratorsCanRequestExitCall) -> Self {
+    impl ::core::convert::From<OnlyValidGeneratorsCanRequestExit> for ErrorErrors {
+        fn from(value: OnlyValidGeneratorsCanRequestExit) -> Self {
             Self::OnlyValidGeneratorsCanRequestExit(value)
         }
     }
-    impl ::core::convert::From<OnlyWorkingGeneratorsCall> for ErrorCalls {
-        fn from(value: OnlyWorkingGeneratorsCall) -> Self {
+    impl ::core::convert::From<OnlyWorkingGenerators> for ErrorErrors {
+        fn from(value: OnlyWorkingGenerators) -> Self {
             Self::OnlyWorkingGenerators(value)
         }
     }
-    impl ::core::convert::From<ProofPriceMismatchCall> for ErrorCalls {
-        fn from(value: ProofPriceMismatchCall) -> Self {
+    impl ::core::convert::From<ProofPriceMismatch> for ErrorErrors {
+        fn from(value: ProofPriceMismatch) -> Self {
             Self::ProofPriceMismatch(value)
         }
     }
-    impl ::core::convert::From<ProofTimeMismatchCall> for ErrorCalls {
-        fn from(value: ProofTimeMismatchCall) -> Self {
+    impl ::core::convert::From<ProofTimeMismatch> for ErrorErrors {
+        fn from(value: ProofTimeMismatch) -> Self {
             Self::ProofTimeMismatch(value)
         }
     }
-    impl ::core::convert::From<PublicMarketsDontNeedKeyCall> for ErrorCalls {
-        fn from(value: PublicMarketsDontNeedKeyCall) -> Self {
+    impl ::core::convert::From<PublicMarketsDontNeedKey> for ErrorErrors {
+        fn from(value: PublicMarketsDontNeedKey) -> Self {
             Self::PublicMarketsDontNeedKey(value)
         }
     }
-    impl ::core::convert::From<ReduceComputeRequestNotInPlaceCall> for ErrorCalls {
-        fn from(value: ReduceComputeRequestNotInPlaceCall) -> Self {
+    impl ::core::convert::From<ReduceComputeRequestNotInPlace> for ErrorErrors {
+        fn from(value: ReduceComputeRequestNotInPlace) -> Self {
             Self::ReduceComputeRequestNotInPlace(value)
         }
     }
-    impl ::core::convert::From<ReductionRequestNotValidCall> for ErrorCalls {
-        fn from(value: ReductionRequestNotValidCall) -> Self {
+    impl ::core::convert::From<ReductionRequestNotValid> for ErrorErrors {
+        fn from(value: ReductionRequestNotValid) -> Self {
             Self::ReductionRequestNotValid(value)
         }
     }
-    impl ::core::convert::From<RequestAlreadyInPlaceCall> for ErrorCalls {
-        fn from(value: RequestAlreadyInPlaceCall) -> Self {
+    impl ::core::convert::From<RequestAlreadyInPlace> for ErrorErrors {
+        fn from(value: RequestAlreadyInPlace) -> Self {
             Self::RequestAlreadyInPlace(value)
         }
     }
-    impl ::core::convert::From<ShouldBeInAssignedStateCall> for ErrorCalls {
-        fn from(value: ShouldBeInAssignedStateCall) -> Self {
+    impl ::core::convert::From<ShouldBeInAssignedState> for ErrorErrors {
+        fn from(value: ShouldBeInAssignedState) -> Self {
             Self::ShouldBeInAssignedState(value)
         }
     }
-    impl ::core::convert::From<ShouldBeInCreateStateCall> for ErrorCalls {
-        fn from(value: ShouldBeInCreateStateCall) -> Self {
+    impl ::core::convert::From<ShouldBeInCreateState> for ErrorErrors {
+        fn from(value: ShouldBeInCreateState) -> Self {
             Self::ShouldBeInCreateState(value)
         }
     }
-    impl ::core::convert::From<ShouldBeInCrossedDeadlineStateCall> for ErrorCalls {
-        fn from(value: ShouldBeInCrossedDeadlineStateCall) -> Self {
+    impl ::core::convert::From<ShouldBeInCrossedDeadlineState> for ErrorErrors {
+        fn from(value: ShouldBeInCrossedDeadlineState) -> Self {
             Self::ShouldBeInCrossedDeadlineState(value)
         }
     }
-    impl ::core::convert::From<UnstakeRequestNotInPlaceCall> for ErrorCalls {
-        fn from(value: UnstakeRequestNotInPlaceCall) -> Self {
+    impl ::core::convert::From<UnstakeRequestNotInPlace> for ErrorErrors {
+        fn from(value: UnstakeRequestNotInPlace) -> Self {
             Self::UnstakeRequestNotInPlace(value)
         }
     }
-    ///Container type for all return fields from the `ALREADY_JOINED_MARKET` function with signature `ALREADY_JOINED_MARKET()` and selector `0x2d4ef04d`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct AlreadyJoinedMarketReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ARITY_MISMATCH` function with signature `ARITY_MISMATCH()` and selector `0x1409c397`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ArityMismatchReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ASSIGN_ONLY_TO_IDLE_GENERATORS` function with signature `ASSIGN_ONLY_TO_IDLE_GENERATORS()` and selector `0x6db0ff1d`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct AssignOnlyToIdleGeneratorsReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ATTESTATION_TIMEOUT` function with signature `ATTESTATION_TIMEOUT()` and selector `0x60f6e440`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct AttestationTimeoutReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CANNOT_BE_ADMIN_LESS` function with signature `CANNOT_BE_ADMIN_LESS()` and selector `0xde1f41a1`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CannotBeAdminLessReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CANNOT_BE_ZERO` function with signature `CANNOT_BE_ZERO()` and selector `0x190ca58b`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CannotBeZeroReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CANNOT_USE_MATCHING_ENGINE_ROLE` function with signature `CANNOT_USE_MATCHING_ENGINE_ROLE()` and selector `0x6c592f25`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CannotUseMatchingEngineRoleReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CAN_N0T_BE_SLASHED` function with signature `CAN_N0T_BE_SLASHED()` and selector `0x1f1138e0`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CanN0TBeSlashedReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CAN_NOT_ASSIGN_EXPIRED_TASKS` function with signature `CAN_NOT_ASSIGN_EXPIRED_TASKS()` and selector `0x9fc7a184`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CanNotAssignExpiredTasksReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE` function with signature `CAN_NOT_BE_MORE_THAN_DECLARED_COMPUTE()` and selector `0x4fc8d17a`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CanNotBeMoreThanDeclaredComputeReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST` function with signature `CAN_NOT_LEAVE_MARKET_WITH_ACTIVE_REQUEST()` and selector `0xb15d2811`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CanNotLeaveMarketWithActiveRequestReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CAN_NOT_LEAVE_WITH_ACTIVE_MARKET` function with signature `CAN_NOT_LEAVE_WITH_ACTIVE_MARKET()` and selector `0xab0d9bb6`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CanNotLeaveWithActiveMarketReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `CAN_NOT_SLASH_USING_VALID_INPUTS` function with signature `CAN_NOT_SLASH_USING_VALID_INPUTS()` and selector `0x5e7cd327`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct CanNotSlashUsingValidInputsReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ENCLAVE_KEY_NOT_VERIFIED` function with signature `ENCLAVE_KEY_NOT_VERIFIED()` and selector `0x6efa9fcd`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct EnclaveKeyNotVerifiedReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `EXCEEDS_ACCEPTABLE_RANGE` function with signature `EXCEEDS_ACCEPTABLE_RANGE()` and selector `0xa015a224`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ExceedsAcceptableRangeReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `GENERATOR_ALREADY_EXISTS` function with signature `GENERATOR_ALREADY_EXISTS()` and selector `0xbd89b3bc`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct GeneratorAlreadyExistsReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INACTIVE_MARKET` function with signature `INACTIVE_MARKET()` and selector `0xab69565e`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InactiveMarketReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INCORRECT_IMAGE_ID` function with signature `INCORRECT_IMAGE_ID()` and selector `0x95b723c2`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct IncorrectImageIdReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE` function with signature `INSUFFICIENT_GENERATOR_COMPUTE_AVAILABLE()` and selector `0xfac3c099`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InsufficientGeneratorComputeAvailableReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INSUFFICIENT_STAKE_TO_LOCK` function with signature `INSUFFICIENT_STAKE_TO_LOCK()` and selector `0x9378162c`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InsufficientStakeToLockReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_CONTRACT_ADDRESS` function with signature `INVALID_CONTRACT_ADDRESS()` and selector `0x168a1ecf`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidContractAddressReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_ECIES_ACL` function with signature `INVALID_ECIES_ACL()` and selector `0xb11baeaf`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidEciesAclReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_ENCLAVE_KEY` function with signature `INVALID_ENCLAVE_KEY()` and selector `0x3fc6b77e`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidEnclaveKeyReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_ENCLAVE_SIGNATURE` function with signature `INVALID_ENCLAVE_SIGNATURE()` and selector `0xbf46f4d0`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidEnclaveSignatureReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_GENERATOR` function with signature `INVALID_GENERATOR()` and selector `0x0df3560f`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidGeneratorReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_GENERATOR_STATE_PER_MARKET` function with signature `INVALID_GENERATOR_STATE_PER_MARKET()` and selector `0x0a2fd507`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidGeneratorStatePerMarketReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_INPUTS` function with signature `INVALID_INPUTS()` and selector `0x0c8d1b0a`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidInputsReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_MARKET` function with signature `INVALID_MARKET()` and selector `0xa1bb5c62`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidMarketReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `INVALID_PROOF` function with signature `INVALID_PROOF()` and selector `0x712eb087`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct InvalidProofReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `KEY_ALREADY_EXISTS` function with signature `KEY_ALREADY_EXISTS()` and selector `0xdc5da824`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct KeyAlreadyExistsReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `MARKET_ALREADY_EXISTS` function with signature `MARKET_ALREADY_EXISTS()` and selector `0xc26843e6`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct MarketAlreadyExistsReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED` function with signature `MAX_PARALLEL_REQUESTS_PER_MARKET_EXCEEDED()` and selector `0x692113ef`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct MaxParallelRequestsPerMarketExceededReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ONLY_ADMIN_CAN_CALL` function with signature `ONLY_ADMIN_CAN_CALL()` and selector `0x74b16748`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct OnlyAdminCanCallReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ONLY_ASSIGNED_ASKS_CAN_BE_PROVED` function with signature `ONLY_ASSIGNED_ASKS_CAN_BE_PROVED()` and selector `0xc5ec3fb9`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct OnlyAssignedAsksCanBeProvedReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED` function with signature `ONLY_EXPIRED_ASKS_CAN_BE_CANCELLED()` and selector `0xed1aee10`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct OnlyExpiredAsksCanBeCancelledReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ONLY_GENERATOR_CAN_DISCARD_REQUEST` function with signature `ONLY_GENERATOR_CAN_DISCARD_REQUEST()` and selector `0xa3929bb3`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct OnlyGeneratorCanDiscardRequestReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ONLY_MATCHING_ENGINE_CAN_ASSIGN` function with signature `ONLY_MATCHING_ENGINE_CAN_ASSIGN()` and selector `0xee5492b5`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct OnlyMatchingEngineCanAssignReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT` function with signature `ONLY_VALID_GENERATORS_CAN_REQUEST_EXIT()` and selector `0x06a2c02c`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct OnlyValidGeneratorsCanRequestExitReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `ONLY_WORKING_GENERATORS` function with signature `ONLY_WORKING_GENERATORS()` and selector `0x9295c75b`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct OnlyWorkingGeneratorsReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `PROOF_PRICE_MISMATCH` function with signature `PROOF_PRICE_MISMATCH()` and selector `0x9b6ded16`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ProofPriceMismatchReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `PROOF_TIME_MISMATCH` function with signature `PROOF_TIME_MISMATCH()` and selector `0xd12c4888`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ProofTimeMismatchReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `PUBLIC_MARKETS_DONT_NEED_KEY` function with signature `PUBLIC_MARKETS_DONT_NEED_KEY()` and selector `0xa1f3e052`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct PublicMarketsDontNeedKeyReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE` function with signature `REDUCE_COMPUTE_REQUEST_NOT_IN_PLACE()` and selector `0xa87901f8`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ReduceComputeRequestNotInPlaceReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `REDUCTION_REQUEST_NOT_VALID` function with signature `REDUCTION_REQUEST_NOT_VALID()` and selector `0x685bb0ff`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ReductionRequestNotValidReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `REQUEST_ALREADY_IN_PLACE` function with signature `REQUEST_ALREADY_IN_PLACE()` and selector `0x0a6ae55d`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct RequestAlreadyInPlaceReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `SHOULD_BE_IN_ASSIGNED_STATE` function with signature `SHOULD_BE_IN_ASSIGNED_STATE()` and selector `0xbd3085b2`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ShouldBeInAssignedStateReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `SHOULD_BE_IN_CREATE_STATE` function with signature `SHOULD_BE_IN_CREATE_STATE()` and selector `0xddacd553`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ShouldBeInCreateStateReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `SHOULD_BE_IN_CROSSED_DEADLINE_STATE` function with signature `SHOULD_BE_IN_CROSSED_DEADLINE_STATE()` and selector `0x3c776567`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct ShouldBeInCrossedDeadlineStateReturn(pub ::std::string::String);
-    ///Container type for all return fields from the `UNSTAKE_REQUEST_NOT_IN_PLACE` function with signature `UNSTAKE_REQUEST_NOT_IN_PLACE()` and selector `0xda2e49b3`
-    #[derive(
-        Clone,
-        ::ethers::contract::EthAbiType,
-        ::ethers::contract::EthAbiCodec,
-        serde::Serialize,
-        serde::Deserialize,
-        Default,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash
-    )]
-    pub struct UnstakeRequestNotInPlaceReturn(pub ::std::string::String);
 }

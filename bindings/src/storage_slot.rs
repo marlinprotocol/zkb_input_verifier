@@ -1,4 +1,4 @@
-pub use strings_upgradeable::*;
+pub use storage_slot::*;
 /// This module was auto-generated with ethers-rs Abigen.
 /// More information at: <https://github.com/gakonst/ethers-rs>
 #[allow(
@@ -9,7 +9,7 @@ pub use strings_upgradeable::*;
     dead_code,
     non_camel_case_types,
 )]
-pub mod strings_upgradeable {
+pub mod storage_slot {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
@@ -22,46 +22,46 @@ pub mod strings_upgradeable {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static STRINGSUPGRADEABLE_ABI: ::ethers::contract::Lazy<
-        ::ethers::core::abi::Abi,
-    > = ::ethers::contract::Lazy::new(__abi);
+    pub static STORAGESLOT_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+        __abi,
+    );
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 }s\x0Bw\x14\\4\xA8L&\x14u\x0E\xAE\xF9\x8E\xC4\x01>q\xB8\n\xABUe\xA3\xC6\x92\xAE\xC7\xA2\x91dsolcC\0\x08\x14\x003";
+    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xE0-S\xAD?\xCEA\xBC\xA6\xF5Q\x1E\xB4RO\xCD\xD3\xE6a\x96\xBE\xF0\xE0v\x1F\x99\xAB\xE8\xD6d\xAC8dsolcC\0\x08\x14\x003";
     /// The bytecode of the contract.
-    pub static STRINGSUPGRADEABLE_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+    pub static STORAGESLOT_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 }s\x0Bw\x14\\4\xA8L&\x14u\x0E\xAE\xF9\x8E\xC4\x01>q\xB8\n\xABUe\xA3\xC6\x92\xAE\xC7\xA2\x91dsolcC\0\x08\x14\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 \xE0-S\xAD?\xCEA\xBC\xA6\xF5Q\x1E\xB4RO\xCD\xD3\xE6a\x96\xBE\xF0\xE0v\x1F\x99\xAB\xE8\xD6d\xAC8dsolcC\0\x08\x14\x003";
     /// The deployed bytecode of the contract.
-    pub static STRINGSUPGRADEABLE_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+    pub static STORAGESLOT_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
     );
-    pub struct StringsUpgradeable<M>(::ethers::contract::Contract<M>);
-    impl<M> ::core::clone::Clone for StringsUpgradeable<M> {
+    pub struct StorageSlot<M>(::ethers::contract::Contract<M>);
+    impl<M> ::core::clone::Clone for StorageSlot<M> {
         fn clone(&self) -> Self {
             Self(::core::clone::Clone::clone(&self.0))
         }
     }
-    impl<M> ::core::ops::Deref for StringsUpgradeable<M> {
+    impl<M> ::core::ops::Deref for StorageSlot<M> {
         type Target = ::ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M> ::core::ops::DerefMut for StringsUpgradeable<M> {
+    impl<M> ::core::ops::DerefMut for StorageSlot<M> {
         fn deref_mut(&mut self) -> &mut Self::Target {
             &mut self.0
         }
     }
-    impl<M> ::core::fmt::Debug for StringsUpgradeable<M> {
+    impl<M> ::core::fmt::Debug for StorageSlot<M> {
         fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-            f.debug_tuple(::core::stringify!(StringsUpgradeable))
+            f.debug_tuple(::core::stringify!(StorageSlot))
                 .field(&self.address())
                 .finish()
         }
     }
-    impl<M: ::ethers::providers::Middleware> StringsUpgradeable<M> {
+    impl<M: ::ethers::providers::Middleware> StorageSlot<M> {
         /// Creates a new contract instance with the specified `ethers` client at
         /// `address`. The contract derefs to a `ethers::Contract` object.
         pub fn new<T: Into<::ethers::core::types::Address>>(
@@ -71,7 +71,7 @@ pub mod strings_upgradeable {
             Self(
                 ::ethers::contract::Contract::new(
                     address.into(),
-                    STRINGSUPGRADEABLE_ABI.clone(),
+                    STORAGESLOT_ABI.clone(),
                     client,
                 ),
             )
@@ -107,8 +107,8 @@ pub mod strings_upgradeable {
             ::ethers::contract::ContractError<M>,
         > {
             let factory = ::ethers::contract::ContractFactory::new(
-                STRINGSUPGRADEABLE_ABI.clone(),
-                STRINGSUPGRADEABLE_BYTECODE.clone().into(),
+                STORAGESLOT_ABI.clone(),
+                STORAGESLOT_BYTECODE.clone().into(),
                 client,
             );
             let deployer = factory.deploy(constructor_args)?;
@@ -117,7 +117,7 @@ pub mod strings_upgradeable {
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-    for StringsUpgradeable<M> {
+    for StorageSlot<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }

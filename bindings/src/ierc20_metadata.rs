@@ -66,7 +66,7 @@ pub mod ierc20_metadata {
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("amount"),
+                                    name: ::std::borrow::ToOwned::to_owned("value"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
                                     ),
@@ -215,7 +215,7 @@ pub mod ierc20_metadata {
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("amount"),
+                                    name: ::std::borrow::ToOwned::to_owned("value"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
                                     ),
@@ -259,7 +259,7 @@ pub mod ierc20_metadata {
                                     ),
                                 },
                                 ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("amount"),
+                                    name: ::std::borrow::ToOwned::to_owned("value"),
                                     kind: ::ethers::core::abi::ethabi::ParamType::Uint(
                                         256usize,
                                     ),
@@ -403,10 +403,10 @@ pub mod ierc20_metadata {
         pub fn approve(
             &self,
             spender: ::ethers::core::types::Address,
-            amount: ::ethers::core::types::U256,
+            value: ::ethers::core::types::U256,
         ) -> ::ethers::contract::builders::ContractCall<M, bool> {
             self.0
-                .method_hash([9, 94, 167, 179], (spender, amount))
+                .method_hash([9, 94, 167, 179], (spender, value))
                 .expect("method not found (this should never happen)")
         }
         ///Calls the contract's `balanceOf` (0x70a08231) function
@@ -452,10 +452,10 @@ pub mod ierc20_metadata {
         pub fn transfer(
             &self,
             to: ::ethers::core::types::Address,
-            amount: ::ethers::core::types::U256,
+            value: ::ethers::core::types::U256,
         ) -> ::ethers::contract::builders::ContractCall<M, bool> {
             self.0
-                .method_hash([169, 5, 156, 187], (to, amount))
+                .method_hash([169, 5, 156, 187], (to, value))
                 .expect("method not found (this should never happen)")
         }
         ///Calls the contract's `transferFrom` (0x23b872dd) function
@@ -463,10 +463,10 @@ pub mod ierc20_metadata {
             &self,
             from: ::ethers::core::types::Address,
             to: ::ethers::core::types::Address,
-            amount: ::ethers::core::types::U256,
+            value: ::ethers::core::types::U256,
         ) -> ::ethers::contract::builders::ContractCall<M, bool> {
             self.0
-                .method_hash([35, 184, 114, 221], (from, to, amount))
+                .method_hash([35, 184, 114, 221], (from, to, value))
                 .expect("method not found (this should never happen)")
         }
         ///Gets the contract's `Approval` event
@@ -626,7 +626,7 @@ pub mod ierc20_metadata {
     #[ethcall(name = "approve", abi = "approve(address,uint256)")]
     pub struct ApproveCall {
         pub spender: ::ethers::core::types::Address,
-        pub amount: ::ethers::core::types::U256,
+        pub value: ::ethers::core::types::U256,
     }
     ///Container type for all input parameters for the `balanceOf` function with signature `balanceOf(address)` and selector `0x70a08231`
     #[derive(
@@ -721,7 +721,7 @@ pub mod ierc20_metadata {
     #[ethcall(name = "transfer", abi = "transfer(address,uint256)")]
     pub struct TransferCall {
         pub to: ::ethers::core::types::Address,
-        pub amount: ::ethers::core::types::U256,
+        pub value: ::ethers::core::types::U256,
     }
     ///Container type for all input parameters for the `transferFrom` function with signature `transferFrom(address,address,uint256)` and selector `0x23b872dd`
     #[derive(
@@ -740,7 +740,7 @@ pub mod ierc20_metadata {
     pub struct TransferFromCall {
         pub from: ::ethers::core::types::Address,
         pub to: ::ethers::core::types::Address,
-        pub amount: ::ethers::core::types::U256,
+        pub value: ::ethers::core::types::U256,
     }
     ///Container type for all of the contract's call
     #[derive(

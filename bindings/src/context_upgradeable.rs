@@ -24,7 +24,7 @@ pub mod context_upgradeable {
                             inputs: ::std::vec![
                                 ::ethers::core::abi::ethabi::EventParam {
                                     name: ::std::borrow::ToOwned::to_owned("version"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(8usize),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(64usize),
                                     indexed: false,
                                 },
                             ],
@@ -33,7 +33,28 @@ pub mod context_upgradeable {
                     ],
                 ),
             ]),
-            errors: ::std::collections::BTreeMap::new(),
+            errors: ::core::convert::From::from([
+                (
+                    ::std::borrow::ToOwned::to_owned("InvalidInitialization"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "InvalidInitialization",
+                            ),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("NotInitializing"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned("NotInitializing"),
+                            inputs: ::std::vec![],
+                        },
+                    ],
+                ),
+            ]),
             receive: false,
             fallback: false,
         }
@@ -108,6 +129,132 @@ pub mod context_upgradeable {
             Self::new(contract.address(), contract.client())
         }
     }
+    ///Custom Error type `InvalidInitialization` with signature `InvalidInitialization()` and selector `0xf92ee8a9`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "InvalidInitialization", abi = "InvalidInitialization()")]
+    pub struct InvalidInitialization;
+    ///Custom Error type `NotInitializing` with signature `NotInitializing()` and selector `0xd7e6bcf8`
+    #[derive(
+        Clone,
+        ::ethers::contract::EthError,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    #[etherror(name = "NotInitializing", abi = "NotInitializing()")]
+    pub struct NotInitializing;
+    ///Container type for all of the contract's custom errors
+    #[derive(
+        Clone,
+        ::ethers::contract::EthAbiType,
+        serde::Serialize,
+        serde::Deserialize,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash
+    )]
+    pub enum ContextUpgradeableErrors {
+        InvalidInitialization(InvalidInitialization),
+        NotInitializing(NotInitializing),
+        /// The standard solidity revert string, with selector
+        /// Error(string) -- 0x08c379a0
+        RevertString(::std::string::String),
+    }
+    impl ::ethers::core::abi::AbiDecode for ContextUpgradeableErrors {
+        fn decode(
+            data: impl AsRef<[u8]>,
+        ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
+            let data = data.as_ref();
+            if let Ok(decoded) = <::std::string::String as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::RevertString(decoded));
+            }
+            if let Ok(decoded) = <InvalidInitialization as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::InvalidInitialization(decoded));
+            }
+            if let Ok(decoded) = <NotInitializing as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
+                return Ok(Self::NotInitializing(decoded));
+            }
+            Err(::ethers::core::abi::Error::InvalidData.into())
+        }
+    }
+    impl ::ethers::core::abi::AbiEncode for ContextUpgradeableErrors {
+        fn encode(self) -> ::std::vec::Vec<u8> {
+            match self {
+                Self::InvalidInitialization(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::NotInitializing(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::RevertString(s) => ::ethers::core::abi::AbiEncode::encode(s),
+            }
+        }
+    }
+    impl ::ethers::contract::ContractRevert for ContextUpgradeableErrors {
+        fn valid_selector(selector: [u8; 4]) -> bool {
+            match selector {
+                [0x08, 0xc3, 0x79, 0xa0] => true,
+                _ if selector
+                    == <InvalidInitialization as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ if selector
+                    == <NotInitializing as ::ethers::contract::EthError>::selector() => {
+                    true
+                }
+                _ => false,
+            }
+        }
+    }
+    impl ::core::fmt::Display for ContextUpgradeableErrors {
+        fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+            match self {
+                Self::InvalidInitialization(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
+                Self::NotInitializing(element) => ::core::fmt::Display::fmt(element, f),
+                Self::RevertString(s) => ::core::fmt::Display::fmt(s, f),
+            }
+        }
+    }
+    impl ::core::convert::From<::std::string::String> for ContextUpgradeableErrors {
+        fn from(value: String) -> Self {
+            Self::RevertString(value)
+        }
+    }
+    impl ::core::convert::From<InvalidInitialization> for ContextUpgradeableErrors {
+        fn from(value: InvalidInitialization) -> Self {
+            Self::InvalidInitialization(value)
+        }
+    }
+    impl ::core::convert::From<NotInitializing> for ContextUpgradeableErrors {
+        fn from(value: NotInitializing) -> Self {
+            Self::NotInitializing(value)
+        }
+    }
     #[derive(
         Clone,
         ::ethers::contract::EthEvent,
@@ -120,8 +267,8 @@ pub mod context_upgradeable {
         Eq,
         Hash
     )]
-    #[ethevent(name = "Initialized", abi = "Initialized(uint8)")]
+    #[ethevent(name = "Initialized", abi = "Initialized(uint64)")]
     pub struct InitializedFilter {
-        pub version: u8,
+        pub version: u64,
     }
 }

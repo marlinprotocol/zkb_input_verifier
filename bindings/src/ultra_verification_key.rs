@@ -26,13 +26,13 @@ pub mod ultra_verification_key {
         ::ethers::core::abi::Abi,
     > = ::ethers::contract::Lazy::new(__abi);
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 P.4x\xC0\x9B\x04\xEB\x1Dtz\xDE\xA3\x89~\x04\xC8\x87wi<\x80\xB4\xE0\xEE\xA3\x1Eq\x1B\x87q\xEFdsolcC\0\x08\x04\x003";
+    const __BYTECODE: &[u8] = b"`V`7`\x0B\x82\x82\x829\x80Q`\0\x1A`s\x14`*WcNH{q`\xE0\x1B`\0R`\0`\x04R`$`\0\xFD[0`\0R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 2\x02\x03\x1A\n\xD1|>\x03\xC5\xFC\xAAA\xE7D]\xB27\x8C\xD9\x13arg\xE90(\x15<\x94\x0C\x9AdsolcC\0\x08\x04\x003";
     /// The bytecode of the contract.
     pub static ULTRAVERIFICATIONKEY_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __BYTECODE,
     );
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 P.4x\xC0\x9B\x04\xEB\x1Dtz\xDE\xA3\x89~\x04\xC8\x87wi<\x80\xB4\xE0\xEE\xA3\x1Eq\x1B\x87q\xEFdsolcC\0\x08\x04\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R`\0\x80\xFD\xFE\xA2dipfsX\"\x12 2\x02\x03\x1A\n\xD1|>\x03\xC5\xFC\xAAA\xE7D]\xB27\x8C\xD9\x13arg\xE90(\x15<\x94\x0C\x9AdsolcC\0\x08\x04\x003";
     /// The deployed bytecode of the contract.
     pub static ULTRAVERIFICATIONKEY_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
         __DEPLOYED_BYTECODE,
